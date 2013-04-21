@@ -11,7 +11,31 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130421114233) do
+ActiveRecord::Schema.define(:version => 20130421172638) do
+
+  create_table "matches", :force => true do |t|
+    t.string   "opponent"
+    t.integer  "gScored"
+    t.integer  "gLetIn"
+    t.string   "Center"
+    t.integer  "pCenter"
+    t.integer  "hCenter"
+    t.string   "RW"
+    t.integer  "pRW"
+    t.integer  "hRW"
+    t.string   "LW"
+    t.integer  "pLW"
+    t.integer  "hLW"
+    t.string   "Def1"
+    t.integer  "pDef1"
+    t.integer  "hDef1"
+    t.string   "Def2"
+    t.integer  "pDef"
+    t.integer  "hDef"
+    t.string   "Goalie"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "players", :force => true do |t|
     t.string   "name"

@@ -82,7 +82,7 @@ class PlayersController < ApplicationController
   end
 
 	def getMemberData
-		@page = Player.getPage('members', params[:team])
+		@page = Player.getPage('members-list', params[:team])
 		@page = Player.playerData(@page)
 	end	
 

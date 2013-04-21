@@ -4,7 +4,7 @@ require 'nokogiri'
 require 'open-uri'
 
 	def self.getPage(page, team)
-		url = "http://www.easportsworld.com/en_US/clubs/partial/402A0001/' + team + '/members-list"
+		url = "http://www.easportsworld.com/en_US/clubs/partial/402A0001/" + team + "/members-list"
 		doc = Nokogiri::HTML(open(url))					
 		return doc		
 	end

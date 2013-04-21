@@ -1,0 +1,93 @@
+<%= form_for(@match) do |f| %>
+  <% if @match.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@match.errors.count, "error") %> prohibited this match from being saved:</h2>
+
+      <ul>
+      <% @match.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :opponent %><br />
+    <%= f.text_field :opponent %>
+  </div>
+  <div class="field">
+    <%= f.label :gScored %><br />
+    <%= f.number_field :gScored %>
+  </div>
+  <div class="field">
+    <%= f.label :gLetIn %><br />
+    <%= f.number_field :gLetIn %>
+  </div>
+  <div class="field">
+    <%= f.label :Center %><br />
+    <%= f.text_field :Center %>
+  </div>
+  <div class="field">
+    <%= f.label :pCenter %><br />
+    <%= f.number_field :pCenter %>
+  </div>
+  <div class="field">
+    <%= f.label :hCenter %><br />
+    <%= f.number_field :hCenter %>
+  </div>
+  <div class="field">
+    <%= f.label :RW %><br />
+    <%= f.text_field :RW %>
+  </div>
+  <div class="field">
+    <%= f.label :pRW %><br />
+    <%= f.number_field :pRW %>
+  </div>
+  <div class="field">
+    <%= f.label :hRW %><br />
+    <%= f.number_field :hRW %>
+  </div>
+  <div class="field">
+    <%= f.label :LW %><br />
+    <%= f.text_field :LW %>
+  </div>
+  <div class="field">
+    <%= f.label :pLW %><br />
+    <%= f.number_field :pLW %>
+  </div>
+  <div class="field">
+    <%= f.label :hLW %><br />
+    <%= f.number_field :hLW %>
+  </div>
+  <div class="field">
+    <%= f.label :Def1 %><br />
+    <%= f.text_field :Def1 %>
+  </div>
+  <div class="field">
+    <%= f.label :pDef1 %><br />
+    <%= f.number_field :pDef1 %>
+  </div>
+  <div class="field">
+    <%= f.label :hDef1 %><br />
+    <%= f.number_field :hDef1 %>
+  </div>
+  <div class="field">
+    <%= f.label :Def2 %><br />
+    <%= f.text_field :Def2 %>
+  </div>
+  <div class="field">
+    <%= f.label :pDef %><br />
+    <%= f.number_field :pDef %>
+  </div>
+  <div class="field">
+    <%= f.label :hDef %><br />
+    <%= f.number_field :hDef %>
+  </div>
+  <div class="field">
+    <%= f.label :Goalie %><br />
+    <%= f.text_field :Goalie %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
