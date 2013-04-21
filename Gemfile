@@ -17,9 +17,11 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'ZenTest'
   gem 'simplecov'
+  gem "scrapi", "~> 2.0.0"
 end
 group :production do
   gem 'pg'
+  gem "scrapi", "~> 2.0.0"
 end
 
 # Gems used only for assets and not required

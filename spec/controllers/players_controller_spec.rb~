@@ -163,7 +163,7 @@ describe PlayersController do
 	describe "Screen scrape Easporsworld and add or update player" do
 		it "should load members page from easportsworld" do
 			Player.should_receive(:getPage).with('members','12345')
-			Player.stub(:playerData)
+			Player.stub(:getPage)
 			get :getMemberData, {:team => '12345'}
 		end
 		it "should call playerData in playerclass" do

@@ -1,4 +1,6 @@
 Spelpunkten::Application.routes.draw do
+  resources :players
+
   get "home/index"
 
   # The priority is based upon order of creation:
@@ -32,7 +34,8 @@ Spelpunkten::Application.routes.draw do
   #     resources :comments, :sales
   #     resource :seller
   #   end
-
+	resources :players
+	match '/player/getTeamPage' => 'players#getTeamPage'
   # Sample resource route with more complex sub-resources
   #   resources :products do
   #     resources :comments
@@ -51,7 +54,7 @@ Spelpunkten::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
   # root :to => 'welcome#index'
-
+	root :to => 'home#index'
   # See how all your routes lay out with "rake routes"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
