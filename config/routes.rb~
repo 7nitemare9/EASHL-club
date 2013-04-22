@@ -1,4 +1,6 @@
 Spelpunkten::Application.routes.draw do
+  resources :matches
+
   resources :players
 
   get "home/index"
@@ -35,7 +37,8 @@ Spelpunkten::Application.routes.draw do
   #     resource :seller
   #   end
 	resources :players
-	match '/player/getTeamPage' => 'players#getTeamPage'
+	match '/player/getMemberData' => 'players#getMemberData'
+	match '/match/getMatchData' => 'match#getMatchData'
   # Sample resource route with more complex sub-resources
   #   resources :products do
   #     resources :comments

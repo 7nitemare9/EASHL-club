@@ -38,6 +38,7 @@ Spelpunkten::Application.routes.draw do
   #   end
 	resources :players
 	match '/player/getMemberData' => 'players#getMemberData'
+	match '/match/getMatchData' => 'matches#getMatchData'
   # Sample resource route with more complex sub-resources
   #   resources :products do
   #     resources :comments

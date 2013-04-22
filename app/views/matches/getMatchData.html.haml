@@ -1,0 +1,9 @@
+- @page.each do |page|
+	%h2 Name: #{page[:opponent]} #{page[:gScored]} : #{page[:gLetIn]} rel: #{page[:rel]}
+	%p Center: #{page[:Center]} Cpts: #{page[:pCenter]} Chts: #{page[:hCenter]}
+	%p RW: #{page[:RW]} RWpts: #{page[:pRW]} RWhts: #{page[:hRW]}
+	%p LW: #{page[:LW]} LWpts: #{page[:pLW]} LWhts: #{page[:hLW]}
+	%p Def1: #{page[:Def1]} Def1pts: #{page[:pDef1]} Def1hts: #{page[:hDef1]}	
+	%p Def2: #{page[:Def2]} Def2pts: #{page[:pDef2]} Chts: #{page[:hDef2]}
+	%p Goalie: #{page[:Goalie]}
+	%p #{page.inspect}

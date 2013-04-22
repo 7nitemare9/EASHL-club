@@ -82,12 +82,12 @@
 
 <p>
   <b>Pdef:</b>
-  <%= @match.pDef2 %>
+  <%= @match.pDef %>
 </p>
 
 <p>
   <b>Hdef:</b>
-  <%= @match.hDef2 %>
+  <%= @match.hDef %>
 </p>
 
 <p>

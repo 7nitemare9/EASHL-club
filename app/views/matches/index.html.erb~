@@ -18,8 +18,8 @@
     <th>Pdef1</th>
     <th>Hdef1</th>
     <th>Def2</th>
-    <th>Pdef2</th>
-    <th>Hdef2</th>
+    <th>Pdef</th>
+    <th>Hdef</th>
     <th>Goalie</th>
     <th></th>
     <th></th>
@@ -44,8 +44,8 @@
     <td><%= match.pDef1 %></td>
     <td><%= match.hDef1 %></td>
     <td><%= match.Def2 %></td>
-    <td><%= match.pDef2 %></td>
-    <td><%= match.hDef2 %></td>
+    <td><%= match.pDef %></td>
+    <td><%= match.hDef %></td>
     <td><%= match.Goalie %></td>
     <td><%= link_to 'Show', match %></td>
     <td><%= link_to 'Edit', edit_match_path(match) %></td>

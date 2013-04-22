@@ -162,7 +162,7 @@ describe PlayersController do
   end
 	describe "Screen scrape Easporsworld and add or update player" do
 		it "should load members page from easportsworld" do
-			Player.should_receive(:getPage).with('members','12345')
+			Player.should_receive(:getPage).with('members-list','12345')
 			Player.stub(:playerData)
 			get :getMemberData, {:team => '12345'}
 		end

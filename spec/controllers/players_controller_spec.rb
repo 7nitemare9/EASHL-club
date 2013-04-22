@@ -171,17 +171,5 @@ describe PlayersController do
 			Player.stub(:getPage).and_return('test')
 			get :getMemberData, {:team => '12345'}
 		end
-	end
-	describe "Screen scrape Easporsworld and add latest matches" do
-		it "should load latest matches page from easportsworld" do
-			Player.should_receive(:getPage).with('match','12345')
-			Player.stub(:matchData)
-			get :getMatchData, {:team => '12345'}
-		end
-		it "should call matchData in playerclass" do
-			Player.should_receive(:matchData).with('test')
-			Player.stub(:getPage).and_return('test')
-			get :getMatchData, {:team => '12345'}
-		end
-	end
+	end	
 end

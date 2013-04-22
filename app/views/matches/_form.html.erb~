@@ -76,11 +76,11 @@
     <%= f.text_field :Def2 %>
   </div>
   <div class="field">
-    <%= f.label :pDef2 %><br />
+    <%= f.label :pDef %><br />
     <%= f.number_field :pDef %>
   </div>
   <div class="field">
-    <%= f.label :hDef2 %><br />
+    <%= f.label :hDef %><br />
     <%= f.number_field :hDef %>
   </div>
   <div class="field">

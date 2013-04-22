@@ -82,6 +82,6 @@ class MatchesController < ApplicationController
   end
 	def getMatchData
 		@page = Match.getPage('match-results', params[:team])
-		@page = Match.matchData(@page, params[:team])
+		@page = Match.matchData(@page)
 	end
 end
