@@ -1,6 +1,7 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.1.0'
+gem 'nokogiri'
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
@@ -20,8 +21,7 @@ group :development, :test do
   gem "scrapi", "~> 2.0.0"
 end
 group :production do
-  gem 'pg'
-  gem "scrapi", "~> 2.0.0"
+  gem 'pg'  
 end
 
 # Gems used only for assets and not required
