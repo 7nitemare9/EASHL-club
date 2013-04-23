@@ -12,14 +12,14 @@
        
   %body
     
-    %link{:href => "assets/web.css", :rel => "stylesheet", :type => "text/css"}/
+    %link{:href => "/assets/web.css", :rel => "stylesheet", :type => "text/css"}/
     
     #container2{:style => "width:1300px"}
       / Banner
       %a{:href => "./news/index.php"} admin
       .left.banner{:style => "margin-left:-0px; width: 1300px;"}
         %a#nav_homepage{:href => "./"}
-          %img{:src => "assets/testheader.png"}/
+          %img{:src => "/assets/testheader.png"}/
       / Navigation
       %ol#navigation{:style => "margin-left:2px"}
         %li
@@ -66,11 +66,11 @@
             .content{:style => "margin-top:3px;"}
               %h2
                 %strong
-                  %img{:alt => "", :src => "assets/headers/latest matches.jpg"}/                            
+                  %img{:alt => "", :src => "/assets/headers/latest matches.jpg"}/                            
               
             .content{:style => "margin-top:2px;"}
               %h2{:style => "margin-left:-2px; margin-top:-4px;"}
-                %img{:alt => "", :src => "assets/headers/onlinestatus.jpg"}/
+                %img{:alt => "", :src => "/assets/headers/onlinestatus.jpg"}/
               #block1
                 #status                  
               .content{:style => "margin-top:2px;"}
@@ -104,39 +104,39 @@
       #right-column{:style => "margin-left:1px;"}
         / Latest News
         .box
-          .content
+          .maincontent
             = yield
       .box
         %div{:style => "float:right; width:300px; height:150px; margin-top:4px"}
           %h2
             %strong
-              %img{:alt => "Latest News", :src => "assets/headers/Senastforum.jpg"}/
+              %img{:alt => "Latest News", :src => "/assets/headers/Senastforum.jpg"}/
           .content
       .box
         %div{:style => "float:right; width:300px; height:410px;"}
           %h2
             %strong
-              %img{:alt => "Latest News", :src => "assets/shout.png"}/
+              %img{:alt => "Latest News", :src => "/assets/shout.png"}/
           .content
       .box
         %div{:style => "float:right; width:300px; height:500px;"}
           .content
             %h2
               %strong
-                %img{:alt => "The Team", :src => "assets/headers/links.png"}/
+                %img{:alt => "The Team", :src => "/assets/headers/links.png"}/
             #links
               %p
                 %a#console{:href => "http://www.consolehockey.net/"}
-                  %img{:src => "assets/Links/consolehockey.jpg"}/
+                  %img{:src => "/assets/Links/consolehockey.jpg"}/
               %p
                 %a#nhl{:href => "http://hockey.fantasysports.yahoo.com/hockey/80906"}
-                  %img{:alt => "NHL official homepage", :height => "40", :longdesc => "http://www.nhl.com", :src => "assets/Links/Yahoo.jpg", :width => "272"}/
+                  %img{:alt => "NHL official homepage", :height => "40", :longdesc => "http://www.nhl.com", :src => "/assets/Links/Yahoo.jpg", :width => "272"}/
               %p
                 %a#eashl{:href => "http://www.easportsworld.com/en_US/clubs/402A0001/249696/overview"}
-                  %img{:alt => "EA Sports Hockey League", :height => "40", :src => "assets/Links/EASHL.jpg", :width => "272"}/
-              / <p><a href="http://ducktalesbk.com/" id="dbk"><img src="assets/Links/ducktalesbk.png" width="272" height="40" alt="Operation Sports" longdesc="http://www.operationsports.com/" /></a></p>
+                  %img{:alt => "EA Sports Hockey League", :height => "40", :src => "/assets/Links/EASHL.jpg", :width => "272"}/
+              / <p><a href="http://ducktalesbk.com/" id="dbk"><img src="/assets/Links/ducktalesbk.png" width="272" height="40" alt="Operation Sports" longdesc="http://www.operationsports.com/" /></a></p>
               %p
                 %a#jesus{:href => "http://ramjagsinghluktarcurry.blogg.se/index.html"}
-                  %img{:alt => "Operation Sports", :height => "40", :longdesc => "http://www.operationsports.com/", :src => "assets/Links/Jesus.jpg", :width => "272"}/
+                  %img{:alt => "Operation Sports", :height => "40", :longdesc => "http://www.operationsports.com/", :src => "/assets/Links/Jesus.jpg", :width => "272"}/
       / Footer
       #footer
