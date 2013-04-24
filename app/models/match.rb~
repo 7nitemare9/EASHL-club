@@ -41,11 +41,14 @@ require 'open-uri'
 					defender += 1
 				end				
 				game[pos.to_sym] = name
-				game[('p' + pos).to_sym] = player.at_css("td:nth-child(3)").text
-				game[('h' + pos).to_sym] = player.at_css("td:nth-child(4)").text
+				unless pos.eql? 'Goalie' then
+					game[('p' + pos).to_sym] = player.at_css("td:nth-child(3)").text
+					game[('h' + pos).to_sym] = player.at_css("td:nth-child(4)").text
+				end
 			end
 			unless find_by_rel(game[:rel]) then
 				create!(game)
+				return nil
 			end
 			list.push(game)			
 		end

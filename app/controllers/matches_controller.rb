@@ -83,5 +83,8 @@ class MatchesController < ApplicationController
 	def getMatchData
 		@page = Match.getPage('match-results', params[:team])
 		@page = Match.matchData(@page, params[:team])
+		if @page.blank? then
+			redirect_to :action => getMatchData, :team => params[:team]
+		end
 	end
 end
