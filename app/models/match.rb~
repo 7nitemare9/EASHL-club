@@ -32,25 +32,24 @@ require 'open-uri'
 							:gScored => match.at_css(".match-result-score").text[/^\d/],
 							:gLetIn => match.at_css(".match-result-score").text[/\d$/],
 							:rel => match.at_css(".match-details-button")['rel']}
-			players = getPage('match-results/details?match_id=' + game[:rel] + '&type=all', team)
-			players.css(".first tbody tr").each do |player|
-				name = player.at_css(".text-overflow a").text
-				pos  = pos(player.at_css("td:nth-child(2)").text)
-				if pos.eql? 'Def' then
-					pos = pos + defender.to_s
-					defender += 1
-				end				
-				game[pos.to_sym] = name
-				unless pos.eql? 'Goalie' then
-					game[('p' + pos).to_sym] = player.at_css("td:nth-child(3)").text
-					game[('h' + pos).to_sym] = player.at_css("td:nth-child(4)").text
-				end
-			end
 			unless find_by_rel(game[:rel]) then
+				players = getPage('match-results/details?match_id=' + game[:rel] + '&type=all', team)
+				players.css(".first tbody tr").each do |player|
+					name = player.at_css(".text-overflow a").text
+					pos  = pos(player.at_css("td:nth-child(2)").text)
+					if pos.eql? 'Def' then
+						pos = pos + defender.to_s
+						defender += 1
+					end				
+					game[pos.to_sym] = name
+					unless pos.eql? 'Goalie' then
+						game[('p' + pos).to_sym] = player.at_css("td:nth-child(3)").text
+						game[('h' + pos).to_sym] = player.at_css("td:nth-child(4)").text
+					end
+				end
 				create!(game)
-				return nil
-			end
-			list.push(game)			
+				list.push(game)			
+			end						
 		end
 		return list
 	end
