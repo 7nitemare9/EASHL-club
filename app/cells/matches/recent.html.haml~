@@ -1,0 +1,2 @@
+-@matches.each do |match|
+  %h4 Bombers - #{match.opponent} #{match.gScored} - #{match.gLetIn}

@@ -64,10 +64,9 @@
         #left-column
           .box.left.welcome_box{:style => "width:290px;"}
             .content{:style => "margin-top:3px;"}
-              %h2
-                %strong
-                  %img{:alt => "", :src => "/assets/headers/latest matches.jpg"}/                            
-              
+              %h2                
+                %img{:alt => "", :src => "/assets/headers/latest matches.jpg"}/                            
+                = render_cell :matches, :recent            			
             .content{:style => "margin-top:2px;"}
               %h2{:style => "margin-left:-2px; margin-top:-4px;"}
                 %img{:alt => "", :src => "/assets/headers/onlinestatus.jpg"}/

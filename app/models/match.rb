@@ -58,4 +58,7 @@ require 'open-uri'
 		return list
 	end
 
+	def self.recent
+	end
+
 end

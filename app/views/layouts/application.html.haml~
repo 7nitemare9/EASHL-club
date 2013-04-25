@@ -24,37 +24,37 @@
       %ol#navigation{:style => "margin-left:2px"}
         %li
           %a#nav_homepage{:href => "./"}
-            %img{:src => "./assets/nav/homepage_hover.jpg"}/
+            %img{:src => "/assets/nav/homepage_hover.jpg"}/
         %li
           %a#nav_news{:href => "./team"}
-            %img{:src => "./assets/nav/news_hover.jpg"}/
+            %img{:src => "/assets/nav/news_hover.jpg"}/
         %li
           %a#nav_awards{:href => "./ehl"}
-            %img{:src => "./assets/nav/awards_hover.jpg"}/
+            %img{:src => "/assets/nav/awards_hover.jpg"}/
         %li
           %a#nav_team{:href => "./stats"}
-            %img{:src => "./assets/nav/team_hover.jpg"}/
+            %img{:src => "/assets/nav/team_hover.jpg"}/
         %li
           %a#nav_media{:href => "./media"}
-            %img{:src => "./assets/nav/media_hover.jpg"}/
+            %img{:src => "/assets/nav/media_hover.jpg"}/
         %li
           %a#nav_scene{:href => "./teaminfo"}
-            %img{:src => "./assets/nav/scene_hover.jpg"}/
+            %img{:src => "/assets/nav/scene_hover.jpg"}/
         %li
           %a#nav_forums{:href => "./forum"}
-            %img{:src => "./assets/nav/forums_hover.jpg"}/
+            %img{:src => "/assets/nav/forums_hover.jpg"}/
         %li
           %a#nav_results2{:href => "./vision"}
-            %img{:src => "./assets/nav/results_hover.jpg"}/
+            %img{:src => "/assets/nav/results_hover.jpg"}/
         %li
           %a#nav_contact{:href => "./vision"}
-            %img{:src => "./assets/nav/contact_hover.jpg"}/
+            %img{:src => "/assets/nav/contact_hover.jpg"}/
         %li
           %a#nav_results{:href => "./result"}
-            %img{:src => "./assets/nav/results_hover.jpg"}/
+            %img{:src => "/assets/nav/results_hover.jpg"}/
         %li
           %a#nav_filler2{:href => "./"}
-            %img{:src => "./assets/nav/filler.jpg"}/
+            %img{:src => "/assets/nav/filler.jpg"}/
       / Header row
       #header
         /
@@ -67,7 +67,7 @@
               %h2
                 %strong
                   %img{:alt => "", :src => "/assets/headers/latest matches.jpg"}/                            
-              
+                  = render_cell :matches, :recent            			
             .content{:style => "margin-top:2px;"}
               %h2{:style => "margin-left:-2px; margin-top:-4px;"}
                 %img{:alt => "", :src => "/assets/headers/onlinestatus.jpg"}/

@@ -4,7 +4,11 @@ require 'open-uri'
 
 	def self.getPage(page, team)
 		url = "http://www.easportsworld.com/en_US/clubs/partial/402A0001/" + team + "/" +page
-		doc = Nokogiri::HTML(open(url))					
+		begin		
+			doc = Nokogiri::HTML(open(url))					
+		rescue => e
+		  puts e.message
+		end
 		return doc		
 	end
 
@@ -52,6 +56,9 @@ require 'open-uri'
 			end						
 		end
 		return list
+	end
+
+	def recent
 	end
 
 end
