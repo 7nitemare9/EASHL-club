@@ -7,7 +7,8 @@ require 'open-uri'
 		url = "http://www.easportsworld.com/en_US/clubs/partial/402A0001/" + team + "/" +page
 		doc = Nokogiri::HTML(open(url))					
 		return doc		
-	end
+	end	
+
 	def self.playerData(doc)
 		member = {}
 		list = []
@@ -30,5 +31,28 @@ require 'open-uri'
 			end		
 		end
 		return list		
+	end
+
+	def self.online
+		list = []
+		member = {}
+		db_players = find(:all)
+	 	db_players.each do |db_player|
+			member = {}
+			url = 'https://live.xbox.com/sv-SE/Profile?Gamertag=' + CGI.escape(db_player[:name])
+			doc = Nokogiri::HTML(open(url))
+			status = doc.at_css(".presence").text
+			if status.include? 'offline' or status.include? 'senast' then
+				member[:name] = db_player[:name]
+				member[:status] = 'Offline'
+				member[:text] = status
+			else
+				member[:name] = db_player[:name]
+				member[:status] = 'Online'
+				member[:text] = status
+			end
+			list.push(member)
+		end
+		return list
 	end
 end

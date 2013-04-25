@@ -1,0 +1,7 @@
+class PlayersCell < Cell::Rails
+
+  def online
+    render
+  end
+
+end

@@ -71,7 +71,8 @@
               %h2{:style => "margin-left:-2px; margin-top:-4px;"}
                 %img{:alt => "", :src => "/assets/headers/onlinestatus.jpg"}/
               #block1
-                #status                  
+                #status
+                = render_cell :players, :online                  
               .content{:style => "margin-top:2px;"}
                 %object#live_embed_player_flash{:bgcolor => "#000000", :data => "http://www.twitch.tv/widgets/live_embed_player.swf?channel=7nitemare9", :height => "188", :type => "application/x-shockwave-flash", :width => "288"}
                   %param{:name => "allowFullScreen", :value => "true"}/
