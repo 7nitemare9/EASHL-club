@@ -58,7 +58,8 @@ require 'open-uri'
 		return list
 	end
 
-	def recent
+	def self.recent
+		find_game_by_
 	end
 
 end

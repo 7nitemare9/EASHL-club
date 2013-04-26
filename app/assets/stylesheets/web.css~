@@ -24,7 +24,7 @@ body {
 	background: url("../assets/bg_contentwrapper.jpg") repeat-y scroll center top transparent;
 	/*background: #ffffff;*/
 	font-family: Tahoma, Verdana, Arial, Helvetica, Sans-serif;
-	font-size: 0.69em;
+	font-size: 10px;
 	color: #ffffff;
 	text-align: center;
 }
@@ -358,7 +358,7 @@ em {
 
 .content h3 {
 	color: #fff;
-	font-size: 30%
+	font-size: 10px;
 	font-weight: bold;
 }
 

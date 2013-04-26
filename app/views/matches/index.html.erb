@@ -3,27 +3,17 @@
 <table>
   <tr>
     <th>Opponent</th>
-    <th>Gscored</th>
-    <th>Gletin</th>
-    <th>Center</th>
-    <th>Pcenter</th>
-    <th>Hcenter</th>
-    <th>Rw</th>
-    <th>Prw</th>
-    <th>Hrw</th>
-    <th>Lw</th>
-    <th>Plw</th>
-    <th>Hlw</th>
-    <th>Def1</th>
-    <th>Pdef1</th>
-    <th>Hdef1</th>
-    <th>Def2</th>
-    <th>Pdef2</th>
-    <th>Hdef2</th>
+    <th>Scored</th>
+    <th>Let in</th>
+    <th>Center</th>    
+    <th>Rw</th>    
+    <th>Lw</th>    
+    <th>Def1</th>    
+    <th>Def2</th>    
     <th>Goalie</th>
     <th></th>
     <th></th>
-    <th></th>
+    <th></th>    
   </tr>
 
 <% @matches.each do |match| %>
@@ -32,20 +22,10 @@
     <td><%= match.gScored %></td>
     <td><%= match.gLetIn %></td>
     <td><%= match.Center %></td>
-    <td><%= match.pCenter %></td>
-    <td><%= match.hCenter %></td>
-    <td><%= match.RW %></td>
-    <td><%= match.pRW %></td>
-    <td><%= match.hRW %></td>
+    <td><%= match.RW %></td>    
     <td><%= match.LW %></td>
-    <td><%= match.pLW %></td>
-    <td><%= match.hLW %></td>
     <td><%= match.Def1 %></td>
-    <td><%= match.pDef1 %></td>
-    <td><%= match.hDef1 %></td>
     <td><%= match.Def2 %></td>
-    <td><%= match.pDef2 %></td>
-    <td><%= match.hDef2 %></td>
     <td><%= match.Goalie %></td>
     <td><%= link_to 'Show', match %></td>
     <td><%= link_to 'Edit', edit_match_path(match) %></td>

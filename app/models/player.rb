@@ -5,7 +5,11 @@ require 'open-uri'
 
 	def self.getPage(page, team)
 		url = "http://www.easportsworld.com/en_US/clubs/partial/402A0001/" + team + "/" +page
-		doc = Nokogiri::HTML(open(url))					
+		begin
+			doc = Nokogiri::HTML(open(url))
+		rescue => e
+		  puts e.message
+		end					
 		return doc		
 	end	
 
@@ -25,7 +29,7 @@ require 'open-uri'
 				else
 					db_player = find_by_name(member[:name])
 					db_player.update_attributes(member)
-					member[:status] = 'updated'
+					member[:status] = 'updated'					
 				end
 				list.push(member)
 			end		
@@ -40,8 +44,12 @@ require 'open-uri'
 	 	db_players.each do |db_player|
 			member = {}
 			url = 'https://live.xbox.com/sv-SE/Profile?Gamertag=' + CGI.escape(db_player[:name])
-			doc = Nokogiri::HTML(open(url))
-			status = doc.at_css(".presence").text
+			begin
+				doc = Nokogiri::HTML(open(url))
+			rescue => e
+		  	next
+			end
+			status = doc.at_css(".presence").text			
 			if status.include? 'offline' or status.include? 'senast' then
 				member[:name] = db_player[:name]
 				member[:status] = 'Offline'
@@ -50,6 +58,12 @@ require 'open-uri'
 				member[:name] = db_player[:name]
 				member[:status] = 'Online'
 				member[:text] = status
+			end
+			if Rails.application.assets.find_asset("Xbox/" + db_player[:name] + "_Online.jpg").nil? then
+				member[:image] = '/assets/Xbox/empty.jpg'
+				member[:text] = db_player[:name] + ': ' + status
+			else
+				member[:image] = "assets/Xbox/" + db_player[:name] + "_" + member[:status] + ".jpg"
 			end
 			list.push(member)
 		end

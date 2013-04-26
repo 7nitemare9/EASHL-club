@@ -1,2 +1,3 @@
 -@matches.each do |match|
-  %h3 Bombers - #{match.opponent} #{match.gScored} - #{match.gLetIn}
+  %h3
+    =link_to "Bombers - " + match.opponent.to_s + " " + match.gScored.to_s + " - " + match.gLetIn.to_s, match

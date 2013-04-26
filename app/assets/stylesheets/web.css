@@ -24,7 +24,7 @@ body {
 	background: url("../assets/bg_contentwrapper.jpg") repeat-y scroll center top transparent;
 	/*background: #ffffff;*/
 	font-family: Tahoma, Verdana, Arial, Helvetica, Sans-serif;
-	font-size: 0.69em;
+	font-size: 10px;
 	color: #ffffff;
 	text-align: center;
 }
@@ -393,15 +393,15 @@ em {
  * Hyperlinks
  */
 a, a:visited {
-	color: #137bd5;
+	color: #ffffff;
 }
 
 a:hover, a:visited:hover {
-	color: #137bd5;
+	color: #ffffff;
 }
 
 a:active {
-	color: #137bd5;
+	color: #ffffff;
 }
 
 /**
