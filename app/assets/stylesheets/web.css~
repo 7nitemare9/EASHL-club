@@ -393,15 +393,15 @@ em {
  * Hyperlinks
  */
 a, a:visited {
-	color: #137bd5;
+	color: #ffffff;
 }
 
 a:hover, a:visited:hover {
-	color: #137bd5;
+	color: #ffffff;
 }
 
 a:active {
-	color: #137bd5;
+	color: #ffffff;
 }
 
 /**

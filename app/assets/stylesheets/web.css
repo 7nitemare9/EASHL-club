@@ -492,5 +492,8 @@ a:active {
 	  padding: 0px; border: 0px solid black;
 	  background-color: white;
 	}
+li {
+	list-style: none;
+}
 
 	

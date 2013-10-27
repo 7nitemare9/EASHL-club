@@ -29,7 +29,7 @@ require 'open-uri'
 				else
 					db_player = find_by_name(member[:name])
 					db_player.update_attributes(member)
-					member[:status] = 'updated'
+					member[:status] = 'updated'					
 				end
 				list.push(member)
 			end		
