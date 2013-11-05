@@ -1,4 +1,5 @@
 !!! Strict
+javascript_include_tag "application"
 %html{:lang => "en", "xml:lang" => "en", :xmlns => "http://www.w3.org/1999/xhtml"}
   %head
     %base{:href => "<?php echo $this->config->item('base_url') ?>"}/
@@ -72,7 +73,7 @@
                 %img{:alt => "", :src => "/assets/headers/onlinestatus.jpg"}/
               #block1
                 #status
-                / = render_cell :players, :online                  
+                = render_cell :players, :online                  
               .content{:style => "margin-top:2px;"}
                 %object#live_embed_player_flash{:bgcolor => "#000000", :data => "http://www.twitch.tv/widgets/live_embed_player.swf?channel=7nitemare9", :height => "188", :type => "application/x-shockwave-flash", :width => "288"}
                   %param{:name => "allowFullScreen", :value => "true"}/
