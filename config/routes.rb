@@ -1,7 +1,10 @@
 Spelpunkten::Application.routes.draw do
+
   resources :matches
 
   resources :players
+
+  resources :posts
 
   get "home/index"
 
