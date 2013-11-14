@@ -1,5 +1,5 @@
 class PlayersCell < Cell::Rails
-  cache :online, :expires_in => 10.minutes
+  cache :online, :expires_in => 5.minutes
   def online
     @players = Player.online    
     render
