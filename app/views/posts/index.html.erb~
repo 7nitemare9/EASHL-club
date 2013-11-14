@@ -8,7 +8,7 @@
 				<p2> <%= post.title %> </p2>
 
 				<p3> <%= post.text %> </p3>
-				<p><small> <%= link_to 'edit', edit_post_path(post) %><%= link_to 'Destroy', post, confirm: 'Are you sure?', method: :delete %> </small></p>
+				<p><small> <%= link_to 'Edit', edit_post_path(post) %>   <%= link_to 'Delete', post, confirm: 'Are you sure?', data-method: :delete %> </small></p>
 			</div>
 		</div>
   <% end %>
