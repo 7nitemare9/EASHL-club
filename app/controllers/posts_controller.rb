@@ -1,6 +1,9 @@
 class PostsController < ApplicationController
+	http_basic_authenticate_with name: "bombers", password: "suspensoar", except: :index
+
+
 	def index
-		@posts = Post.all
+		@posts = Post.all.reverse
 	end
 
 	def new
