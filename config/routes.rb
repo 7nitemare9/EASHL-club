@@ -6,6 +6,8 @@ Spelpunkten::Application.routes.draw do
 
   resources :posts
 
+	resources :forum
+
   get "home/index"
 
   # The priority is based upon order of creation:
@@ -14,7 +16,7 @@ Spelpunkten::Application.routes.draw do
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
-
+  
   # Sample of named route:
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
   # This route can be invoked with purchase_url(:id => product.id)
@@ -42,6 +44,7 @@ Spelpunkten::Application.routes.draw do
 	resources :players
 	match '/player/getMemberData' => 'players#getMemberData'
 	match '/match/getMatchData' => 'matches#getMatchData'
+	
   # Sample resource route with more complex sub-resources
   #   resources :products do
   #     resources :comments
@@ -49,7 +52,7 @@ Spelpunkten::Application.routes.draw do
   #       get 'recent', :on => :collection
   #     end
   #   end
-
+	
   # Sample resource route within a namespace:
   #   namespace :admin do
   #     # Directs /admin/products/* to Admin::ProductsController
