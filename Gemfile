@@ -2,6 +2,7 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.1.0'
 gem 'nokogiri'
+gem 'rest-client'
 gem 'cells'
 gem 'jquery-rails'
 # Bundle edge Rails instead:
