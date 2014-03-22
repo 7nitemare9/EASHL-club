@@ -7,13 +7,14 @@
     %title Bombers Hockey | Official Homepage | EASHL Club
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %meta{:content => "text/css", "http-equiv" => "Content-Style-Type"}/
-    
+    %link{:href => "/assets/css-reset.css", :rel => "stylesheet", :type => "text/css"}/
     %link{:href => "themes/blue/style.css", :id => "", :media => "print, projection, screen", :rel => "stylesheet", :type => "text/css"}/
     %link{:href => "/css/sliderman.css", :rel => "stylesheet", :type => "text/css"}/
        
   %body
     
     %link{:href => "/assets/web.css", :rel => "stylesheet", :type => "text/css"}/
+    
     
     #container2{:style => "width:1300px"}
       / Banner
@@ -22,7 +23,7 @@
         %a#nav_homepage{:href => "./posts"}
           %img{:src => "/assets/testheader.png"}/
       / Navigation
-      %ul#navigation{:style => "margin-left:2px"}
+      %ol#navigation{:style => "margin-left:2px"}
         %li
           %a#nav_homepage{:href => "./posts"}
             %img{:src => "/assets/nav/homepage_hover.jpg"}/

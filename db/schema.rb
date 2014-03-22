@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131114132936) do
+ActiveRecord::Schema.define(:version => 20140322160249) do
 
   create_table "matches", :force => true do |t|
     t.string   "opponent"
@@ -47,6 +47,13 @@ ActiveRecord::Schema.define(:version => 20131114132936) do
     t.integer  "hits"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "RealName"
+    t.string   "City"
+    t.integer  "number"
+    t.integer  "weight"
+    t.integer  "age"
+    t.float    "height"
+    t.string   "position"
   end
 
   create_table "posts", :force => true do |t|

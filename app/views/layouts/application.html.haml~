@@ -14,15 +14,16 @@
   %body
     
     %link{:href => "/assets/web.css", :rel => "stylesheet", :type => "text/css"}/
+    %link{:href => "/assets/css-reset.css", :rel => "stylesheet", :type => "text/css"}/
     
     #container2{:style => "width:1300px"}
       / Banner
-      %a{:href => "./news/index.php"} admin
+      %a{:href => "./posts/new"} admin
       .left.banner{:style => "margin-left:-0px; width: 1300px;"}
         %a#nav_homepage{:href => "./posts"}
           %img{:src => "/assets/testheader.png"}/
       / Navigation
-      %ul#navigation{:style => "margin-left:2px"}
+      %ol#navigation{:style => "margin-left:2px"}
         %li
           %a#nav_homepage{:href => "./posts"}
             %img{:src => "/assets/nav/homepage_hover.jpg"}/

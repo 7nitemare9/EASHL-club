@@ -91,17 +91,17 @@ table {
  */
 #navigation {
 	background: url('../assets/nav_bg.jpg') repeat-x;
-	height: 56px;
+	height: 41px;
 }
 
 	#navigation li {
 		float: left;
-		height: 56px;
+		height: 41px;
 	}
 	
 	#navigation a {
 		display: block;
-		height: 56px;
+		height: 41px;
 		overflow: hidden;
 	}
 	

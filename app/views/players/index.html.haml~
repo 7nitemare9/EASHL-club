@@ -1,0 +1,31 @@
+%div{:align => "center"}
+	%div{:style => "background:url(assets/lineupbg.png); height:25px; width:675px;"}
+		%div{:style => "float:left; width:55px; height:25px; text-align:center; margin-top:5px"} Nummer
+		%div{:style => "float:left; width:115px; height:25px; text-align:center; margin-top:5px"} Namn
+		%div{:style => "float:left; width:87px; height:25px; text-align:center; margin-top:5px"} Position
+		%div{:style => "float:left; width:80px; height:25px; text-align:center; margin-top:5px; margin-left:10px;"} Land
+		%div{:style => "float:left; width:80px; height:25px; text-align:center; margin-top:5px"} Stad
+		%div{:style => "float:left; width:60px; height:25px; text-align:center; margin-top:5px"} Längd
+		%div{:style => "float:left; width:60px; height:25px; text-align:center; margin-top:5px"} Vikt
+		%div{:style => "float:left; width:60px; height:25px; text-align:center; margin-top:5px"} Ålder
+		%div{:style => "float:left; width:53px; height:25px; text-align:center; margin-top:5px"} Info
+-@players.each do |player|
+	%div{:align => "center"}
+		%div{:style => "background:url(assets/lineupbg.png); height:27px; width:675px;"}
+			%div{:style => "float:left; width:90px; height:25px; text-align:center; margin-top:2px"} #{player.number}
+			%div{:style => "float:left; width:115px; height:25px; margin-top:2px; text-align:left"}
+				%span{:style => "float:left; width:97px; height:25px; margin-top:2px; text-align:left"} #{player.RealName}
+			%div{:style => "float:left; width:87px; height:25px; margin-top:2px; text-align:left"} #{player.position}
+			%div{:style => "float:left; width:92px; height:25px; text-align:center; margin-top:-5px; background:url(assets/swedenflaglineup.png)no-repeat center center;"}
+			%div{:style => "float:left; width:70px; height:25px; margin-top:2px"} #{player.City}
+			%div{:style => "float:left; width:60px; height:25px; margin-top:2px"} #{player.height} m
+			%div{:style => "float:left; width:60px; height:25px; margin-top:2px"} #{player.weight} kg
+			%div{:style => "float:left; width:45px; height:25px; margin-top:2px"} #{player.age}
+			%div{:style => "float:left; width:53px; height:25px; text-align:center; margin-top:2px"}
+				=link_to 'Show', player
+				=link_to 'Edit', edit_player_path(player)
+%br
+
+=link_to 'New Player', new_player_path 
+
+
