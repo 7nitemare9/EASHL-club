@@ -7,12 +7,12 @@
 
 <p>
   <b>RealName:</b>
-  <%= @player.realname %>
+  <%= @player.RealName %>
 </p>
 
 <p>
   <b>City:</b>
-  <%= @player.city %>
+  <%= @player.City %>
 </p>
 
 <p>
