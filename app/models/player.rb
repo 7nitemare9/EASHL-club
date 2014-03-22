@@ -63,7 +63,7 @@ require 'open-uri'
 				member[:image] = '/assets/Xbox/empty.jpg'
 				member[:text] = db_player[:name] + ': ' + status
 			else
-				member[:image] = "assets/Xbox/" + db_player[:name] + "_" + member[:status] + ".jpg"
+				member[:image] = "/assets/Xbox/" + db_player[:name] + "_" + member[:status] + ".jpg"
 			end
 			list.push(member)
 		end
