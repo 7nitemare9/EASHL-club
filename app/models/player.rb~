@@ -4,7 +4,9 @@ require 'nokogiri'
 require 'open-uri'
 
 	def self.getPage(page, team)
-		url = "http://www.easportsworld.com/en_US/clubs/partial/NHL14XBX/" + team + "/" +page
+		# old easportsworld url
+		# url = "http://www.easportsworld.com/en_US/clubs/partial/NHL14XBX/" + team + "/" +page 
+		url = "http://www.easports.com/iframe/nhl14proclubs/api/platforms/xbox/clubs/" + team + "/" +page
 		begin
 			doc = Nokogiri::HTML(open(url))
 		rescue => e
@@ -63,7 +65,7 @@ require 'open-uri'
 				member[:image] = '/assets/Xbox/empty.jpg'
 				member[:text] = db_player[:name] + ': ' + status
 			else
-				member[:image] = "assets/Xbox/" + db_player[:name] + "_" + member[:status] + ".jpg"
+				member[:image] = "/assets/Xbox/" + db_player[:name] + "_" + member[:status] + ".jpg"
 			end
 			list.push(member)
 		end
