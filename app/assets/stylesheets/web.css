@@ -121,26 +121,26 @@ table {
 	 */
 	#nav_homepage {
 		background: url('../assets/nav/homepage.jpg') no-repeat;
-		width: 92px;
+		width: 94px;
 	}	
 	
-	#nav_news {
-		background: url('../assets/nav/news.jpg') no-repeat;
-		width: 137px;
+	#nav_players {
+		background: url('../assets/nav/Lineup.jpg') no-repeat;
+		width: 94px;
 	}
 	
-	#nav_team {
-		background: url('../assets/nav/team.jpg') no-repeat;
-		width: 115px;
+	#nav_stats {
+		background: url('../assets/nav/stats.jpg') no-repeat;
+		width: 94px;
 	}
 	
-	#nav_media {
-		background: url('../assets/nav/media.jpg') no-repeat;
-		width: 93px;
+	#nav_tournaments {
+		background: url('../assets/nav/tournaments.jpg') no-repeat;
+		width: 94px;
 	}
-	#nav_awards {
-		background: url('../assets/nav/awards.jpg') no-repeat;
-		width: 93px;
+	#nav_info {
+		background: url('../assets/nav/info.jpg') no-repeat;
+		width: 94px;
 	}
 	
 	#nav_scene {
@@ -149,18 +149,18 @@ table {
 	}
 	
 	#nav_forums {
-		background: url('../assets/nav/forums.jpg') no-repeat;
-		width: 107px;
+		background: url('../assets/nav/forum.jpg') no-repeat;
+		width: 94px;
 	}
 	
-	#nav_contact {
-		background: url('../assets/nav/contact.jpg') no-repeat;
-		width: 108px;
+	#nav_media {
+		background: url('../assets/nav/media.jpg') no-repeat;
+		width: 94px;
 	}
 	
 	#nav_results {
 		background: url('../assets/nav/results.jpg') no-repeat;
-		width: 106px;
+		width: 94px;
 	}
 	#nav_filler {
 		background: url('../assets/nav/filler.jpg');
