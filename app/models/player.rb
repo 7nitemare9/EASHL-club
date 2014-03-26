@@ -37,7 +37,7 @@ require 'open-uri'
 		#		list.push(member)
 		#	end		
 		#end
-		
+		puts 'test'
 		return list		
 	end
 
