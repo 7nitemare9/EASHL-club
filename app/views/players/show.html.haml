@@ -3,16 +3,16 @@
     / News Subject
     %h3
       %img{:style => "margin-left:-5px; margin-top:5px;", :height => "21", :src => "/assets/players/bar_playerinfo.png", :width => "410"}
-        %img{:style => "margin-right:-7px; margin-top:2px", :align => "right", :alt => "", :height => "346", :src => "/assets/#{@player.number}.jpg", :width => "250"}/
+        %img{:style => "margin-right:-7px; margin-top:2px", :align => "right", :alt => "", :height => "346", :src => "/assets/players/spelarkort_#{@player.name}.png", :width => "250"}/
     %div{:style => "max-width:350px; margin-left:3px"}
-      %p{:style => "margin-top:-10px"} Name: #{@player.name}
+      %p{:style => "margin-top:-10px"} Name: #{@player.RealName}
       %p Origin: #{@player.City}
       %p Age: #{@player.age}
       %p Height: #{@player.height} m
       %p Weight: #{@player.weight} kg
     %div{:style => "margin-left:323px; margin-top:-245px;"}
       %p
-        %img{:style => "margin-top:120px; margin-left:-45px; margin-bottom:-10px", :alt => "", :src => "/assets/players/gameface_zhitnik.png"}/
+        %img{:width => "128", :height => "128", :style => "margin-top:98px; margin-left:-50px; margin-bottom:-10px", :alt => "", :src => "/assets/players/gameface-fx_#{@player.name}.png"}/
       %p
         %a{:href => ""}
           %img{:style => "margin-left:-30px", :height => "43", :src => "/assets/facebook.jpg", :width => "42"}/
