@@ -1,5 +1,4 @@
-/* NicEdit - Micro Inline WYSIWYG
- * Copyright 2007-2008 Brian Kirchoff
+/* NicEdit - Micro Inline WYSIWYG * Copyright 2007-2008 Brian Kirchoff
  *
  * NicEdit is distributed under the terms of the MIT license
  * For more information visit http://nicedit.com/
@@ -269,7 +268,7 @@ var nicEditorConfig = bkClass.extend({
 		'hr' : {name : __('Horizontal Rule'), command : 'insertHorizontalRule', noActive : true}
 	},
 	iconsPath : '/assets/nicEditorIcons.gif',
-	buttonList : ['xhtml','save','bold','italic','underline','left','center','right','justify','ol','ul','fontSize','fontFamily','fontFormat','indent','outdent','image','upload','link','unlink','forecolor','bgcolor'],
+	buttonList : ['youtube','xhtml','save','bold','italic','underline','left','center','right','justify','ol','ul','fontSize','fontFamily','fontFormat','indent','outdent','image','upload','link','unlink','forecolor','bgcolor'],
 	iconList : {"xhtml":1,"bgcolor":2,"forecolor":3,"bold":4,"center":5,"hr":6,"indent":7,"italic":8,"justify":9,"left":10,"ol":11,"outdent":12,"removeformat":13,"right":14,"save":25,"strikethrough":16,"subscript":17,"superscript":18,"ul":19,"underline":20,"image":21,"link":22,"unlink":23,"close":24,"arrow":26,"upload":27}
 	
 });
@@ -1707,8 +1706,17 @@ var nicCodeOptions = {
 	}
 	
 };
-/* END CONFIG */
 
+var nicYouTubeOptions = {
+  buttons : {
+    'youtube': {name : 'YouTube Link', type : 'nicYouTubeButton'}
+  },
+  iconFiles: {
+    'youtube': '/assets/youtube.gif'
+  }
+};
+
+/* END CONFIG */
 var nicCodeButton = nicEditorAdvancedButton.extend({
 	width : '350px',
 		
@@ -1725,7 +1733,34 @@ var nicCodeButton = nicEditorAdvancedButton.extend({
 		this.removePane();
 	}
 });
+var nicYouTubeButton = nicEditorAdvancedButton.extend({
+width: '350px',
 
+addPane: function () {
+    this.addForm({
+        '': { type: 'title', txt: 'YouTube Url' },
+        'youTubeUrl': { type: 'text', txt: 'URL', value: 'http://', style: { width: '150px'} },
+        'height': { type: 'text', txt: 'Height', value: '560', style: { width: '150px'} },
+        'width': { type: 'text', txt: 'Width', value: '315', style: { width: '150px'} }
+    });
+},
+
+submit: function (e) {
+    var code = this.inputs['youTubeUrl'].value;
+    var width = this.inputs['height'].value;
+    var height = this.inputs['width'].value;
+
+    if (code.indexOf('watch?v=') > 0) {
+        code = code.replace('watch?v=','embed/');
+    }
+
+    var youTubeCode = '<iframe width="' + width + '" height="' + height + '" src="' + code + '" frameborder="0" allowfullscreen></iframe>';
+
+    this.ne.selectedInstance.setContent(this.ne.selectedInstance.getContent() + youTubeCode);
+    this.removePane();
+}
+});
 nicEditors.registerPlugin(nicPlugin,nicCodeOptions);
+nicEditors.registerPlugin(nicPlugin,nicYouTubeOptions);
 
 

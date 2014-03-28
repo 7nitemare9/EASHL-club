@@ -1,28 +1,27 @@
 .content
-  %div{:style => "height:346px; position:relative;"}
+  %div{:style => "height:351px; width:674px; position:relative; background-image:url('/assets/players/bakg_base1-#{@player.typ}.png');"}
     / News Subject
     %h3
-      %img{:height => "48", :src => "/assets/playerbiobg.png", :width => "408"}
-        %img{:align => "right", :alt => "", :height => "346", :src => "/assets/#{@player.number}.jpg", :width => "250"}/
+      %img{:style => "margin-left:-5px; margin-top:5px;", :height => "21", :src => "/assets/players/bar_playerinfo.png", :width => "410"}
+        %img{:style => "margin-right:-7px; margin-top:2px", :align => "right", :alt => "", :height => "346", :src => "/assets/#{@player.number}.jpg", :width => "250"}/
     %div{:style => "max-width:350px; margin-left:3px"}
-      %p{:style => "margin-top:-10px"} Namn: #{@player.name}
-      %p City: #{@player.City}
+      %p{:style => "margin-top:-10px"} Name: #{@player.name}
+      %p Origin: #{@player.City}
       %p Age: #{@player.age}
       %p Height: #{@player.height} m
       %p Weight: #{@player.weight} kg
-      %p Player role: 
-      %p
-        Strenghts: 
-      %p Play style: 
     %div{:style => "margin-left:323px; margin-top:-245px;"}
       %p
-        %img{:alt => "", :src => ""}/
+        %img{:style => "margin-top:120px; margin-left:-45px; margin-bottom:-10px", :alt => "", :src => "/assets/players/gameface_zhitnik.png"}/
       %p
         %a{:href => ""}
-          %img{:height => "43", :src => "/assets/facebook.jpg", :width => "42"}/
+          %img{:style => "margin-left:-30px", :height => "43", :src => "/assets/facebook.jpg", :width => "42"}/
         %a{:href => ""}
           %img{:alt => "", :height => "43", :src => "/assets/msnlogo.jpg", :width => "42"}/
-    %img{:src => "/assets/playervideo.png", :style => "margin-left:10px; position:absolute; bottom:0;"}/
+      %p{:style => "margin-left:-130px"} Strenghts:
+      %p{:style => "margin-left:-130px; margin-top:-10px"} #{@player.strength}
+      %p{:style => "margin-left:-130px"} Style: 
+      %p{:style => "margin-left:-130px; margin-top:-10px"} #{@player.strength}
 
 
   = link_to 'Edit', edit_player_path(@player)  
