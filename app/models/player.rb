@@ -2,17 +2,19 @@ class Player < ActiveRecord::Base
 require 'rubygems'
 require 'nokogiri'
 require 'open-uri'
+require 'json'
 
 	def self.getPage(page, team)
 		# old easportsworld url
 		# url = "http://www.easportsworld.com/en_US/clubs/partial/NHL14XBX/" + team + "/" +page 
 		url = "http://www.easports.com/iframe/nhl14proclubs/api/platforms/xbox/clubs/" + team + "/" +page
 		begin
-			doc = Nokogiri::HTML(open(url))
+      doc = Nokogiri::HTML(open(url))
 		rescue => e
 		  puts e.message
 		end					
-		return doc		
+		puts doc
+    return doc		
 	end	
 
 	def self.playerData(doc)
@@ -38,6 +40,23 @@ require 'open-uri'
 		#	end		
 		#end
 		puts 'test'
+    doc = doc.css("p").text
+    doc = JSON.parse(doc)
+    doc['raw'].each do |key|
+      p key
+      key.each do |member|
+        p member[1]["name"]
+        player = {:name => member[1]["name"], :eaid => key}
+        unless find_by_name(member[1]["name"]) then
+          create!(player)
+        else
+          db_player = find_by_name(player[:name])
+          db_player.update_attributes(player)
+        end
+      end
+      puts '||'
+    end
+
 		return list		
 	end
 

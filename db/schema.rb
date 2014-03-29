@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140327190936) do
+ActiveRecord::Schema.define(:version => 20140329172140) do
 
   create_table "matches", :force => true do |t|
     t.string   "opponent"
@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(:version => 20140327190936) do
     t.string   "strength"
     t.string   "style"
     t.string   "typ"
+    t.string   "eaid"
   end
 
   create_table "posts", :force => true do |t|
