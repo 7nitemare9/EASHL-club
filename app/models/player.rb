@@ -53,10 +53,22 @@ require 'json'
           db_player = find_by_name(player[:name])
           db_player.update_attributes(player)
         end
+        list.push(player[:name])
       end
       puts '||'
     end
-
+    db_player = all
+    db_player.each do |player|
+      found = 0
+      list.each do |listname|
+        if player[:name] == listname
+          found = 1
+        end
+      end
+      if found == 0 
+        find_by_name(player[:name]).destroy
+      end
+    end
 		return list		
 	end
 
