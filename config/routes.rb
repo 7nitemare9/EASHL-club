@@ -6,7 +6,9 @@ Spelpunkten::Application.routes.draw do
 
   resources :posts
 
-	resources :calenders
+  resources :medias
+  
+  resources :calenders
 
 	resources :forum
 

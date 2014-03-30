@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140329172140) do
+ActiveRecord::Schema.define(:version => 20140330164656) do
 
   create_table "matches", :force => true do |t|
     t.string   "opponent"
@@ -36,6 +36,13 @@ ActiveRecord::Schema.define(:version => 20140329172140) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "rel"
+  end
+
+  create_table "medias", :force => true do |t|
+    t.string   "title"
+    t.text     "text"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "players", :force => true do |t|
