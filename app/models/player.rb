@@ -3,105 +3,90 @@ require 'rubygems'
 require 'nokogiri'
 require 'open-uri'
 require 'json'
+require 'web_helpers'
 
-	def self.getPage(page, team)
-		# old easportsworld url
-		# url = "http://www.easportsworld.com/en_US/clubs/partial/NHL14XBX/" + team + "/" +page 
-		url = "http://www.easports.com/iframe/nhl14proclubs/api/platforms/xbox/clubs/" + team + "/" +page
-		begin
-      doc = Nokogiri::HTML(open(url))
-		rescue => e
-		  puts e.message
-		end					
-		puts doc
-    return doc		
-	end	
+  def self.get_page(page, team)
+    url = "http://www.easports.com/iframe/nhl14proclubs/api/platforms/xbox/clubs/" + team + "/" +page
+    player_data WebHelpers.read_url(url)
+  end
 
-	def self.playerData(doc)
-		member = {}
-		list = []
-		#old easportsworld way to get data
-		#doc.css("tr").each do |player|
-		#	unless player.at_css(".align-left div").blank? or player.at_css(".strong:nth-child(4)").blank? then
-		#		member = {:name => player.at_css(".align-left div").text,
-		#							:goals => player.at_css(".strong:nth-child(4)").text,
-		#							:assists => player.at_css(".strong:nth-child(5)").text,
-		#							:points => player.at_css(".strong:nth-child(6)").text,
-		#							:hits => player.at_css(".strong:nth-child(11)").text }
-		#		unless find_by_name(member[:name]) then
-		#			create!(member)
-		#			member[:status] = 'created'
-		#		else
-		#			db_player = find_by_name(member[:name])
-		#			db_player.update_attributes(member)
-		#			member[:status] = 'updated'					
-		#		end
-		#		list.push(member)
-		#	end		
-		#end
-		puts 'test'
-    doc = doc.css("p").text
-    doc = JSON.parse(doc)
-    doc['raw'].each do |key|
-      p key
-      key.each do |member|
-        p member[1]["name"]
-        player = {:name => member[1]["name"], :eaid => key}
-        unless find_by_name(member[1]["name"]) then
-          create!(player)
-        else
-          db_player = find_by_name(player[:name])
-          db_player.update_attributes(player)
-        end
-        list.push(player[:name])
-      end
-      puts '||'
+#	def self.read_url(url)
+#		begin
+#      Nokogiri::HTML(open(url))
+#		rescue => e
+#		  puts e.message
+#		end
+#	end	
+
+	def self.player_data(doc)
+    add_members WebHelpers.parse_ea_json(doc)
+    delete_members WebHelpers.parse_ea_json(doc)
+  end
+
+  def self.add_members(doc)
+    read_players(doc).each do |player| 
+      add_to_database(player)
     end
-    db_player = all
-    db_player.each do |player|
+  end
+
+  def self.add_to_database(player)
+    unless find_by_name(player[:name]) then
+      create!(player)
+    else
+      find_by_name(player[:name]).update_attributes(player)
+    end
+  end
+
+  def self.delete_members(doc)
+    all.each do |dbplayer|
       found = 0
-      list.each do |listname|
-        if player[:name] == listname
-          found = 1
-        end
+      read_players(doc).each do |player|
+        found = 1 if player[:name] == dbplayer[:name]
       end
-      if found == 0 
-        find_by_name(player[:name]).destroy
+      find_by_name[dbplayer[:name]].destroy if found == 0 
+    end
+  end
+
+  def self.read_players(doc)
+    list = []
+    doc['raw'].each do |key|
+      key.each do |member|
+        list << {name: member[1]["name"], eaid: key}
       end
     end
-		return list		
-	end
+    return list
+  end
+
+#  def self.parse_json(doc)
+#    JSON.parse(doc.css("p").text)
+#  end
 
 	def self.online
 		list = []
-		member = {}
-		db_players = find(:all)
-	 	db_players.each do |db_player|
-			member = {}
+#		member = {}
+#		db_players = find(:all)
+	 	all.each do |db_player|
+#			member = {}
 			url = 'https://live.xbox.com/sv-SE/Profile?Gamertag=' + CGI.escape(db_player[:name])
-			begin
-				doc = Nokogiri::HTML(open(url))
-			rescue => e
-		  	next
-			end
-			status = doc.at_css(".presence").text			
-			if status.include? 'offline' or status.include? 'senast' then
-				member[:name] = db_player[:name]
-				member[:status] = 'Offline'
-				member[:text] = status
-			else
-				member[:name] = db_player[:name]
-				member[:status] = 'Online'
-				member[:text] = status
-			end
-			if Rails.application.assets.find_asset("Xbox/" + db_player[:name] + "_Online.jpg").nil? then
-				member[:image] = '/assets/Xbox/empty.jpg'
-				member[:text] = db_player[:name] + ': ' + status
-			else
-				member[:image] = "/assets/Xbox/" + db_player[:name] + "_" + member[:status] + ".jpg"
-			end
+      doc = WebHelpers.read_url(url)
+      member = get_online_status(doc, db_player[:name])
+      member[:image] = "https://avatar-ssl.xboxlive.com/avatar/" + db_player[:name] + "/avatarpic-l.png"
 			list.push(member)
 		end
 		return list
 	end
+
+  def self.get_online_status(doc, name)
+    member = {}
+    status = doc.at_css(".presence").text
+    if status.include? 'offline' or status.include? 'senast' then
+      member[:status] = 'Offline'
+    else
+      member[:status] = 'Online'
+    end
+    member[:text] = status
+    member[:name] = name
+    return member
+  end
+
 end
