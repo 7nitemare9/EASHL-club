@@ -27,7 +27,7 @@ class Match < ActiveRecord::Base
 
   def self.read_and_add_match_data(doc)
     read_match_data(doc).each do |match|
-      unless find_by matchId: match[:match][:matchId]
+      unless where matchId: match[:match][:matchId]
         db_match = Match.new(match[:match])
         db_match.save!
         db_match.game_players.create!(create_player_hash(match[:players]))
