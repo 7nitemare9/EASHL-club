@@ -17,12 +17,15 @@ group :development, :test do
   gem 'cucumber-rails'
   gem 'cucumber-rails-training-wheels'
   gem 'database_cleaner'
+  gem 'selenium-webdriver'
   gem 'capybara'
   gem 'launchy'
   gem 'rspec-rails'
   gem 'ZenTest'
   gem 'simplecov'
   gem "scrapi", "~> 2.0.0"
+  gem "sinatra"
+#  gem "webmock"
 end
 group :production do
   gem 'pg'  

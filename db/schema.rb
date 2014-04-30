@@ -11,31 +11,45 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140330164656) do
+ActiveRecord::Schema.define(:version => 20140425185519) do
+
+  create_table "game_players", :force => true do |t|
+    t.integer "match_id"
+    t.string  "glga"
+    t.string  "glsavepct"
+    t.string  "glsaves"
+    t.string  "glshots"
+    t.string  "position"
+    t.string  "skassists"
+    t.string  "skfow"
+    t.string  "skgiveaways"
+    t.string  "skgoals"
+    t.string  "skhits"
+    t.string  "skpim"
+    t.string  "skplusmin"
+    t.string  "skpoints"
+    t.string  "skshots"
+    t.string  "sktakeaways"
+    t.string  "personaName"
+    t.string  "team"
+    t.string  "blazeId"
+  end
+
+  create_table "game_teams", :force => true do |t|
+    t.integer "match_id"
+    t.string  "teamId"
+    t.string  "memberstring"
+    t.string  "score"
+    t.string  "winnerByDnf"
+    t.string  "goals"
+    t.string  "goalsAgainst"
+    t.string  "name"
+    t.string  "clubId"
+  end
 
   create_table "matches", :force => true do |t|
-    t.string   "opponent"
-    t.integer  "gScored"
-    t.integer  "gLetIn"
-    t.string   "Center"
-    t.integer  "pCenter"
-    t.integer  "hCenter"
-    t.string   "RW"
-    t.integer  "pRW"
-    t.integer  "hRW"
-    t.string   "LW"
-    t.integer  "pLW"
-    t.integer  "hLW"
-    t.string   "Def1"
-    t.integer  "pDef1"
-    t.integer  "hDef1"
-    t.string   "Def2"
-    t.integer  "pDef2"
-    t.integer  "hDef2"
-    t.string   "Goalie"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "rel"
+    t.string  "matchId"
+    t.integer "timestamp"
   end
 
   create_table "medias", :force => true do |t|

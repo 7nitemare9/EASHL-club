@@ -10,14 +10,6 @@ require 'web_helpers'
     player_data WebHelpers.read_url(url)
   end
 
-#	def self.read_url(url)
-#		begin
-#      Nokogiri::HTML(open(url))
-#		rescue => e
-#		  puts e.message
-#		end
-#	end	
-
 	def self.player_data(doc)
     add_members WebHelpers.parse_ea_json(doc)
     delete_members WebHelpers.parse_ea_json(doc)
@@ -57,16 +49,9 @@ require 'web_helpers'
     return list
   end
 
-#  def self.parse_json(doc)
-#    JSON.parse(doc.css("p").text)
-#  end
-
 	def self.online
 		list = []
-#		member = {}
-#		db_players = find(:all)
 	 	all.each do |db_player|
-#			member = {}
 			url = 'https://live.xbox.com/sv-SE/Profile?Gamertag=' + CGI.escape(db_player[:name])
       doc = WebHelpers.read_url(url)
       member = get_online_status(doc, db_player[:name])

@@ -3,33 +3,18 @@ class MatchesController < ApplicationController
   # GET /matches.json
   def index
     @matches = Match.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @matches }
-    end
   end
 
   # GET /matches/1
   # GET /matches/1.json
   def show
     @match = Match.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @match }
-    end
   end
 
   # GET /matches/new
   # GET /matches/new.json
   def new
     @match = Match.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @match }
-    end
   end
 
   # GET /matches/1/edit
@@ -74,15 +59,11 @@ class MatchesController < ApplicationController
   def destroy
     @match = Match.find(params[:id])
     @match.destroy
-
-    respond_to do |format|
-      format.html { redirect_to matches_url }
-      format.json { head :ok }
-    end
   end
+
 	def getMatchData
-		@page = Match.getPage('match-results', params[:team])
-		@page = Match.matchData(@page, params[:team])
+		@page = Match.get_matches('matches', params[:team])
+#		@page = Match.matchData(@page, params[:team])
 		if @page.blank? then
 			redirect_to :action => getMatchData, :team => params[:team]
 		end

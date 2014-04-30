@@ -1,0 +1,26 @@
+"36028797072060554":
+{"matchId":"36028797072060554","timestamp":1398042232,"timeAgo":"2 days ago","clubs":
+  {"57":
+    {"losses":"0","memberstring":"2 \/ 4","result":"1","score":"4","scorestring":"4 - 3","winnerByDnf":"0","goals":"4","goalsAgainst":"3","details":
+      {"name":"Sega Gubbar HC","clubId":57,"regionId":3,"teamId":9}},"281934":
+    {"losses":"1","memberstring":"4 \/ 2","result":"2","score":"3","scorestring":"3 - 4","winnerByDnf":"0","goals":"3","goalsAgainst":"4","details":
+      {"name":"Bombers Hockey","clubId":281934,"regionId":3,"teamId":2}}},"players":
+  {"281934":
+    {"169527301":
+      {"glga":"0","glsavepct":"0.00","glsaves":"0","glshots":"0","position":"4","skassists":"1","skfow":"21","skgiveaways":"5","skgoals":"0","skhits":"0","skpim":"2","skplusmin":"1","skpoints":"1","skshots":"2","sktakeaways":"10","details":
+        {"blazeId":169527301,"nucleusId":2252492635,"personaName":"iZHiTNiK","platformName":"xbox"}},"178491270":
+      {"glga":"0","glsavepct":"0.00","glsaves":"0","glshots":"0","position":"1","skassists":"1","skfow":"0","skgiveaways":"11","skgoals":"0","skhits":"6","skpim":"6","skplusmin":"1","skpoints":"1","skshots":"1","sktakeaways":"2","details":
+        {"blazeId":178491270,"nucleusId":2268447646,"personaName":"Sork pippi","platformName":"xbox"}},"342505557":
+      {"glga":"0","glsavepct":"0.00","glsaves":"0","glshots":"0","position":"3","skassists":"0","skfow":"0","skgiveaways":"9","skgoals":"2","skhits":"7","skpim":"2","skplusmin":"1","skpoints":"2","skshots":"2","sktakeaways":"2","details":
+        {"blazeId":342505557,"nucleusId":2405136989,"personaName":"Zlappie12","platformName":"xbox"}},"781092903":
+      {"glga":"0","glsavepct":"0.00","glsaves":"0","glshots":"0","position":"5","skassists":"1","skfow":"1","skgiveaways":"14","skgoals":"1","skhits":"13","skpim":"2","skplusmin":"1","skpoints":"2","skshots":"8","sktakeaways":"3","details":
+        {"blazeId":781092903,"nucleusId":2379277294,"personaName":"Dexrion","platformName":"xbox"}}},"57":
+    {"175755240":
+      {"glga":"0","glsavepct":"0.00","glsaves":"0","glshots":"0","position":"3","skassists":"2","skfow":"0","skgiveaways":"21","skgoals":"2","skhits":"0","skpim":"2","skplusmin":"-1","skpoints":"4","skshots":"10","sktakeaways":"4","details":
+        {"blazeId":175755240,"nucleusId":2265477277,"personaName":"ivve83","platformName":"xbox"}},"201743398":
+      {"glga":"0","glsavepct":"0.00","glsaves":"0","glshots":"0","position":"4","skassists":"2","skfow":"9","skgiveaways":"2","skgoals":"0","skhits":"7","skpim":"2","skplusmin":"-1","skpoints":"2","skshots":"2","sktakeaways":"3","details":
+        {"blazeId":201743398,"nucleusId":2290124856,"personaName":"Stisse007","platformName":"xbox"}}}},"aggregate":
+  {"281934":
+    {"glga":0,"glsavepct":0,"glsaves":0,"glshots":0,"position":13,"skassists":3,"skfow":22,"skgiveaways":39,"skgoals":3,"skhits":26,"skpim":12,"skplusmin":4,"skpoints":6,"skshots":13,"sktakeaways":17},"57":
+    {"glga":0,"glsavepct":0,"glsaves":0,"glshots":0,"position":7,"skassists":4,"skfow":9,"skgiveaways":23,"skgoals":2,"skhits":7,"skpim":4,"skplusmin":-2,"skpoints":6,"skshots":12,"sktakeaways":7}}}0
+    
