@@ -11,3 +11,4 @@ doc/
 .DS_store
 .idea
 .secret
+app/assets/images/
