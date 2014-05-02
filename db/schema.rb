@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140502204941) do
+ActiveRecord::Schema.define(:version => 20140502213113) do
 
   create_table "game_players", :force => true do |t|
     t.integer "match_id"
@@ -88,7 +88,7 @@ ActiveRecord::Schema.define(:version => 20140502204941) do
     t.text     "strength"
     t.text     "style"
     t.string   "typ"
-    t.string   "eaid"
+    t.text     "eaid"
   end
 
   create_table "posts", :force => true do |t|
