@@ -6,7 +6,7 @@
   %div{:style => "font:Arial; font-size:12px; color:white; position:absolute; margin-left:389px; margin-top:16px;"} #{@match.game_teams[0].goalsAgainst}
   %div{:style => "font:Arial; font-size:18px; color:white; position:absolute; margin-left:435px; margin-top:12px;"} #{@match.game_teams[1].name}
 
-- bombers = @match.game_players.where("team = 281934")
+- bombers = @match.game_players.where("team = '281934'")
 
 .box{:style => "position: relative; width: 617px; height: 359px; left: 40px; background:url(/assets/boxscore/Rink.jpg);"}
   - bombers.each do |bomber|
