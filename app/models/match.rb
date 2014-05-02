@@ -5,8 +5,8 @@ class Match < ActiveRecord::Base
   require 'open-uri'
   require 'web_helpers'
 
-  def self.get_matches(page, team)
-    url = "http://www.easports.com/iframe/nhl14proclubs/api/platforms/xbox/clubs/" + team + "/" +page + "?filters=sum,pretty&matches_returned=500"
+  def self.get_matches(page, team, num_matches)
+    url = "http://www.easports.com/iframe/nhl14proclubs/api/platforms/xbox/clubs/" + team + "/" +page + "?filters=sum,pretty&matches_returned=" + num_matches
     read_and_add_match_data WebHelpers.read_json(url)
   end
 

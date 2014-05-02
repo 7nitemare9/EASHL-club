@@ -61,11 +61,11 @@ class MatchesController < ApplicationController
     @match.destroy
   end
 
-	def getMatchData
-		@page = Match.get_matches('matches', params[:team])
+  def getMatchData
+    @page = Match.get_matches('matches', params[:team], params[:num_matches])
 #		@page = Match.matchData(@page, params[:team])
-		if @page.blank? then
-			redirect_to :action => getMatchData, :team => params[:team]
-		end
-	end
+    if @page.blank? then
+      redirect_to :action => getMatchData, :team => params[:team]
+  end
+end
 end
