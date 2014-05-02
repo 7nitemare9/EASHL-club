@@ -49,29 +49,5 @@ require 'web_helpers'
     return list
   end
 
-	def self.online
-		list = []
-	 	all.each do |db_player|
-			url = 'https://live.xbox.com/sv-SE/Profile?Gamertag=' + CGI.escape(db_player[:name])
-      doc = WebHelpers.read_url(url)
-      member = get_online_status(doc, db_player[:name])
-      member[:image] = "https://avatar-ssl.xboxlive.com/avatar/" + db_player[:name] + "/avatarpic-l.png"
-			list.push(member)
-		end
-		return list
-	end
-
-  def self.get_online_status(doc, name)
-    member = {}
-    status = doc.at_css(".presence").text
-    if status.include? 'offline' or status.include? 'senast' then
-      member[:status] = 'Offline'
-    else
-      member[:status] = 'Online'
-    end
-    member[:text] = status
-    member[:name] = name
-    return member
-  end
 
 end

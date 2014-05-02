@@ -10,7 +10,7 @@ Spelpunkten::Application.routes.draw do
   
   resources :calenders
 
-	resources :forum
+  resources :forum
 
   get "home/index"
 
@@ -47,6 +47,7 @@ Spelpunkten::Application.routes.draw do
   #   end
 	resources :players
 	match '/player/getMemberData' => 'players#getMemberData'
+        match '/player/OnlineStatus' => 'players#OnlineStatus'
 	match '/match/getMatchData' => 'matches#getMatchData'
 	match '/calender/getCalenderData' => 'calenders#getCalenderData'
 	
