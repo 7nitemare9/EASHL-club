@@ -90,86 +90,87 @@ table {
  * Navigation
  */
 #navigation {
-	background: url('../assets/nav_bg.jpg') repeat-x;
-	height: 41px;
+  background: url('../assets/nav_bg.jpg') repeat-x;
+  height: 41px;
 }
 
-	#navigation li {
-		float: left;
-		height: 41px;
-	}
-	
-	#navigation a {
-		display: block;
-		height: 41px;
-		overflow: hidden;
-	}
-	
-		/**
-		 * Rollover Control
-		 */
-		#navigation a img {
-			display: none;
-		}
-		
-		#navigation a:hover img {
-			display: block;
-		}
-	
-	/**
-	 * Nav items
-	 */
-	#nav_homepage {
-		background: url('../assets/nav/homepage.png') no-repeat;
-/*		width: 94px; */
-	}	
-	
-	#nav_players {
-		background: url('../assets/nav/Lineup.png') no-repeat;
-/*		width: 94px; */
-	}
-	
-	#nav_stats {
-		background: url('../assets/nav/stats.png') no-repeat;
-/*		width: 94px; */
-	}
-	
-	#nav_tournaments {
-		background: url('../assets/nav/tournaments.png') no-repeat;
-/*		width: 94px; */
-	}
-	#nav_info {
-		background: url('../assets/nav/info.png') no-repeat;
-/*		width: 94px; */
-	}
-	
-	#nav_scene {
-		background: url('../assets/nav/scene.png') no-repeat;
-/*		width: 130px; */
-	}
-	
-	#nav_forums {
-		background: url('../assets/nav/forum.png') no-repeat;
-/*		width: 94px; */
-	}
-	
-	#nav_media {
-		background: url('../assets/nav/media.png') no-repeat;
-/*		width: 94px; */
-	}
-	
-	#nav_results {
-		background: url('../assets/nav/results.png') no-repeat;
-/*		width: 94px; */
-	}
-	#nav_filler {
-		background: url('../assets/nav/filler.jpg');
-		width: 215px;
-	}
-    #nav_filler2 {
-       background: url('../assets/nav/filler.jpg') repeat-x;
-        width: 315px;
-    }
+#navigation li {
+  float: left;
+  height: 41px;
+}
+
+#navigation a {
+  display: block;
+  height: 41px;
+  overflow: hidden;
+}
+
+/**
+ * Rollover Control
+ */
+#navigation a img {
+  display: none;
+}
+
+#navigation a:hover img {
+  display: block;
+}
+
+/**
+ * Nav items
+ */
+#nav_homepage {
+  background: url('../assets/nav/home.png') no-repeat;
+  width: 65px;
+}	
+
+#nav_players {
+  background: url('../assets/nav/lineup.png') no-repeat;
+  width: 71px;
+}
+
+#nav_stats {
+  background: url('../assets/nav/stats.png') no-repeat;
+  width: 93px;
+}
+
+#nav_tournaments {
+  background: url('../assets/nav/tournaments.jpg') no-repeat;
+  width: 94px;
+}
+#nav_info {
+  background: url('../assets/nav/info.png') no-repeat;
+  width: 87px;
+}
+
+#nav_media {
+  background: url('../assets/nav/media.png') no-repeat;
+  width: 69px;
+}
+
+#nav_forums {
+  background: url('../assets/nav/forum.png') no-repeat;
+  width: 79px;
+}
+
+#nav_contact {
+  background: url('../assets/nav/contact.jpg') no-repeat;
+  width: 108px;
+}
+
+#nav_results {
+  background: url('../assets/nav/results.png') no-repeat;
+  width: 78px;
+}
+#nav_filler {
+  background: url('../assets/nav/filler.jpg');
+  width: 15px;
+}
+#nav_filler2 {
+  background: url('../assets/nav/filler.jpg') repeat-x;
+  width: 755px;
+}
+
 
 /**
  * Boxes
