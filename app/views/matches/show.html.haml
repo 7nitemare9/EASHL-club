@@ -7,6 +7,7 @@
   %div{:style => "font:Arial; font-size:18px; color:white; position:absolute; margin-left:435px; margin-top:12px;"} #{@match.game_teams[1].name}
 
 - bombers = @match.game_players.where("team = '281934'")
+- two_d = false
 
 .box{:style => "position: relative; width: 617px; height: 359px; left: 40px; background:url(/assets/boxscore/Rink.jpg);"}
   - bombers.each do |bomber|
@@ -14,22 +15,25 @@
     - case bomber[:position]
     - when "3"
       %div{:style => "top: 10px; left: 30px; position: absolute;"}
-        %img{:src => "/assets/Xbox/" + bomber.personaName.to_s  + "_Online.jpg"}
+        = render :partial => 'player_image', :locals => { :bomber => bomber }
     - when "4"
       %div{:style => "top: 35px; left: 260px; position: absolute;"}
-        %img{:src => "/assets/Xbox/" + bomber.personaName.to_s + "_Online.jpg"}
+        = render :partial => 'player_image', :locals => { :bomber => bomber }
     - when "5"
       %div{:style => "top: 10px; left: 495px; position: absolute;"}
-        %img{:src => "/assets/Xbox/" + bomber.personaName.to_s + "_Online.jpg"}
-    - when "1"
-      %div{:style => "top: 110px; left: 120px; position: absolute;"}
-        %img{:src => "/assets/Xbox/" + bomber.personaName.to_s + "_Online.jpg"}
-    - when "2"
-      %div{:style => "top: 110px; left: 405px; position: absolute;"}
-        %img{:src => "/assets/Xbox/" + bomber.personaName.to_s + "_Online.jpg"}
+        = render :partial => 'player_image', :locals => { :bomber => bomber }
+    - when "1" 
+      - unless two_d
+        %div{:style => "top: 110px; left: 120px; position: absolute;"}
+        = render :partial => 'player_image', :locals => { :bomber => bomber }
+        - two_d = true
+      - else
+        %div{:style => "top: 110px; left: 405px; position: absolute;"}
+        = render :partial => 'player_image', :locals => { :bomber => bomber }
+        - two_d = false
     - when "0"
       %div{:style => "top: 210px; left: 260px; position: absolute;"}
-        %img{:src => "/assets/Xbox/" + bomber.personaName.to_s + "_Online.jpg"}
+        = render :partial => 'player_image', :locals => { :bomber => bomber }
 %p
   %div{:align => "center"}
     %p
@@ -66,9 +70,9 @@
           %td &nbsp;
           %td
             %div{:align => "center"} 
-          %td
-            %div{:align => "center"} 
-          %td &nbsp;
+              %td
+                %div{:align => "center"} 
+                  %td &nbsp;
           %td
             %div{:align => "center"} #{@match[:hCenter].to_s}
         %tr    
@@ -83,9 +87,9 @@
           %td &nbsp;
           %td
             %div{:align => "center"} 
-          %td
-            %div{:align => "center"} 
-          %td &nbsp;
+              %td
+                %div{:align => "center"} 
+                  %td &nbsp;
           %td
             %div{:align => "center"} #{@match[:hLW].to_s}
         %tr    
@@ -100,9 +104,9 @@
           %td &nbsp;
           %td
             %div{:align => "center"} 
-          %td
-            %div{:align => "center"} 
-          %td &nbsp;
+              %td
+                %div{:align => "center"} 
+                  %td &nbsp;
           %td
             %div{:align => "center"} #{@match[:hRW].to_s}
         %tr    
@@ -117,9 +121,9 @@
           %td &nbsp;
           %td
             %div{:align => "center"} 
-          %td
-            %div{:align => "center"} 
-          %td &nbsp;
+              %td
+                %div{:align => "center"} 
+                  %td &nbsp;
           %td
             %div{:align => "center"} #{@match[:hDef1].to_s}
         %tr    
@@ -134,9 +138,9 @@
           %td &nbsp;
           %td
             %div{:align => "center"} 
-          %td
-            %div{:align => "center"} 
-          %td &nbsp;
+              %td
+                %div{:align => "center"} 
+                  %td &nbsp;
           %td
             %div{:align => "center"} #{@match[:hDef2].to_s}
         %tr    
@@ -148,15 +152,15 @@
           %td &nbsp;
           %td
             %div{:align => "center"} 
-          %td &nbsp;
+              %td &nbsp;
           %td
             %div{:align => "center"} 
+              %td
+                %div{:align => "center"} 
+                  %td &nbsp;
           %td
             %div{:align => "center"} 
-          %td &nbsp;
-          %td
-            %div{:align => "center"} 
-      
 
-= link_to 'Edit', edit_match_path(@match)
+
+              = link_to 'Edit', edit_match_path(@match)
 = link_to 'Back', matches_path
