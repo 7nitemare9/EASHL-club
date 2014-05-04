@@ -14,19 +14,23 @@ gem 'thin'
 group :development, :test do
   gem 'sqlite3'
  # gem 'ruby-debug19', :require => 'ruby-debug'
-	gem 'strong_parameters'
-  gem 'cucumber-rails'
-  gem 'cucumber-rails-training-wheels'
-  gem 'database_cleaner'
-  gem 'selenium-webdriver'
-  gem 'capybara'
+  gem 'strong_parameters'
   gem 'launchy'
   gem 'rspec-rails'
   gem 'ZenTest'
   gem 'simplecov'
   gem "scrapi", "~> 2.0.0"
+
+group :test do
+  gem 'cucumber-rails'
+  gem 'cucumber-rails-training-wheels'
+  gem 'database_cleaner'
+  gem 'selenium-webdriver'
+  gem 'capybara'
   gem "sinatra"
-#  gem "webmock"
+  gem "webmock"
+end
+
 end
 group :production do
   gem 'pg'  

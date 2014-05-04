@@ -6,60 +6,18 @@
   %div{:style => "font:Arial; font-size:12px; color:white; position:absolute; margin-left:389px; margin-top:16px;"} #{@match.game_teams[0].goalsAgainst}
   %div{:style => "font:Arial; font-size:18px; color:white; position:absolute; margin-left:435px; margin-top:12px;"} #{@match.game_teams[1].name}
 
-- bombers = @match.game_players.where("team = '281934'")
 - two_d = false
 
 .box{:id => "rink"}
-  - @match.game_players.each do |bomber|
-    - p bomber
-    - case bomber[:position]
-    - when "3"
-      - if bomber.team == @match.game_teams[0].clubId 
-        .alw 
-          = render :partial => 'player_image', :locals => { :bomber => bomber }
-      - else 
-        .hlw
-          = render :partial => 'player_image', :locals => { :bomber => bomber }
-    - when "4"
-      - if bomber.team == @match.game_teams[0].clubId 
-        .ac 
-          = render :partial => 'player_image', :locals => { :bomber => bomber }
-      - else 
-        .hc
-          = render :partial => 'player_image', :locals => { :bomber => bomber }
-    - when "5"
-      - if bomber.team == @match.game_teams[0].clubId 
-        .arw 
-          = render :partial => 'player_image', :locals => { :bomber => bomber }
-      - else 
-        .hrw
-          = render :partial => 'player_image', :locals => { :bomber => bomber }
-    - when "1" 
-      - unless two_d
-        - if bomber.team == @match.game_teams[0].clubId 
-          .ard 
-            = render :partial => 'player_image', :locals => { :bomber => bomber }
-          - two_d = true
-        - else 
-          .hrd
-            = render :partial => 'player_image', :locals => { :bomber => bomber }
-          - two_d = true
-      - else
-        - if bomber.team == @match.game_teams[0].clubId 
-          .ald 
-            = render :partial => 'player_image', :locals => { :bomber => bomber }
-          - two_d = false
-        - else 
-          .hld
-            = render :partial => 'player_image', :locals => { :bomber => bomber }
-          - two_d = false
-    - when "0"
-      - if bomber.team == @match.game_teams[0].clubId 
-        .ag 
-          = render :partial => 'player_image', :locals => { :bomber => bomber }
-      - else 
-        .hg
-          = render :partial => 'player_image', :locals => { :bomber => bomber }
+  - @match.game_players.each do |player|
+    - if player[:position] == "1" && two_d == true
+      - player[:position] = "2" 
+      - two_d = false
+    - else
+      - if player[:position] == "1"
+        - two_d = true
+    = render :partial => 'player_image', :locals => { :player => player, :pos => player[:position], 
+                                                      :is_away => player.team == @match.game_teams[0].clubId }
 %p
   %div{:align => "center"}
     %p
