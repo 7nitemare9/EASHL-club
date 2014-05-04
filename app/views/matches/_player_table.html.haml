@@ -1,0 +1,54 @@
+- goalie = ""
+- match.game_teams.each do |team|
+  .team #{ team.name }
+  %table{:rules => "all"}
+    %thead
+      %tr{:class => "team_head"}
+        %th GamerTag
+        %th Position
+        %th Points
+        %th Goals
+        %th Assists
+        %th Shots
+        %th PIM
+        %th Hits
+        %th FaceOffs Won
+        %th +/-
+        %th TakeAways
+        %th GiveAways
+    %tbody
+    - match.game_players.each do |player|    
+      -if player.team == team.clubId
+        - unless player.position == "0"
+          %tr
+            %td #{ player.personaName }
+            %td #{ player.position}
+            %td #{ player.skpoints}
+            %td #{ player.skgoals}
+            %td #{ player.skassists}
+            %td #{ player.skshots}
+            %td #{ player.skpim}
+            %td #{ player.skhits}
+            %td #{ player.skfow}
+            %td #{ player.skplusmin}
+            %td #{ player.sktakeaways}
+            %td #{ player.skgiveaways}
+        - else
+          - goalie = player
+    - player = goalie
+    %tfoot
+      %tr{:class => "team_head"}
+        %th GamerTag
+        %th Position
+        %th GoalsAgainst
+        %th Save %
+        %th Saves
+        %th Shots
+      %tr{:class => "goalie_stats"}
+        %td #{ player.personaName }
+        %td #{ player.position }
+        %td #{ player.glga}
+        %td #{ player.glsavepct}
+        %td #{ player.glsaves}
+        %td #{ player.glshots}
+  %br

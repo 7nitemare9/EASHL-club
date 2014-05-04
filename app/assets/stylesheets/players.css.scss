@@ -1,6 +1,12 @@
 // Place all the styles related to the Players controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.scorebox {
+  background:url(/assets/boxscore/scorebox.jpg);
+  height:48px;
+  width:675px;
+  margin:auto;
+}
 #rink {
   position: relative;
   width: 665px;
@@ -96,5 +102,32 @@
   left: 23px;
   position: absolute;
 }
+
+table {
+  width: 650px;
+  margin-left: 20px;
+}
+tbody tr:nth-child(odd) {
+  background: #202020;
+}
+tfoot tr:nth-child(even) {
+  background: #202020;
+}
+.team {
+  height: 15px;
+  width: 650px;
+  margin-left: 20px;
+  background: #CE9216; 
+}
+.team_head {
+  width: 650px;
+  background: #ffffff;
+  color: #000000;
+}
+.goalie_stats {
+  background: #181818;
+  color: #ffffff;
+}
+
 
 
