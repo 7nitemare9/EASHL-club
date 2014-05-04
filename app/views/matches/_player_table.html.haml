@@ -1,4 +1,4 @@
-- goalie = ""
+- goalie = nil
 - match.game_teams.each do |team|
   .team #{ team.name }
   %table{:rules => "all"}
@@ -36,19 +36,21 @@
         - else
           - goalie = player
     - player = goalie
-    %tfoot
-      %tr{:class => "team_head"}
-        %th GamerTag
-        %th Position
-        %th GoalsAgainst
-        %th Save %
-        %th Saves
-        %th Shots
-      %tr{:class => "goalie_stats"}
-        %td #{ player.personaName }
-        %td #{ player.position }
-        %td #{ player.glga}
-        %td #{ player.glsavepct}
-        %td #{ player.glsaves}
-        %td #{ player.glshots}
+    - unless goalie == nil
+      %tfoot
+        %tr{:class => "team_head"}
+          %th GamerTag
+          %th Position
+          %th GoalsAgainst
+          %th Save %
+          %th Saves
+          %th Shots
+        %tr{:class => "goalie_stats"}
+          %td #{ player.personaName }
+          %td #{ player.position }
+          %td #{ player.glga}
+          %td #{ player.glsavepct}
+          %td #{ player.glsaves}
+          %td #{ player.glshots}
+          - goalie = nil
   %br
