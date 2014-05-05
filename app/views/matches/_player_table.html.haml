@@ -5,34 +5,34 @@
     %thead
       %tr{:class => "team_head"}
         %th GamerTag
-        %th Position
-        %th Points
-        %th Goals
-        %th Assists
-        %th Shots
-        %th PIM
-        %th Hits
-        %th FaceOffs Won
-        %th +/-
-        %th TakeAways
-        %th GiveAways
+        %th{:class => "cr"} Position
+        %th{:class => "cr"} Points
+        %th{:class => "cr"} Goals
+        %th{:class => "cr"} Assists
+        %th{:class => "cr"} Shots
+        %th{:class => "cr"} PIM
+        %th{:class => "cr"} Hits
+        %th{:class => "cr"} FaceOffs Won
+        %th{:class => "cr"} +/-
+        %th{:class => "cr"} TakeAways
+        %th{:class => "cr"} GiveAways
     %tbody
     - match.game_players.each do |player|    
       -if player.team == team.clubId
         - unless player.position == "0"
           %tr
             %td #{ player.personaName }
-            %td #{ player.position}
-            %td #{ player.skpoints}
-            %td #{ player.skgoals}
-            %td #{ player.skassists}
-            %td #{ player.skshots}
-            %td #{ player.skpim}
-            %td #{ player.skhits}
-            %td #{ player.skfow}
-            %td #{ player.skplusmin}
-            %td #{ player.sktakeaways}
-            %td #{ player.skgiveaways}
+            %td{:class => "cr"} #{ Player.pos_num_to_pos(player.position)}
+            %td{:class => "cr"} #{ player.skpoints}
+            %td{:class => "cr"} #{ player.skgoals}
+            %td{:class => "cr"} #{ player.skassists}
+            %td{:class => "cr"} #{ player.skshots}
+            %td{:class => "cr"} #{ player.skpim}
+            %td{:class => "cr"} #{ player.skhits}
+            %td{:class => "cr"} #{ player.skfow}
+            %td{:class => "cr"} #{ player.skplusmin}
+            %td{:class => "cr"} #{ player.sktakeaways}
+            %td{:class => "cr"} #{ player.skgiveaways}
         - else
           - goalie = player
     - player = goalie
@@ -40,17 +40,17 @@
       %tfoot
         %tr{:class => "team_head"}
           %th GamerTag
-          %th Position
-          %th GoalsAgainst
-          %th Save %
-          %th Saves
-          %th Shots
+          %th{:class => "cr"} Position
+          %th{:class => "cr"} GoalsAgainst
+          %th{:class => "cr"} Save %
+          %th{:class => "cr"} Saves
+          %th{:class => "cr"} Shots
         %tr{:class => "goalie_stats"}
           %td #{ player.personaName }
-          %td #{ player.position }
-          %td #{ player.glga}
-          %td #{ player.glsavepct}
-          %td #{ player.glsaves}
-          %td #{ player.glshots}
+          %td{:class => "cr"} #{ Player.pos_num_to_pos(player.position) }
+          %td{:class => "cr"} #{ player.glga}
+          %td{:class => "cr"} #{ player.glsavepct}
+          %td{:class => "cr"} #{ player.glsaves}
+          %td{:class => "cr"} #{ player.glshots}
           - goalie = nil
   %br

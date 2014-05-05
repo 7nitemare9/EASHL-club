@@ -10,7 +10,7 @@ require 'web_helpers'
     player_data WebHelpers.read_url(url)
   end
 
-	def self.player_data(doc)
+  def self.player_data(doc)
     add_members WebHelpers.parse_ea_json(doc)
     delete_members WebHelpers.parse_ea_json(doc)
   end
@@ -49,5 +49,21 @@ require 'web_helpers'
     return list
   end
 
+  def self.pos_num_to_pos(num)
+    case num
+    when "1"
+      "D"
+    when "2"
+      "D"
+    when "3"
+      "LW"
+    when "4"
+      "C"
+    when "5"
+      "RW"
+    when "0"
+      "G"
+    end
+  end
 
 end
