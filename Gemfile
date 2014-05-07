@@ -6,6 +6,7 @@ gem 'rest-client'
 gem 'cells'
 gem 'jquery-rails'
 gem 'thin'
+gem 'phpbb-auth', :git => 'https://github.com/mattfawcett/phpbb-auth.git'
 #gem 'taps'
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'

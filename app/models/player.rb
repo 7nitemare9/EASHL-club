@@ -35,7 +35,7 @@ require 'web_helpers'
       read_players(doc).each do |player|
         found = 1 if player[:name] == dbplayer[:name]
       end
-      find_by_name[dbplayer[:name]].destroy if found == 0 
+      find_by_name(dbplayer[:name]).destroy if found == 0 
     end
   end
 

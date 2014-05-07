@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/mattfawcett/phpbb-auth.git
+  revision: c874d5fd2d0983c5477de1d30d7242ebb7b76dde
+  specs:
+    phpbb-auth (0.1.1)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -209,6 +215,7 @@ DEPENDENCIES
   launchy
   nokogiri
   pg
+  phpbb-auth!
   rails (= 3.1.0)
   rest-client
   rspec-rails
