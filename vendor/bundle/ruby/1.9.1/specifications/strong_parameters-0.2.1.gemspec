@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.email = ["david@heinemeierhansson.com"]
   s.homepage = "https://github.com/rails/strong_parameters"
   s.require_paths = ["lib"]
-  s.rubygems_version = "1.8.25"
+  s.rubygems_version = "1.8.10"
   s.summary = "Permitted and required parameters for Action Pack"
 
   if s.respond_to? :specification_version then

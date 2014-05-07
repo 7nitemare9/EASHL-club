@@ -1,6 +1,6 @@
 GIT
-  remote: https://github.com/mattfawcett/phpbb-auth.git
-  revision: c874d5fd2d0983c5477de1d30d7242ebb7b76dde
+  remote: https://github.com/7nitemare9/phpbb-auth.git
+  revision: c599c682fa8f55063451547896b0626b55a8c0b2
   specs:
     phpbb-auth (0.1.1)
 
@@ -101,6 +101,7 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.23)
     multi_json (1.7.2)
+    mysql2 (0.3.15)
     nokogiri (1.5.5)
     pg (0.13.1)
     polyglot (0.3.3)
@@ -213,6 +214,7 @@ DEPENDENCIES
   haml
   jquery-rails
   launchy
+  mysql2
   nokogiri
   pg
   phpbb-auth!

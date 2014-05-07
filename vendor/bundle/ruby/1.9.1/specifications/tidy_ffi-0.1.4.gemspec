@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.homepage = "http://github.com/libc/tidy_ffi"
   s.require_paths = ["lib"]
   s.rubyforge_project = "tidy-ffi"
-  s.rubygems_version = "1.8.25"
+  s.rubygems_version = "1.8.10"
   s.summary = "Tidy library interface via FFI"
 
   if s.respond_to? :specification_version then

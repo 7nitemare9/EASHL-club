@@ -5,7 +5,7 @@ Gem::Specification.new do |s|
   s.version = "0.14.6"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 1.3.6") if s.respond_to? :required_rubygems_version=
-  s.authors = ["Yehuda Katz", "Jos\u{c3}\u{a9} Valim"]
+  s.authors = ["Yehuda Katz", "Jos\u{e9} Valim"]
   s.date = "2010-11-20"
   s.description = "A scripting framework that replaces rake, sake and rubigen"
   s.email = ["ruby-thor@googlegroups.com"]
@@ -15,7 +15,7 @@ Gem::Specification.new do |s|
   s.homepage = "http://github.com/wycats/thor"
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
-  s.rubygems_version = "1.8.25"
+  s.rubygems_version = "1.8.10"
   s.summary = "A scripting framework that replaces rake, sake and rubigen"
 
   if s.respond_to? :specification_version then

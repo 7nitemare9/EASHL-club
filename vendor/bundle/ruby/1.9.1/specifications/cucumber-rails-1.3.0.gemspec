@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.email = "cukes@googlegroups.com"
   s.homepage = "http://cukes.info"
   s.require_paths = ["lib"]
-  s.rubygems_version = "1.8.25"
+  s.rubygems_version = "1.8.10"
   s.summary = "cucumber-rails-1.3.0"
 
   if s.respond_to? :specification_version then

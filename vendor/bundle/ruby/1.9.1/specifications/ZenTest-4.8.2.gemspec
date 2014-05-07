@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
   s.rdoc_options = ["--main", "README.txt"]
   s.require_paths = ["lib"]
   s.rubyforge_project = "zentest"
-  s.rubygems_version = "1.8.25"
+  s.rubygems_version = "1.8.10"
   s.summary = "ZenTest provides 4 different tools: zentest, unit_diff, autotest, and multiruby"
 
   if s.respond_to? :specification_version then

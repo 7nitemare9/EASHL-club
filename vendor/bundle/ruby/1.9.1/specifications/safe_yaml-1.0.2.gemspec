@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
   s.required_ruby_version = Gem::Requirement.new(">= 1.8.7")
-  s.rubygems_version = "1.8.25"
+  s.rubygems_version = "1.8.10"
   s.summary = "SameYAML provides an alternative implementation of YAML.load suitable for accepting user input in Ruby applications."
 
   if s.respond_to? :specification_version then

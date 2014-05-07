@@ -18,7 +18,7 @@ Gem::Specification.new do |s|
   s.required_ruby_version = Gem::Requirement.new(">= 1.9.1")
   s.requirements = ["Tidy_ffi"]
   s.rubyforge_project = "scrapi"
-  s.rubygems_version = "1.8.25"
+  s.rubygems_version = "1.8.10"
   s.summary = "scrAPI toolkit for Ruby. Uses CSS selectors to write easy, maintainable HTML scraping rules."
 
   if s.respond_to? :specification_version then

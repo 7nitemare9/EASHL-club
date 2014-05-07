@@ -18,6 +18,7 @@
     #container2{:style => "width:1300px"}
       / Banner
       %a{:href => "./posts/new"} admin
+      %p #{@current_user || 'login' }
       .left.banner{:style => "margin-left:-0px; width: 1300px;"}
         %a{:href => "./posts"}
           %img{:src => "/assets/testheader.png"}/

@@ -30,5 +30,23 @@ production:
   username: postgres
   password: suspensoar
 
+phpbb_database_development:
+  adapter: mysql2
+  encoding: utf8
+  database: phpbb_db
+  username: mysql
+  password: suspensoar
+  host: ftp.bombers-hockey.com
+  port: 3306
+
+phpbb_database_production:
+  adapter: mysql2
+  encoding: utf8
+  database: phpbb_db
+  username: mysql
+  password: suspensoar
+  host: ftp.bombers-hockey.com
+  port: 3306
+
 cucumber:
   <<: *test

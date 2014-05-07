@@ -15,7 +15,7 @@ Gem::Specification.new do |s|
   s.rdoc_options = ["--line-numbers", "--inline-source", "--title", "Sinatra", "--main", "README.rdoc"]
   s.require_paths = ["lib"]
   s.rubyforge_project = "sinatra"
-  s.rubygems_version = "1.8.25"
+  s.rubygems_version = "1.8.10"
   s.summary = "Classy web-development dressed in a DSL"
 
   if s.respond_to? :specification_version then
