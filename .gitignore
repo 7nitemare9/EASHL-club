@@ -15,6 +15,6 @@ doc/
 .secret
 app/assets/images/
 vendor/
-public/bhf
-publig/php
+public/bhf/
+public/php/
 
