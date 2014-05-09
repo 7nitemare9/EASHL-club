@@ -14,3 +14,7 @@ doc/
 .idea
 .secret
 app/assets/images/
+vendor/
+public/bhf
+publig/php
+
