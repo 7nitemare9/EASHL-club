@@ -1,6 +1,0 @@
-class CalendersController < ApplicationController
-
-		def getCalenderData
-			@page = Calender.getPage()	
-		end
-end
