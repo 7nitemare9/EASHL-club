@@ -1,5 +1,15 @@
 class PostsController < ApplicationController
-	http_basic_authenticate_with name: "bombers", password: "suspensoar", except: :index
+	before_filter :is_admin, :except => :index
+        
+        def is_admin
+          if @current_user
+            unless @current_user.user_name == "admin"  
+              redirect_to root_path
+            end
+          else
+            redirect_to root_path
+          end 
+        end
 
 
 	def index
@@ -38,8 +48,8 @@ class PostsController < ApplicationController
 	end
 	
 	private
-		def post_params
-			params.require(:post).permit(:title, :text)
-		end
+        def post_params
+          params.require(:post).permit(:title, :text)
+        end
 
 end
