@@ -36,7 +36,7 @@ phpbb_database_development:
   database: phpbb_db
   username: mysql
   password: suspensoar
-  host: ftp.bombers-hockey.com
+  host: localhost
   port: 3306
 
 phpbb_database_production:
@@ -45,7 +45,7 @@ phpbb_database_production:
   database: phpbb_db
   username: mysql
   password: suspensoar
-  host: ftp.bombers-hockey.com
+  host: localhost
   port: 3306
 
 cucumber:
