@@ -1,0 +1,18 @@
+<h1>Edit Post</h1>
+<script src="http://js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
+<script type="text/javascript">bkLib.onDomLoaded(nicEditors.allTextAreas);</script>
+<%= form_for @media, url: media_path(@media) do |f| %>
+	<p>
+    <%= f.label :title %><br>
+    <%= f.text_field :title, :style => "width:650px;" %>
+  </p>
+ 
+  <p>
+    <%= f.label :text %><br>
+    <%= f.text_area :text, :style => "width:650px;"  %>
+  </p>
+ 
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

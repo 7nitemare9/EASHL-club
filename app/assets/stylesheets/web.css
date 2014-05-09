@@ -1,0 +1,500 @@
+/**
+ * Copyright (c) 2008 ClanTemplates.com
+ * TEMPLATENAME; a free template by Asherz at ClanTemplates.com
+ * No part of this file may be redistributed without written permission
+ * Designed by Asherz <email@clantemplates.com>
+ * Coded by Ross <ross@clantemplates.com>
+ * http://www.clantemplates.com/pages/Legal
+ */
+
+/**
+ * Imports
+ */
+@import url('./css-reset.css');
+
+/**
+ * Body
+ */
+ 
+ @font-face {
+	font-family: frank_font;
+	src: url('http://www.spelpunkten.com/bombers/FRAMD.TTF');
+}
+body {
+	background: url("../assets/bg_contentwrapper.jpg") repeat-y scroll center top transparent;
+	/*background: #ffffff;*/
+	font-family: Tahoma, Verdana, Arial, Helvetica, Sans-serif;
+	font-size: 10px;
+	color: #ffffff;
+	text-align: center;
+}
+table {
+	/*background-color:#101010;*/
+	background:scroll;
+	border:3;
+	border-color:#3a3a3a;		
+	padding:3px;
+	
+}
+/**
+ * Page structure
+ */
+#container {
+	
+	background: url('../assets/background.png') repeat-y top center;
+	margin: 0 auto;	
+	padding: 0 56px 0 56px;
+	text-align: left;
+	width: 1000px;
+	/*width: 888px;*/
+}
+#container2 {
+    
+    background: url('../assets/background2.png') repeat-y top center;
+    margin: 0 auto;    
+    padding: 0 56px 0 56px;
+    text-align: left;
+    width: 1000px;
+    /*width: 888px;*/
+}
+
+#header {
+	clear: both;
+	margin-top: 2px;
+}
+
+#column-container {
+	clear: both;
+}
+
+#left-column {
+	float: left;
+	margin-right: 5px;
+	width: 292px;
+}
+
+#right-column {
+	float: left;
+	width:697px;
+/*	width: 588px;*/
+}
+
+#footer {
+	background: url('../assets/footer_bg.jpg') repeat-x;
+	clear: both;
+	height: 25px;
+	text-align: center;
+}
+
+/**
+ * Navigation
+ */
+#navigation {
+  background: url('../assets/nav_bg.jpg') repeat-x;
+  height: 41px;
+}
+
+#navigation li {
+  float: left;
+  height: 41px;
+}
+
+#navigation a {
+  display: block;
+  height: 41px;
+  overflow: hidden;
+}
+
+/**
+ * Rollover Control
+ */
+#navigation a img {
+  display: none;
+}
+
+#navigation a:hover img {
+  display: block;
+}
+
+/**
+ * Nav items
+ */
+#nav_homepage {
+  background: url('../assets/nav/home.png') no-repeat;
+  width: 65px;
+}	
+
+#nav_players {
+  background: url('../assets/nav/lineup.png') no-repeat;
+  width: 71px;
+}
+
+#nav_stats {
+  background: url('../assets/nav/stats.png') no-repeat;
+  width: 93px;
+}
+
+#nav_tournaments {
+  background: url('../assets/nav/tournaments.jpg') no-repeat;
+  width: 94px;
+}
+#nav_info {
+  background: url('../assets/nav/info.png') no-repeat;
+  width: 87px;
+}
+
+#nav_media {
+  background: url('../assets/nav/media.png') no-repeat;
+  width: 69px;
+}
+
+#nav_forums {
+  background: url('../assets/nav/forum.png') no-repeat;
+  width: 79px;
+}
+
+#nav_contact {
+  background: url('../assets/nav/contact.jpg') no-repeat;
+  width: 108px;
+}
+
+#nav_results {
+  background: url('../assets/nav/results.png') no-repeat;
+  width: 78px;
+}
+#nav_filler {
+  background: url('../assets/nav/filler.jpg');
+  width: 15px;
+}
+#nav_filler2 {
+  background: url('../assets/nav/filler.jpg') repeat-x;
+  width: 755px;
+}
+
+
+/**
+ * Boxes
+ */
+.box {
+	border: 1px solid #141414;
+}
+
+	.box h2 {
+		background: url('../assets/head_bg.jpg') repeat-x;
+		border-bottom: 1px solid #141414;		
+		height: 36px;
+		text-align: right;
+	}
+	.box h4 {
+		background: url('../assets/rank.jpg') repeat-x;
+		border-bottom: 1px solid #141414;
+		height: 52px;
+		font-size: large;
+		text-align: right;
+		margin-top: 0px;			
+	}
+	.box h4 table{
+		margin-top: -13px;
+	}
+	.box h5 {
+		background: url('../assets/matchroster/teamrosterbg.jpg') no-repeat;
+		border-bottom: 1px solid #141414; 
+		height:55px;
+		width:533px; 
+		font-size: large;
+		text-align: right;
+		margin-top: 0px;			
+	}
+	
+		.box h2 strong {
+		 	background: url('../assets/head_end.jpg') no-repeat;
+			display: block;
+		}
+	
+	.box .content {
+		/*background: #181818;*/		
+		background: #181818;
+		border: 1px solid #292929;
+	}
+	.box .maincontent {
+		/*background: #181818;*/
+		min-height: 800px;		
+		background: #181818;
+		border: 1px solid #292929;
+	}
+
+/**
+ * Specific box settings
+ */
+
+/* Welcome/Introduction box */
+.welcome_box {
+	margin-right: 4px;
+	width: 292px;
+}
+
+/* Left/right column boxes */
+#left-column .box, #right-column .box {
+	margin: 2px 0 2px 0;
+}
+
+/**
+ * Roster/Team
+ */
+#team-members li {
+	float: left;
+	margin: 3px;
+}
+
+#team-members a {
+	border: 2px solid #181818;
+	display: block;
+	padding: 1px;
+}
+
+#team-members a:hover {
+	border: 2px solid #fff;
+}
+
+#rosterData strong {
+	color: #888888;
+	font-weight: normal;
+}
+
+/** 
+ * Latest news (bulleted)
+ */
+.latest-news li {
+	padding: 3px;
+}
+
+.latest-news h3 {
+	color: #888888;
+	display: inline;
+}
+
+.latest-news cite {
+	color: #888888;
+	float: right;
+	font-style: normal;
+}
+
+	.latest-news cite a {
+		color: #fff;
+		font-weight: bold;
+	}
+	
+	.latest-news cite a:hover {
+	color: #fff;
+	font-weight: bold;
+	}
+
+.latest-news .tright a {
+	font-weight: bold;
+	text-decoration: none;
+}
+
+/**
+ * Text formatting
+ */
+.content h3, .content p {
+	
+	margin: 15px 10px 15px 10px;
+	text-align:left;
+	color: #888888;
+	
+}
+.content p2 {	
+	display:block;
+	font-family: frank_font;
+	text-align:right;	
+	font-size: 125%;
+	margin-top: -56px;
+	margin-left: 45px;
+	margin-bottom: 65px;
+	margin-right: 18px;
+	color: #fff;
+	
+}
+.content p3 {		
+	display:block;
+	font-size: 120%;		
+	margin: 15px 50px 15px 50px;
+	color: #888888;
+	
+	
+}
+.content p4 {	
+	display:block;		
+	margin: 2px 50px 15px 50px;
+	color: #888888;
+	border-top: 2px solid #fff;
+	
+}
+.content p {	
+font-size: 115%;
+	color: #fff;
+}
+.box p {
+	color: #fff;
+}
+
+
+strong {
+	font-weight: bold;
+	font-size: 125%;
+}
+
+em {
+	font-style: italic;
+}
+
+.tcenter {
+	text-align: center;
+}
+
+.tright {
+	text-align: right;
+}
+
+.content h3 {
+	color: #fff;
+	font-size: 10px;
+	font-weight: bold;
+}
+
+.content h3 cite {
+	color: #fff;
+	font-style: normal;
+	font-weight: normal;
+}
+
+	.content h3 cite a {
+		color: #fff;
+		font-weight: bold;
+	}
+	
+	.content h3 cite a:hover {	
+	color: #fff;
+	}
+
+#right-column .content ol, #right-column .content ul {
+	margin-left: 20px;
+}
+
+#right-column .content ol {
+	list-style: decimal;
+}
+
+#right-column .content ul {
+	list-style: disc;
+}
+
+/**
+ * Hyperlinks
+ */
+a, a:visited {
+	color: #ffffff;
+}
+
+a:hover, a:visited:hover {
+	color: #ffffff;
+}
+
+a:active {
+	color: #ffffff;
+}
+
+/**
+ * Floats
+ */
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}
+#container #header .box.left.welcome_box .content p {
+	color: #FFF;
+}
+#links {
+}
+#links a {
+		display: block;
+		height: 56px;
+		overflow: hidden;
+	}
+
+	/**
+		 * Rollover Control
+		 */
+		#links a img {
+			display: none;
+		}
+		
+		#links a:hover img {
+			display: block;
+		}
+	#console {
+		background: url('../assets/Links/consolehockey1.jpg') no-repeat;		
+	}
+	#nhl {
+		background: url('../assets/Links/Yahoo1.jpg') no-repeat;		
+	}
+	#eashl {
+		background: url('../assets/Links/EASHL1.jpg') no-repeat;		
+	}
+	#dbk {
+		background: url('../assets/Links/ducktalesbk1.png') no-repeat;		
+	}
+	#jesus {
+		background: url('../assets/Links/Jesus1.jpg') no-repeat;		
+	}
+	#defender-content-1 {
+	  display: none; /* required */
+	  position: absolute; /* required */
+	  padding: 0px; border: 0px solid black;
+	  background-color: white;
+	}
+	#pm-content-1 {
+	  display: none; /* required */
+	  position: absolute; /* required */
+	  padding: 0px; border: 0px solid black;
+	  background-color: white;
+	}
+	#pim-content-1 {
+	  display: none; /* required */
+	  position: absolute; /* required */
+	  padding: 0px; border: 0px solid black;
+	  background-color: white;
+	}
+	#g-content-1 {
+	  display: none; /* required */
+	  position: absolute; /* required */
+	  padding: 0px; border: 0px solid black;
+	  background-color: white;
+	}
+	#p-content-1 {
+	  display: none; /* required */
+	  position: absolute; /* required */
+	  padding: 0px; border: 0px solid black;
+	  background-color: white;
+	}
+	#a-content-1 {
+	  display: none; /* required */
+	  position: absolute; /* required */
+	  padding: 0px; border: 0px solid black;
+	  background-color: white;
+	}
+	#b-content-1 {
+	  display: none; /* required */
+	  position: absolute; /* required */
+	  padding: 0px; border: 0px solid black;
+	  background-color: white;
+	}
+li {
+	list-style: none;
+}
+
+	

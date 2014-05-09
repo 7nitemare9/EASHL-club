@@ -1,0 +1,54 @@
+cache: [GET /assets/nav/results_hover.png] stale, valid, store
+cache: [GET /assets/nav/info_hover.png] stale, valid, store
+cache: [GET /assets/nav/info.png] stale, valid, store
+cache: [GET /assets/nav/stats_hover.png] stale, valid, store
+cache: [GET /assets/nav/homepage_hover.png] miss
+cache: [GET /assets/footer_bg.jpg] stale, valid, store
+cache: [GET /assets/Links/Jesus1.jpg] stale, valid, store
+cache: [GET /assets/Links/EASHL1.jpg] stale, valid, store
+cache: [GET /assets/Links/consolehockey1.jpg] stale, valid, store
+cache: [GET /assets/Links/Yahoo1.jpg] stale, valid, store
+cache: [GET /posts] miss
+cache: [GET /assets/css-reset.css] stale, valid, store
+cache: [GET /themes/blue/style.css] miss
+cache: [GET /css/sliderman.css] miss
+cache: [GET /assets/application.css] stale, valid, store
+cache: [GET /assets/web.css] stale, valid, store
+cache: [GET /assets/application.js] stale, valid, store
+cache: [GET /assets/testheader.png] stale, valid, store
+cache: [GET /assets/nav/filler.jpg] stale, valid, store
+cache: [GET /assets/headers/latest%20matches.jpg] stale, valid, store
+cache: [GET /assets/headers/onlinestatus.jpg] stale, valid, store
+cache: [GET /assets/blank.jpg] stale, valid, store
+cache: [GET /assets/headers/Senastforum.jpg] stale, valid, store
+cache: [GET /assets/shout.png] stale, valid, store
+cache: [GET /assets/headers/links.png] stale, valid, store
+cache: [GET /assets/Links/consolehockey.jpg] stale, valid, store
+cache: [GET /assets/Links/Yahoo.jpg] stale, valid, store
+cache: [GET /assets/Links/EASHL.jpg] stale, valid, store
+cache: [GET /assets/Links/Jesus.jpg] stale, valid, store
+cache: [GET /assets/bg_contentwrapper.jpg] stale, valid, store
+cache: [GET /assets/background2.png] stale, valid, store
+cache: [GET /assets/nav/homepage.png] miss
+cache: [GET /assets/nav/homepage_hover.png] miss
+cache: [GET /assets/nav/lineup.png] stale, valid, store
+cache: [GET /assets/nav/lineup_hover.png] stale, valid, store
+cache: [GET /assets/Links/consolehockey1.jpg] stale, valid, store
+cache: [GET /assets/nav/forum.png] stale, valid, store
+cache: [GET /assets/head_end.jpg] stale, valid, store
+cache: [GET /assets/nav/info_hover.png] stale, valid, store
+cache: [GET /assets/nav/results_hover.png] stale, valid, store
+cache: [GET /assets/head_bg.jpg] stale, valid, store
+cache: [GET /assets/nav/results.png] stale, valid, store
+cache: [GET /assets/nav/media.png] stale, valid, store
+cache: [GET /assets/nav/stats_hover.png] stale, valid, store
+cache: [GET /assets/nav/media_hover.png] stale, valid, store
+cache: [GET /assets/nav/stats.png] stale, valid, store
+cache: [GET /assets/nav/info.png] stale, valid, store
+cache: [GET /assets/Links/Yahoo1.jpg] stale, valid, store
+cache: [GET /assets/Links/EASHL1.jpg] stale, valid, store
+cache: [GET /assets/Links/Jesus1.jpg] stale, valid, store
+cache: [GET /assets/footer_bg.jpg] stale, valid, store
+cache: [GET /forum] miss
+^CStopping ...
+saasbook@saasbook:~/spelpunkten$
