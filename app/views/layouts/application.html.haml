@@ -51,8 +51,9 @@
         %li
           %a#nav_filler2{:href => "./"}
             %img{:src => "/assets/nav/filler.jpg"}/
-        %li
-          = render :partial => '/layouts/login'
+        - if @current_user.user_name == "not logged in"
+          %li{:style => "margin-bottom: 41px" }
+            = render :partial => '/layouts/login'
       / Header row
       #header
         /
