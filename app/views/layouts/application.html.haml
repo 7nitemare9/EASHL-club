@@ -17,8 +17,10 @@
     
     #container2{:style => "width:1300px"}
       / Banner
-      %a{:href => "./posts/new"} admin
-      - if @current_user
+      / %a{:href => "./posts/new"} admin
+      - if @current_user.user_name == "admin"
+        = link_to "create new", :action => "new"
+      - else @current_user
         %p= @current_user.user_name 
       .left.banner{:style => "margin-left:-0px; width: 1300px;"}
         %a{:href => "./posts"}

@@ -1,35 +1,19 @@
 class PlayersController < ApplicationController
-  # GET /players
-  # GET /players.json
+  require 'auth_helper'
+  include AuthHelper
+  
+  before_filter :is_admin, :except => [:index, :getMemberUpdate, :OnlineStatus ] 
+
   def index
     @players = Player.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @players }
-    end
   end
 
-  # GET /players/1
-  # GET /players/1.json
   def show
     @player = Player.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @player }
-    end
   end
 
-  # GET /players/new
-  # GET /players/new.json
   def new
     @player = Player.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @player }
-    end
   end
 
   # GET /players/1/edit
@@ -37,8 +21,6 @@ class PlayersController < ApplicationController
     @player = Player.find(params[:id])
   end
 
-  # POST /players
-  # POST /players.json
   def create
     @player = Player.new(params[:player])
 
@@ -53,8 +35,6 @@ class PlayersController < ApplicationController
     end
   end
 
-  # PUT /players/1
-  # PUT /players/1.json
   def update
     @player = Player.find(params[:id])
 
@@ -69,8 +49,6 @@ class PlayersController < ApplicationController
     end
   end
 
-  # DELETE /players/1
-  # DELETE /players/1.json
   def destroy
     @player = Player.find(params[:id])
     @player.destroy
