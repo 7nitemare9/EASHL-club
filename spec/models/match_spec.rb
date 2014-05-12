@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'webmock'
 
 
 describe Match do

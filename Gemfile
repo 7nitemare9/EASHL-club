@@ -19,16 +19,16 @@ group :development, :test do
   gem 'strong_parameters'
   gem 'launchy'
   gem 'rspec-rails'
-  gem 'ZenTest'
+  gem 'ZenTest', "4.8.2"
   gem 'simplecov'
   gem "scrapi", "~> 2.0.0"
 
 group :test do
-  gem 'cucumber-rails'
+  gem 'cucumber-rails', :require => false
   gem 'cucumber-rails-training-wheels'
   gem 'database_cleaner'
   gem 'selenium-webdriver'
-  gem 'capybara'
+  gem 'capybara', '2.0.0'
   gem "sinatra"
   gem "webmock"
 end
