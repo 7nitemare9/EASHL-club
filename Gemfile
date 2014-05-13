@@ -30,7 +30,7 @@ group :test do
   gem 'selenium-webdriver'
   gem 'capybara', '2.0.0'
   gem "sinatra"
-  gem "webmock"
+  gem "webmock", :require => false
 end
 
 end
