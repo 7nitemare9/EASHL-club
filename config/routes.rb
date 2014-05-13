@@ -50,6 +50,10 @@ Spelpunkten::Application.routes.draw do
         match '/player/OnlineStatus' => 'players#OnlineStatus'
 	match '/match/getMatchData' => 'matches#getMatchData'
 	match '/calender/getCalenderData' => 'calenders#getCalenderData'
+        match "/online/status" => proc { |env|
+            request = ActionDispatch::Request.new(env)
+              [ 200, {}, [ Cell::Rack.render_cell_for(:players, :online, request ) ]]
+        }
 	
   # Sample resource route with more complex sub-resources
   #   resources :products do

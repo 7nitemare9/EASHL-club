@@ -10,6 +10,14 @@
     %link{:href => "/themes/blue/style.css", :id => "", :media => "print, projection, screen", :rel => "stylesheet", :type => "text/css"}/
     %link{:href => "/css/sliderman.css", :rel => "stylesheet", :type => "text/css"}/
     =stylesheet_link_tag "application"       
+    :javascript
+      $(document).ready(function() {
+      // get data every 5 mins and refresh myDiv
+        var pingAfter = 5000;  
+        var refreshId = setInterval(function() {
+          $("#status").load('/online/status');
+        }, pingAfter);
+      });
   %body
     
     %link{:href => "/assets/web.css", :rel => "stylesheet", :type => "text/css"}/
@@ -71,7 +79,7 @@
                 %img{:alt => "", :src => "/assets/headers/onlinestatus.jpg"}/
               #block1
                 #status
-                = render_cell :players, :online                  
+                /= render_cell :players, :online                  
               .content{:style => "margin-top:2px;"}
                 %object#live_embed_player_flash{:bgcolor => "#000000", :data => "http://www.twitch.tv/widgets/live_embed_player.swf?channel=7nitemare9", :height => "188", :type => "application/x-shockwave-flash", :width => "288"}
                   %param{:name => "allowFullScreen", :value => "true"}/
