@@ -162,9 +162,13 @@ table {
   background: url('../assets/nav/results.png') no-repeat;
   width: 78px;
 }
+#nav_logout {
+  background: url('../assets/nav/logout.png') no-repeat;
+  width: 78px;
+}
 #nav_filler {
-  background: url('../assets/nav/filler.jpg');
-  width: 15px;
+  background: url('../assets/nav/filler.jpg') repeat-x;
+  width: 677px;
 }
 #nav_filler2 {
   background: url('../assets/nav/filler.jpg') repeat-x;

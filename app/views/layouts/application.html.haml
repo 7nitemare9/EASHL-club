@@ -56,12 +56,19 @@
         %li
           %a#nav_forums{:href => "/forum"}
             %img{:src => "/assets/nav/forum_hover.png"}/                 
-        %li
-          %a#nav_filler2{:href => "./"}
-            %img{:src => "/assets/nav/filler.jpg"}/
         - if @current_user.user_name == "not logged in"
+          %li
+            %a#nav_filler2{:href => "./"}
+              %img{:src => "/assets/nav/filler.jpg"}/
           %li{:style => "margin-bottom: -41px" }
             = render :partial => '/layouts/login'
+        - else
+          %li
+            %a#nav_filler{:href => "./"}
+              %img{:src => "/assets/nav/filler.jpg"}/
+          %li
+            %a#nav_lougout{:href => "/forum/ucp.php?mode=logout&sid=#{ cookies['bombers-hockey_sid'] }"}
+              %img{:src => "/assets/nav/logout_hover.png"}/                 
       / Header row
       #header
         /
