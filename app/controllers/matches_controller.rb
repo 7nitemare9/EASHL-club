@@ -26,15 +26,10 @@ class MatchesController < ApplicationController
   # POST /matches.json
   def create
     @match = Match.new(params[:match])
-
-    respond_to do |format|
-      if @match.save
-        format.html { redirect_to @match, notice: 'Match was successfully created.' }
-        format.json { render json: @match, status: :created, location: @match }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @match.errors, status: :unprocessable_entity }
-      end
+    if @match.save
+      redirect_to @match, notice: 'Match was successfully created.' 
+    else
+      render action: "new" 
     end
   end
 
@@ -42,15 +37,10 @@ class MatchesController < ApplicationController
   # PUT /matches/1.json
   def update
     @match = Match.find(params[:id])
-
-    respond_to do |format|
-      if @match.update_attributes(params[:match])
-        format.html { redirect_to @match, notice: 'Match was successfully updated.' }
-        format.json { head :ok }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @match.errors, status: :unprocessable_entity }
-      end
+    if @match.update_attributes(params[:match])
+      redirect_to @match, notice: 'Match was successfully updated.' 
+    else
+      render action: "edit" 
     end
   end
 
@@ -66,6 +56,6 @@ class MatchesController < ApplicationController
 #		@page = Match.matchData(@page, params[:team])
     if @page.blank? then
       redirect_to :action => getMatchData, :team => params[:team]
+    end
   end
-end
 end

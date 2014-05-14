@@ -2,7 +2,7 @@ class PlayersController < ApplicationController
   require 'auth_helper'
   include AuthHelper
   
-  before_filter :is_admin, :except => [:index, :getMemberUpdate, :OnlineStatus ] 
+  before_filter :is_admin, :except => [:index, :getMemberData, :OnlineStatus ] 
 
   def index
     @players = Player.all
@@ -23,40 +23,26 @@ class PlayersController < ApplicationController
 
   def create
     @player = Player.new(params[:player])
-
-    respond_to do |format|
-      if @player.save
-        format.html { redirect_to @player, notice: 'Player was successfully created.' }
-        format.json { render json: @player, status: :created, location: @player }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @player.errors, status: :unprocessable_entity }
-      end
+    if @player.save
+      redirect_to @player, notice: 'Player was successfully created.' 
+    else
+      render action: "new" 
     end
   end
 
   def update
     @player = Player.find(params[:id])
-
-    respond_to do |format|
-      if @player.update_attributes(params[:player])
-        format.html { redirect_to @player, notice: 'Player was successfully updated.' }
-        format.json { head :ok }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @player.errors, status: :unprocessable_entity }
-      end
+    if @player.update_attributes(params[:player])
+      redirect_to @player, notice: 'Player was successfully updated.' 
+    else
+      render action: "edit" 
     end
   end
 
   def destroy
     @player = Player.find(params[:id])
     @player.destroy
-
-    respond_to do |format|
-      format.html { redirect_to players_url }
-      format.json { head :ok }
-    end
+     redirect_to players_url 
   end
 
   def getMemberData
