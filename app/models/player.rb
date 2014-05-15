@@ -1,9 +1,10 @@
 class Player < ActiveRecord::Base
-require 'rubygems'
-require 'nokogiri'
-require 'open-uri'
-require 'json'
-require 'web_helpers'
+  has_one :player_team_stats
+  require 'rubygems'
+  require 'nokogiri'
+  require 'open-uri'
+  require 'json'
+  require 'web_helpers'
 
   def self.get_page(page, team)
     url = "http://www.easports.com/iframe/nhl14proclubs/api/platforms/xbox/clubs/" + team + "/" +page
