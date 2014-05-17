@@ -1,24 +1,29 @@
 class Player < ActiveRecord::Base
-  has_one :player_team_stats
+  has_one :player_team_stat
   require 'rubygems'
   require 'nokogiri'
   require 'open-uri'
   require 'json'
   require 'web_helpers'
+  @@team = ''
 
   def self.get_page(page, team)
     url = "http://www.easports.com/iframe/nhl14proclubs/api/platforms/xbox/clubs/" + team + "/" +page
-    player_data WebHelpers.read_url(url)
+    @@team = team
+    player_data WebHelpers.read_json(url)
   end
 
   def self.player_data(doc)
-    add_members WebHelpers.parse_ea_json(doc)
-    delete_members WebHelpers.parse_ea_json(doc)
+    add_members doc #WebHelpers.parse_ea_json(doc)
+    delete_members doc #WebHelpers.parse_ea_json(doc)
   end
 
   def self.add_members(doc)
     read_players(doc).each do |player| 
-      add_to_database(player)
+      db_player = add_to_database(player)
+      db_player.create_player_team_stat(
+        PlayerTeamStat.get_data(@@team, player[:eaid])
+      )
     end
   end
 
@@ -44,7 +49,7 @@ class Player < ActiveRecord::Base
     list = []
     doc['raw'].each do |key|
       key.each do |member|
-        list << {name: member[1]["name"], eaid: key}
+        list << {name: member[1]["name"], eaid: member[0]}
       end
     end
     return list
