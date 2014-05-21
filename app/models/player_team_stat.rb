@@ -10,30 +10,33 @@ class PlayerTeamStat < ActiveRecord::Base
 
   def self.create_hash(json_hash)
     data = json_hash["raw"][0]
-    hash = { 
-      :playername   => data["playername"],
-      :totalgp      => data["totalgp"],
-      :skgoals      => data["skgoals"],
-      :skassists    => data["skassists"],
-      :skplusmin    => data["skplusmin"],
-      :skpoints     => data["skpoints"],
-      :skpim        => data["skpim"],
-      :skppg        => data["skppg"],
-      :skshg        => data["skshg"],
-      :skhits       => data["skhits"],
-      :skbs         => data["skbs"],
-      :skshots      => data["skshots"],
-      :skshotpct    => data["skshotpct"],
-      :glgaa        => data["glgaa"],
-      :glga         => data["glga"],
-      :glsaves      => data["glsaves"],
-      :glsavepct    => data["glsavepct"],
-      :glso         => data["glso"],
-      :glsoperiods  => data["glsoperiods"],
-      :glwins       => data["glwins"],
-      :glgp         => data["glgp"],
-      :memberId     => data["memberId"]
-    }
+    p data
+    unless data == nil
+      hash = { 
+        :playername   => data["playername"],
+        :totalgp      => data["totalgp"],
+        :skgoals      => data["skgoals"],
+        :skassists    => data["skassists"],
+        :skplusmin    => data["skplusmin"],
+        :skpoints     => data["skpoints"],
+        :skpim        => data["skpim"],
+        :skppg        => data["skppg"],
+        :skshg        => data["skshg"],
+        :skhits       => data["skhits"],
+        :skbs         => data["skbs"],
+        :skshots      => data["skshots"],
+        :skshotpct    => data["skshotpct"],
+        :glgaa        => data["glgaa"],
+        :glga         => data["glga"],
+        :glsaves      => data["glsaves"],
+        :glsavepct    => data["glsavepct"],
+        :glso         => data["glso"],
+        :glsoperiods  => data["glsoperiods"],
+        :glwins       => data["glwins"],
+        :glgp         => data["glgp"],
+        :memberId     => data["memberId"]
+      }
+    end
   end
 
 end

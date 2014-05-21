@@ -22,7 +22,60 @@
       %p{:style => "margin-left:-130px; margin-top:-10px"} #{@player.strength}
       %p{:style => "margin-left:-130px"} Style: 
       %p{:style => "margin-left:-130px; margin-top:-10px"} #{@player.style}
-
-
+  - player = @player.player_team_stat
+  - if (player.totalgp.to_i - player.glgp.to_i) > 0
+    %table{:rules => "all"}
+      %thead
+        %tr{:class => "team_head"}
+          %th Player name
+          %th{:class => "cr"} Games played
+          %th{:class => "cr"} Points
+          %th{:class => "cr"} Goals
+          %th{:class => "cr"} Assists
+          %th{:class => "cr"} Shots
+          %th{:class => "cr"} PIM
+          %th{:class => "cr"} Hits
+          %th{:class => "cr"} +/-
+          %th{:class => "cr"} PP Goals
+          %th{:class => "cr"} SH Goals
+          %th{:class => "cr"} Blocked shots
+          %th{:class => "cr"} Shot %
+      %tbody
+        %tr
+          %td #{ player.playername }
+          %td{:class => "cr"} #{ (player.totalgp.to_i - player.glgp.to_i) }
+          %td{:class => "cr"} #{ player.skpoints}
+          %td{:class => "cr"} #{ player.skgoals}
+          %td{:class => "cr"} #{ player.skassists}
+          %td{:class => "cr"} #{ player.skshots}
+          %td{:class => "cr"} #{ player.skpim}
+          %td{:class => "cr"} #{ player.skhits}
+          %td{:class => "cr"} #{ player.skplusmin}
+          %td{:class => "cr"} #{ player.skppg}
+          %td{:class => "cr"} #{ player.skshg}
+          %td{:class => "cr"} #{ player.skbs}
+          %td{:class => "cr"} #{ player.skshotpct}
+  - unless player.glgp == "0"
+    %table{:rules => "all"}
+      %thead
+        %tr{:class => "team_head"}
+          %th{:class => "cr"} Games played
+          %th{:class => "cr"} Goals against
+          %th{:class => "cr"} GAA
+          %th{:class => "cr"} Saves
+          %th{:class => "cr"} Save %
+          %th{:class => "cr"} Shut outs
+          %th{:class => "cr"} SO periods
+          %th{:class => "cr"} Wins
+      %tbody
+        %tr
+          %td{:class => "cr"} #{ player.glgp }
+          %td{:class => "cr"} #{ player.glga}
+          %td{:class => "cr"} #{ player.glgaa}
+          %td{:class => "cr"} #{ player.glsaves}
+          %td{:class => "cr"} #{ player.glsavepct}
+          %td{:class => "cr"} #{ player.glso}
+          %td{:class => "cr"} #{ player.glsoperiods}
+          %td{:class => "cr"} #{ player.glwins}
   = link_to 'Edit', edit_player_path(@player)  
   = link_to 'Back', players_path 
