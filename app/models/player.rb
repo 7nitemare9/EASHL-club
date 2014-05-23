@@ -1,5 +1,6 @@
 class Player < ActiveRecord::Base
   has_one :player_team_stat
+  has_one :player_season_stat
   require 'rubygems'
   require 'nokogiri'
   require 'open-uri'
@@ -21,9 +22,11 @@ class Player < ActiveRecord::Base
   def self.add_members(doc)
     read_players(doc).each do |player| 
       db_player = find_by_name(player[:name])#add_to_database(player)
-      p player[:name] + " " + player[:eaid]
       db_player.create_player_team_stat(
         PlayerTeamStat.get_data(@@team, player[:eaid])
+      )
+      db_player.create_player_season_stat(
+        PlayerSeasonStat.get_data(player[:eaid])
       )
     end
   end

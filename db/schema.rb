@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140514170931) do
+ActiveRecord::Schema.define(:version => 20140523171217) do
 
   create_table "game_players", :force => true do |t|
     t.integer "match_id"
@@ -66,6 +66,62 @@ ActiveRecord::Schema.define(:version => 20140514170931) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "text"
+  end
+
+  create_table "player_season_stats", :force => true do |t|
+    t.integer  "player_id"
+    t.string   "skwins"
+    t.string   "sklosses"
+    t.string   "skgp"
+    t.string   "skgoals"
+    t.string   "skassists"
+    t.string   "skpoints"
+    t.string   "skgwg"
+    t.string   "skplusmin"
+    t.string   "skpim"
+    t.string   "skppg"
+    t.string   "skshg"
+    t.string   "skoffsides"
+    t.string   "skfights"
+    t.string   "skfightswon"
+    t.string   "skfo"
+    t.string   "skfow"
+    t.string   "skfol"
+    t.string   "skfop"
+    t.string   "skhits"
+    t.string   "skbs"
+    t.string   "skshots"
+    t.string   "skshotpct"
+    t.string   "skdekes"
+    t.string   "skdekesmade"
+    t.string   "skgiveaways"
+    t.string   "sktakeaways"
+    t.string   "skscrnchances"
+    t.string   "skscrngoals"
+    t.string   "glwins"
+    t.string   "gllosses"
+    t.string   "glot"
+    t.string   "glshots"
+    t.string   "glgaa"
+    t.string   "glga"
+    t.string   "glmin"
+    t.string   "glbrkshots"
+    t.string   "glbrksaves"
+    t.string   "glbrksavepct"
+    t.string   "glpenshots"
+    t.string   "glpensaves"
+    t.string   "glpensavepct"
+    t.string   "glsaves"
+    t.string   "glsavepct"
+    t.string   "glso"
+    t.string   "glsoperiods"
+    t.string   "glgp"
+    t.string   "lwgp"
+    t.string   "rwgp"
+    t.string   "cgp"
+    t.string   "dgp"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "player_team_stats", :force => true do |t|

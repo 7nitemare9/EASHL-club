@@ -10,7 +10,6 @@ class PlayerTeamStat < ActiveRecord::Base
 
   def self.create_hash(json_hash)
     data = json_hash["raw"][0]
-    p data
     unless data == nil
       hash = { 
         :playername   => data["playername"],
