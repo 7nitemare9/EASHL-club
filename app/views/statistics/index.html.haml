@@ -1,0 +1,295 @@
+%div{style: "position: relative;"}
+  %p
+    %img#p-target-1{height: "97", src: "assets/Awards/points.png", width: "335"}/
+    %img#defender-target-1{height: "97", src: "assets/Awards/defender.png", style: "margin-left:3px", width: "335"}/
+  %p
+  #p-content-1{style: "margin-top:-770px; margin-left:-940px"}
+    %table.tablesorter
+      %thead
+        %tr
+          %th Name
+          %th Goals
+          %th Assist
+          %th Points
+          %th Hits
+          %th PIM
+          %th +/-
+      %tbody
+        %tr
+          %td #{ @stats[:points][0][:name] }
+          %td #{ @stats[:points][0].player_team_stat[:skgoals].to_i / @stats[:points][0].player_team_stat[:totalgp].to_f }
+          %td #{ @stats[:points][0].player_team_stat[:skassists].to_i / @stats[:points][0].player_team_stat[:totalgp].to_f }
+          %td #{ @stats[:points][0].player_team_stat[:skpoints].to_i / @stats[:points][0].player_team_stat[:totalgp].to_f }
+          %td #{ @stats[:points][0].player_team_stat[:skhits].to_i / @stats[:points][0].player_team_stat[:totalgp].to_f }
+          %td #{ @stats[:points][0].player_team_stat[:skpims].to_i / @stats[:points][0].player_team_stat[:totalgp].to_f }
+          %td #{ @stats[:points][0].player_team_stat[:skplusmin].to_i / @stats[:points][0].player_team_stat[:totalgp].to_f }
+        %tr
+          %td #{ @stats[:points][1][:name] }
+          %td #{ @stats[:points][1].player_team_stat[:skgoals].to_i / @stats[:points][0].player_team_stat[:totalgp].to_f }
+          %td #{ @stats[:points][1].player_team_stat[:skassists].to_i / @stats[:points][0].player_team_stat[:totalgp].to_f }
+          %td #{ @stats[:points][1].player_team_stat[:skpoints].to_i / @stats[:points][0].player_team_stat[:totalgp].to_f }
+          %td #{ @stats[:points][1].player_team_stat[:skhits].to_i / @stats[:points][0].player_team_stat[:totalgp].to_f }
+          %td #{ @stats[:points][1].player_team_stat[:skpims].to_i / @stats[:points][0].player_team_stat[:totalgp].to_f }
+          %td #{ @stats[:points][1].player_team_stat[:skplusmin].to_i / @stats[:points][0].player_team_stat[:totalgp].to_f }
+          %td 0.528
+        %tr
+          %td Sork pippi
+          %td 0.658
+          %td 1.039
+          %td 1.696
+          %td 1.212
+          %td 1.385
+          %td 0.623
+  - points = @stats[:points][0].player_team_stat
+  %div{style: "top: 32px; left: 19px; position: absolute;"}
+    %a{href: "player/Jollboll"}
+      %img{src: "images/Xbox/Jollboll_Online.jpg"}/
+  %div{style: "top: 56px; left: 95px; position: absolute;"}
+    %a{href: "player/Jollboll"} #{ @stats[:points][0][:name] }
+  %div{style: "top: 56px; left: 180px; position: absolute;"} #{ (points[:skgoals].to_i / points[:totalgp].to_f).round(2) }
+  %div{style: "top: 56px; left: 215px; position: absolute;"} #{ (points[:skassists].to_i / points[:totalgp].to_f).round(2)  }
+  %div{style: "top: 56px; left: 245px; position: absolute;"} #{ (points[:skpoints].to_i / points[:totalgp].to_f).round(2)  }
+  %div{style: "top: 56px; left: 268px; position: absolute;"} #{ (points[:skhits].to_i / points[:totalgp].to_f).round(2)  }
+  %div{style: "top: 56px; left: 290px; position: absolute;"} #{ (points[:skpim].to_i / points[:totalgp].to_f).round(2)  }
+  %div{style: "top: 56px; left: 312px; position: absolute;"} #{ (points[:skplusmin].to_i / points[:totalgp].to_f).round(2)  }
+  - points = @stats[:points][1].player_team_stat
+  %div{style: "top: 76px; left: 95px; position: absolute;"}
+    %a{href: "player/Dexrion"} #{ @stats[:points][1][:name] }
+  %div{style: "top: 76px; left: 180px; position: absolute;"} #{ (points[:skgoals].to_i / points[:totalgp].to_f).round(2) }
+  %div{style: "top: 76px; left: 215px; position: absolute;"} #{ (points[:skassists].to_i / points[:totalgp].to_f).round(2) }
+  %div{style: "top: 76px; left: 245px; position: absolute;"} #{ (points[:skpoints].to_i / points[:totalgp].to_f).round(2) }
+  %div{style: "top: 76px; left: 268px; position: absolute;"} #{ (points[:skhits].to_i / points[:totalgp].to_f).round(2) }
+  %div{style: "top: 76px; left: 290px; position: absolute;"} #{ (points[:skpim].to_i / points[:totalgp].to_f).round(2) }
+  %div{style: "top: 76px; left: 312px; position: absolute;"} #{ (points[:skplusmin].to_i / points[:totalgp].to_f).round(2) }
+%div{style: "position: relative;"}
+  %p
+    %img#a-target-1{height: "97", src: "assets/Awards/assists.png", width: "335"}/
+    %img#g-target-1{height: "97", src: "assets/Awards/Goals.png", style: "margin-left:3px", width: "335"}/
+  #a-content-1{style: "margin-top:-883px; margin-left:-940px"}
+    %table.tablesorter
+      %thead
+        %tr
+          %th Name
+          %th Goals
+          %th Assist
+          %th Points
+          %th Hits
+          %th PIM
+          %th +/-
+      %tbody
+        %tr
+          %td Jollboll
+          %td 0.821
+          %td 2.179
+          %td 3
+          %td 0.667
+          %td 0.974
+          %td 0.718
+        %tr
+          %td Dexrion
+          %td 1.528
+          %td 1.083
+          %td 2.611
+          %td 3.167
+          %td 1.444
+          %td 0.528
+        %tr
+          %td Sork pippi
+          %td 0.658
+          %td 1.039
+          %td 1.696
+          %td 1.212
+          %td 1.385
+          %td 0.623
+  %div{style: "top: 32px; left: 19px; position: absolute;"}
+    %a{href: "player/Jollboll"}
+      %img{src: "images/Xbox/Jollboll_Online.jpg"}/
+  %div{style: "top: 56px; left: 95px; position: absolute;"}
+    %a{href: "player/Jollboll"} Jollboll
+  %div{style: "top: 56px; left: 180px; position: absolute;"} 0.8
+  %div{style: "top: 56px; left: 215px; position: absolute;"} 2.2
+  %div{style: "top: 56px; left: 268px; position: absolute;"} 0.7
+  %div{style: "top: 56px; left: 290px; position: absolute;"} 1
+  %div{style: "top: 56px; left: 312px; position: absolute;"} 0.7
+  %div{style: "top: 56px; left: 245px; position: absolute;"} 3
+  %div{style: "top: 76px; left: 95px; position: absolute;"}
+    %a{href: "player/Dexrion"} Dexrion
+  %div{style: "top: 76px; left: 180px; position: absolute;"} 1.5
+  %div{style: "top: 76px; left: 215px; position: absolute;"} 1.1
+  %div{style: "top: 76px; left: 268px; position: absolute;"} 3.2
+  %div{style: "top: 76px; left: 290px; position: absolute;"} 1.4
+  %div{style: "top: 76px; left: 312px; position: absolute;"} 0.5
+  %div{style: "top: 76px; left: 245px; position: absolute;"} 2.6
+  #g-content-1{style: "margin-top:-883px; margin-left:-613px"}
+    %table.tablesorter
+      %thead
+        %tr
+          %th Name
+          %th Goals
+          %th Assist
+          %th Points
+          %th Hits
+          %th PIM
+          %th +/-
+      %tbody
+        %tr
+          %td Dexrion
+          %td 1.528
+          %td 1.083
+          %td 2.611
+          %td 3.167
+          %td 1.444
+          %td 0.528
+        %tr
+          %td Jollboll
+          %td 0.821
+          %td 2.179
+          %td 3
+          %td 0.667
+          %td 0.974
+          %td 0.718
+        %tr
+          %td Sork pippi
+          %td 0.658
+          %td 1.039
+          %td 1.696
+          %td 1.212
+          %td 1.385
+          %td 0.623
+  %div{style: "top: 32px; left: 357px; position: absolute;"}
+    %a{href: "player/Dexrion"}
+      %img{src: "images/Xbox/Dexrion_Online.jpg"}/
+  %div{style: "top: 56px; left: 433px; position: absolute;"}
+    %a{href: "player/Dexrion"} Dexrion
+  %div{style: "top: 56px; left: 518px; position: absolute;"} 1.5
+  %div{style: "top: 56px; left: 553px; position: absolute;"} 1.1
+  %div{style: "top: 56px; left: 606px; position: absolute;"} 3.2
+  %div{style: "top: 56px; left: 628px; position: absolute;"} 1.4
+  %div{style: "top: 56px; left: 650px; position: absolute;"} 0.5
+  %div{style: "top: 56px; left: 583px; position: absolute;"} 2.6
+  %div{style: "top: 76px; left: 433px; position: absolute;"}
+    %a{href: "player/Jollboll"} Jollboll
+  %div{style: "top: 76px; left: 518px; position: absolute;"} 0.8
+  %div{style: "top: 76px; left: 553px; position: absolute;"} 2.2
+  %div{style: "top: 76px; left: 606px; position: absolute;"} 0.7
+  %div{style: "top: 76px; left: 628px; position: absolute;"} 1
+  %div{style: "top: 76px; left: 650px; position: absolute;"} 0.7
+  %div{style: "top: 76px; left: 583px; position: absolute;"} 3
+%div{style: "position: relative;"}
+  %p
+    %img#b-target-1{height: "97", src: "images/Awards/UTVISNINGAR.png", width: "335"}/
+    %img#pm-target-1{height: "97", src: "images/Awards/PLUSMINUS.png", style: "margin-left:3px;", width: "335"}/
+  #b-content-1{style: "margin-top:-995px; margin-left:-940px"}
+    %table.tablesorter
+      %thead
+        %tr
+          %th Name
+          %th Goals
+          %th Assist
+          %th Points
+          %th Hits
+          %th PIM
+          %th +/-
+      %tbody
+        %tr
+          %td Dexrion
+          %td 1.528
+          %td 1.083
+          %td 2.611
+          %td 3.167
+          %td 1.444
+          %td 0.528
+        %tr
+          %td Sork pippi
+          %td 0.658
+          %td 1.039
+          %td 1.696
+          %td 1.212
+          %td 1.385
+          %td 0.623
+        %tr
+          %td Jollboll
+          %td 0.821
+          %td 2.179
+          %td 3
+          %td 0.667
+          %td 0.974
+          %td 0.718
+  %div{style: "top: 32px; left: 19px; position: absolute;"}
+    %a{href: "player/Dexrion"}
+      %img{src: "images/Xbox/Dexrion_Online.jpg"}/
+  %div{style: "top: 56px; left: 95px; position: absolute;"} Dexrion
+  %div{style: "top: 56px; left: 180px; position: absolute;"} 1.5
+  %div{style: "top: 56px; left: 215px; position: absolute;"} 1.1
+  %div{style: "top: 56px; left: 268px; position: absolute;"} 3.2
+  %div{style: "top: 56px; left: 290px; position: absolute;"} 1.4
+  %div{style: "top: 56px; left: 312px; position: absolute;"} 0.5
+  %div{style: "top: 56px; left: 245px; position: absolute;"} 2.6
+  %div{style: "top: 76px; left: 95px; position: absolute;"}
+    %a{href: "player/Sork pippi"} Sork pippi
+  %div{style: "top: 76px; left: 180px; position: absolute;"} 0.7
+  %div{style: "top: 76px; left: 215px; position: absolute;"} 1
+  %div{style: "top: 76px; left: 268px; position: absolute;"} 1.2
+  %div{style: "top: 76px; left: 290px; position: absolute;"} 1.4
+  %div{style: "top: 76px; left: 312px; position: absolute;"} 0.6
+  %div{style: "top: 76px; left: 245px; position: absolute;"} 1.7
+%div{style: "position: relative;"}
+  %p
+    %img{height: "97", src: "images/Awards/Malvakt.png", width: "335"}/
+    %img#pim-target-1{height: "97", src: "images/Awards/Snallast.png", style: "margin-left:3px;", width: "335"}/
+  %img{src: "images/snittpermatchbg.jpg", style: "margin-left:10px"}/
+  #pim-content-1{style: "margin-top:-1113px; margin-left:-613px"}
+    %table.tablesorter
+      %thead
+        %tr
+          %th Name
+          %th Goals
+          %th Assist
+          %th Points
+          %th Hits
+          %th PIM
+          %th +/-
+      %tbody
+        %tr
+          %td Jollboll
+          %td 0.821
+          %td 2.179
+          %td 3
+          %td 0.667
+          %td 0.974
+          %td 0.718
+        %tr
+          %td Sork pippi
+          %td 0.658
+          %td 1.039
+          %td 1.696
+          %td 1.212
+          %td 1.385
+          %td 0.623
+        %tr
+          %td Dexrion
+          %td 1.528
+          %td 1.083
+          %td 2.611
+          %td 3.167
+          %td 1.444
+          %td 0.528
+  %div{style: "top: 32px; left: 357px; position: absolute;"}
+    %a{href: "player/Jollboll"}
+      %img{src: "images/Xbox/Jollboll_Online.jpg"}/
+  %div{style: "top: 56px; left: 433px; position: absolute;"}
+    %a{href: "player/Jollboll"} Jollboll
+  %div{style: "top: 56px; left: 518px; position: absolute;"} 0.8
+  %div{style: "top: 56px; left: 553px; position: absolute;"} 2.2
+  %div{style: "top: 56px; left: 606px; position: absolute;"} 0.7
+  %div{style: "top: 56px; left: 628px; position: absolute;"} 1
+  %div{style: "top: 56px; left: 650px; position: absolute;"} 0.7
+  %div{style: "top: 56px; left: 583px; position: absolute;"} 3
+  %div{style: "top: 76px; left: 433px; position: absolute;"}
+    %a{href: "player/Sork pippi"} Sork pippi
+  %div{style: "top: 76px; left: 518px; position: absolute;"} 0.7
+  %div{style: "top: 76px; left: 553px; position: absolute;"} 1
+  %div{style: "top: 76px; left: 606px; position: absolute;"} 1.2
+  %div{style: "top: 76px; left: 628px; position: absolute;"} 1.4
+  %div{style: "top: 76px; left: 650px; position: absolute;"} 0.6
+  %div{style: "top: 76px; left: 583px; position: absolute;"} 1.7

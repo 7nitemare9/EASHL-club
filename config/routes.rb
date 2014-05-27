@@ -12,6 +12,8 @@ Spelpunkten::Application.routes.draw do
 
   resources :forum
 
+  resources :statistics
+
   get "home/index"
 
   # The priority is based upon order of creation:

@@ -21,7 +21,8 @@ class Player < ActiveRecord::Base
 
   def self.add_members(doc)
     read_players(doc).each do |player| 
-      db_player = find_by_name(player[:name])#add_to_database(player)
+      add_to_database(player)
+      db_player = find_by_name(player[:name])
       db_player.create_player_team_stat(
         PlayerTeamStat.get_data(@@team, player[:eaid])
       )
