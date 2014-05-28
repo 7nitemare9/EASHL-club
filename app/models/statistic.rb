@@ -3,12 +3,12 @@ class Statistic
   def self.get_all_stats
     statistics = {}
     players = Player.all
-    statistics[:points] = get_points(players)
-    statistics[:goals] = get_goals(players)
-    statistics[:assists] = get_assists(players)
-    statistics[:pims] = get_pims(players)
-    statistics[:team_players] = get_team_players(players)
-    statistics[:defensive_players] = get_defensive_players(players)
+    statistics[:points] = get_points(active(players))
+    statistics[:goals] = get_goals(active(players))
+    statistics[:assists] = get_assists(active(players))
+    statistics[:pims] = get_pims(active(players))
+    statistics[:team_players] = get_team_players(active(players))
+    statistics[:defensive_players] = get_defensive_players(active(players))
     statistics
   end
 
@@ -70,6 +70,15 @@ class Statistic
     ((k[:skplusmin].to_i / k[:totalgp].to_f) *  2) +
     ((k[:skbs].to_i / k[:totalgp].to_f) * 5) +
     ((k[:skhits].to_i / k[:totalgp].to_f) * 0.1)
+  end
+
+  def active(players)
+    active_players = []
+    players.each do |player|
+      unless player.player_team_stats[:totalgp] == 0
+        active_players << player
+    end
+    active_players
   end
 
 end
