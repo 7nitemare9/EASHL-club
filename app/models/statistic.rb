@@ -72,7 +72,7 @@ class Statistic
     ((k[:skhits].to_i / k[:totalgp].to_f) * 0.1)
   end
 
-  def active(players)
+  def self.active(players)
     active_players = []
     players.each do |player|
       unless player.player_team_stats[:totalgp] == 0
