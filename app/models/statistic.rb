@@ -29,21 +29,21 @@ class Statistic
   def self.get_assists(players)
     sorted = players.sort_by do |k| 
       ks = k.player_team_stat
-      ks[:skassists].to_i / ks[:totalgp].to_i  
+      ks[:skassists].to_i / ks[:totalgp].to_f  
     end.reverse
   end
 
   def self.get_pims(players)
     sorted = players.sort_by do |k| 
       ks = k.player_team_stat
-      ks[:skassists].to_i / ks[:totalgp].to_i  
+      ks[:skassists].to_i / ks[:totalgp].to_f  
     end.reverse
   end
 
   def self.get_pims(players)
     sorted = players.sort_by do |k| 
       ks = k.player_team_stat
-      ks[:skpim].to_i / ks[:totalgp].to_i  
+      ks[:skpim].to_i / ks[:totalgp].to_f 
     end
   end
 
@@ -62,14 +62,14 @@ class Statistic
   end
   
   def self.team_player_value(k)
-    (k[:skplusmin].to_i / k[:totalgp].to_i) +
-    ((k[:skbs].to_i / k[:totalgp].to_i) * 10)
+    (k[:skplusmin].to_i / k[:totalgp].to_f) +
+    ((k[:skbs].to_i / k[:totalgp].to_f) * 10)
   end
 
   def self.defensive_player_value(k)
-    (k[:skplusmin].to_i / k[:totalgp].to_i) +
-    ((k[:skbs].to_i / k[:totalgp].to_i) * 10) +
-    ((k[:skhits].to_i / k[:totalgp].to_i) * 0.2)
+    ((k[:skplusmin].to_i / k[:totalgp].to_f) *  2) +
+    ((k[:skbs].to_i / k[:totalgp].to_f) * 5) +
+    ((k[:skhits].to_i / k[:totalgp].to_f) * 0.1)
   end
 
 end
