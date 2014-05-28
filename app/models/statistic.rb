@@ -77,6 +77,7 @@ class Statistic
     players.each do |player|
       unless player.player_team_stats[:totalgp] == 0
         active_players << player
+      end
     end
     active_players
   end
