@@ -75,7 +75,7 @@ class Statistic
   def self.active(players)
     active_players = []
     players.each do |player|
-      unless player.player_team_stats[:totalgp] == 0
+      unless player.player_team_stat[:totalgp] == 0
         active_players << player
       end
     end
