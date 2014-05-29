@@ -22,12 +22,12 @@ let(:hash) { [middle, lowest, highest] }
 
   it 'loads all players' do
     Player.should_receive(:all).and_return(hash)
-    Statistic.should_receive(:get_points).with(hash)
-    Statistic.should_receive(:get_goals).with(hash)
-    Statistic.should_receive(:get_assists).with(hash)
-    Statistic.should_receive(:get_pims).with(hash)
-    Statistic.should_receive(:get_team_players).with(hash)
-    Statistic.should_receive(:get_defensive_players).with(hash)
+    Statistic.should_receive(:get_points)
+    Statistic.should_receive(:get_goals)
+    Statistic.should_receive(:get_assists)
+    Statistic.should_receive(:get_pims)
+    Statistic.should_receive(:get_team_players)
+    Statistic.should_receive(:get_defensive_players)
     Statistic.get_all_stats
   end
 
@@ -65,6 +65,12 @@ let(:hash) { [middle, lowest, highest] }
     Statistic.get_defensive_players(hash)[0].player_team_stat[:playername].should eq "Highest"
     Statistic.get_defensive_players(hash)[1].player_team_stat[:playername].should eq "Middle"
     Statistic.get_defensive_players(hash)[2].player_team_stat[:playername].should eq "Lowest"
+  end
+
+  it 'gets and sorts goalies' do
+    Statistic.get_goalies(hash)[0].player_team_stat[:playername].should eq "Highest"
+    Statistic.get_goalies(hash)[1].player_team_stat[:playername].should eq "Middle"
+    Statistic.get_goalies(hash)[2].player_team_stat[:playername].should eq "Lowest"
   end
 
 end

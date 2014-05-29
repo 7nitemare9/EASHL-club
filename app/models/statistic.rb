@@ -9,6 +9,7 @@ class Statistic
     statistics[:pims] = get_pims(active(players))
     statistics[:team_players] = get_team_players(active(players))
     statistics[:defensive_players] = get_defensive_players(active(players))
+    statistics[:goalies] = get_goalies(active_goalies(players))
     statistics
   end
 
@@ -61,6 +62,13 @@ class Statistic
     end.reverse
   end
   
+  def self.get_goalies(players)
+    sorted = players.sort_by do |k|
+      ks = k.player_team_stat
+      goalie_value(ks)
+    end.reverse
+  end
+  
   def self.team_player_value(k)
     (k[:skplusmin].to_i / k[:totalgp].to_f) +
     ((k[:skbs].to_i / k[:totalgp].to_f) * 10)
@@ -72,14 +80,30 @@ class Statistic
     ((k[:skhits].to_i / k[:totalgp].to_f) * 0.1)
   end
 
+  def self.goalie_value(k)
+    k[:glsavepct].to_f  *
+      ((k[:glsoperiods].to_i + 1) / k[:glgp].to_f) /
+      k[:glgaa].to_f
+  end
+
   def self.active(players)
     active_players = []
     players.each do |player|
-      unless player.player_team_stat[:totalgp] == 0
-        active_players << player
+      if player.player_team_stat[:totalgp] 
+        active_players.push player
       end
     end
     active_players
+  end
+
+  def self.active_goalies(players)
+    active_goalies = []
+    active(players).each do |player|
+      if player.player_team_stat[:glgp].to_i > 0 
+        active_goalies << player
+      end
+    end
+    active_goalies
   end
 
 end

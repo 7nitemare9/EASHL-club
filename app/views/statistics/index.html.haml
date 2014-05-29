@@ -180,27 +180,25 @@
   %p
     %img{height: "97", src: "assets/Awards/Malvakt.png", width: "335"}/
     %img#pim-target-1{height: "97", src: "assets/Awards/Snallast.png", style: "margin-left:3px;", width: "335"}/
-  - pim = @stats[:pims][0].player_team_stat
+  - pim = @stats[:goalies][0].player_team_stat
   %div{style: "top: 32px; left: 19px; position: absolute;"}
     %a{href: "player/Jollboll"}
       %img{src: "images/Xbox/Jollboll_Online.jpg"}/
   %div{style: "top: 56px; left: 95px; position: absolute;"}
-    %a{href: "player/Jollboll"} #{ @stats[:pims][0][:name] }
-  %div{style: "top: 56px; left: 180px; position: absolute;"} #{ (pim[:skgoals].to_i / pim[:totalgp].to_f).round(2) }
-  %div{style: "top: 56px; left: 215px; position: absolute;"} #{ (pim[:skassists].to_i / pim[:totalgp].to_f).round(2)  }
-  %div{style: "top: 56px; left: 245px; position: absolute;"} #{ (pim[:skpoints].to_i / pim[:totalgp].to_f).round(2)  }
-  %div{style: "top: 56px; left: 268px; position: absolute;"} #{ (pim[:skhits].to_i / pim[:totalgp].to_f).round(2)  }
-  %div{style: "top: 56px; left: 290px; position: absolute;"} #{ (pim[:skpim].to_i / pim[:totalgp].to_f).round(2)  }
-  %div{style: "top: 56px; left: 312px; position: absolute;"} #{ (pim[:skplusmin].to_i / pim[:totalgp].to_f).round(2)  }
-  - pim = @stats[:pims][1].player_team_stat
+    %a{href: "player/Jollboll"} #{ @stats[:goalies][0][:name] }
+  %div{style: "top: 56px; left: 180px; position: absolute;"} #{ pim[:glsavepct].to_f.round(2) }
+  %div{style: "top: 56px; left: 215px; position: absolute;"} #{ pim[:glgaa].to_f.round(2)  }
+  %div{style: "top: 56px; left: 245px; position: absolute;"} #{ (pim[:glsaves].to_i / pim[:glgp].to_f).round(2)  }
+  %div{style: "top: 56px; left: 268px; position: absolute;"} #{ (pim[:glwins].to_i / pim[:glgp].to_f).round(2)  }
+  %div{style: "top: 56px; left: 290px; position: absolute;"} #{ pim[:glso].to_i  }
+  - pim = @stats[:goalies][1].player_team_stat
   %div{style: "top: 76px; left: 95px; position: absolute;"}
-    %a{href: "player/Dexrion"} #{ @stats[:pims][1][:name] }
-  %div{style: "top: 76px; left: 180px; position: absolute;"} #{ (pim[:skgoals].to_i / pim[:totalgp].to_f).round(2) }
-  %div{style: "top: 76px; left: 215px; position: absolute;"} #{ (pim[:skassists].to_i / pim[:totalgp].to_f).round(2) }
-  %div{style: "top: 76px; left: 245px; position: absolute;"} #{ (pim[:skpoints].to_i / pim[:totalgp].to_f).round(2) }
-  %div{style: "top: 76px; left: 268px; position: absolute;"} #{ (pim[:skhits].to_i / pim[:totalgp].to_f).round(2) }
-  %div{style: "top: 76px; left: 290px; position: absolute;"} #{ (pim[:skpim].to_i / pim[:totalgp].to_f).round(2) }
-  %div{style: "top: 76px; left: 312px; position: absolute;"} #{ (pim[:skplusmin].to_i / pim[:totalgp].to_f).round(2) }
+    %a{href: "player/Dexrion"} #{ @stats[:goalies][1][:name] }
+  %div{style: "top: 76px; left: 180px; position: absolute;"} #{ pim[:glsavepct].to_f.round(2) }                  
+  %div{style: "top: 76px; left: 215px; position: absolute;"} #{ pim[:glgaa].to_f.round(2)  }                     
+  %div{style: "top: 76px; left: 245px; position: absolute;"} #{ (pim[:glsaves].to_i / pim[:glgp].to_f).round(2)  }
+  %div{style: "top: 76px; left: 268px; position: absolute;"} #{ (pim[:glwins].to_i / pim[:glgp].to_f).round(2)  } 
+  %div{style: "top: 76px; left: 290px; position: absolute;"} #{ pim[:glso].to_i  }
 
   - pims = @stats[:pims][0].player_team_stat
   %div{style: "top: 32px; left: 357px; position: absolute;"}
