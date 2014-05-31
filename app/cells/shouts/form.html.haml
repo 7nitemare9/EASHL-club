@@ -1,0 +1,7 @@
+-def protect_against_forgery?
+  - false
+= form_for @shout, remote: true do |f|
+  = f.text_area :message, :size => "33x3"
+  name:
+  = f.text_field :name
+  = f.submit "Submit"

@@ -1,23 +1,11 @@
 !!! Strict
-=javascript_include_tag "application"
 %html{:lang => "en", "xml:lang" => "en", :xmlns => "http://www.w3.org/1999/xhtml"}
   %head
     %link{:href => "http://www.spelpunkten.com/krhbom/bomberslogo.png", :rel => "icon", :type => "image/png"}/
     %title Bombers Hockey | Official Homepage | EASHL Club
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %meta{:content => "text/css", "http-equiv" => "Content-Style-Type"}/
-    %link{:href => "/assets/css-reset.css", :rel => "stylesheet", :type => "text/css"}/
-    %link{:href => "/themes/blue/style.css", :id => "", :media => "print, projection, screen", :rel => "stylesheet", :type => "text/css"}/
-    %link{:href => "/css/sliderman.css", :rel => "stylesheet", :type => "text/css"}/
     =stylesheet_link_tag "application"       
-    :javascript
-      $(document).ready(function() {
-      // get data every 5 mins and refresh myDiv
-        var pingAfter = 5000;  
-        var refreshId = setInterval(function() {
-          $("#status").load('/online/status');
-        }, pingAfter);
-      });
   %body
     
     %link{:href => "/assets/web.css", :rel => "stylesheet", :type => "text/css"}/
@@ -136,6 +124,8 @@
             %strong
               %img{:alt => "Latest News", :src => "/assets/shout.png"}/
           .content
+            #shouts
+            = render_cell :shouts, :form
       .box
         %div{:style => "float:right; width:300px; height:500px;"}
           .content
@@ -158,3 +148,21 @@
                   %img{:alt => "Operation Sports", :height => "40", :longdesc => "http://www.operationsports.com/", :src => "/assets/Links/Jesus.jpg", :width => "272"}/
       / Footer
       #footer
+=javascript_include_tag "application"
+:javascript
+  $(document).ready(function() {
+  // get data every 5 mins and refresh myDiv
+    var pingAfter = 5000;  
+    var refreshId = setInterval(function() {
+      $("#status").load('/online/status');
+    }, pingAfter);
+  });
+:javascript
+  $(document).ready(function() {
+  // get data every 5 mins and refresh myDiv
+    var pingAfter = 5000;  
+    var shoutsId = setInterval(function() {
+      $("#shouts").load('/shouts/index');
+    }, pingAfter);
+  });
+  

@@ -51,12 +51,15 @@ Spelpunkten::Application.routes.draw do
 	match '/player/getMemberData' => 'players#getMemberData'
         match '/player/OnlineStatus' => 'players#OnlineStatus'
 	match '/match/getMatchData' => 'matches#getMatchData'
-	match '/calender/getCalenderData' => 'calenders#getCalenderData'
         match "/online/status" => proc { |env|
             request = ActionDispatch::Request.new(env)
               [ 200, {}, [ Cell::Rack.render_cell_for(:players, :online, request ) ]]
         }
-	
+        match "/shouts/index" => proc { |env|
+            request = ActionDispatch::Request.new(env)
+              [ 200, {}, [ Cell::Rack.render_cell_for(:shouts, :index, request ) ]]
+        }
+        resources :shouts
   # Sample resource route with more complex sub-resources
   #   resources :products do
   #     resources :comments
