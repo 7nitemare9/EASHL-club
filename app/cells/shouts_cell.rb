@@ -1,5 +1,5 @@
-class ShoutsCell < Cell::Rack
-
+class ShoutsCell < Cell::Base
+  
   def index
     @shouts = Shout.find_all
     render

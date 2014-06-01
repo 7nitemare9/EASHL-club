@@ -55,10 +55,10 @@ Spelpunkten::Application.routes.draw do
             request = ActionDispatch::Request.new(env)
               [ 200, {}, [ Cell::Rack.render_cell_for(:players, :online, request ) ]]
         }
-        match "/shouts/index" => proc { |env|
-            request = ActionDispatch::Request.new(env)
-              [ 200, {}, [ Cell::Rack.render_cell_for(:shouts, :index, request ) ]]
-        }
+  #      match "/shouts/index" => proc { |env|
+  #          request = Cell::Base.render_cell_for(:shouts, :index)
+  #            [ 200, {}, [ request ]]
+  #      }
         resources :shouts
   # Sample resource route with more complex sub-resources
   #   resources :products do
