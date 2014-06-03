@@ -2,10 +2,10 @@ class PostsController < ApplicationController
   require 'auth_helper'
   include AuthHelper
 
-  before_filter :is_admin, :except => :index
+  before_filter :is_admin, :except => [ :index, :show ]
 
   def index
-    @posts = Post.all.reverse
+    @posts = Post.get_news
   end
 
   def new

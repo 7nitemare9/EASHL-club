@@ -1,15 +1,57 @@
-
- 
-- @posts.each do |post| 
-  .box
-    .content
-      %p
-        %img{ :src => "assets/blank.jpg", :width => "675" }
-        %p2 #{ post.title }
-
-      %p3= raw post.text 
-      - if @current_user.user_name == "admin"
-        %p
-          = link_to 'Edit', edit_post_path(post) 
-          = link_to 'Delete', post, confirm: 'Are you sure?', 'data-method' => :delete  
+:css
+  .tray {
+    background: rgba(50,50,50,0.9);
+    float: left;
+    position: absolute;
+    width: 680px;
+    height: 100px;
+    border-top: 1px solid #777;
+    bottom: 48px;
+    padding: 5px;
+  }
+  .tray a:link {
+    text-decoration: none;
+  }
+  .title {
+    font-size: x-large;
+  }
+  .top_news {
+    float: left;
+    height:100px;
+    overflow: hidden;
+    width: 375px;
+    border-right: 1px solid #777;
+  }
+  .other_news {
+    font-size: large;
+    float: left;
+    height: 90px;
+    width: 290px;
+    padding: 5px;
+  }
+  .post_image {
+    height: 400px;
+    overflow: hidden;
+  }
+- post = @posts.first
+.box
+  .post_image
+    - post[:image][0] ||= "assets/blank.jpg"
+    %img{ :src => post[:image][0], :width => "700" }
+      .tray
+        .top_news
+          .title
+            %p2 
+              = link_to post[:title], post_path(post)
+          %p3= raw post[:text] 
+        .other_news
+          - @posts.each.with_index do |post, i|
+            - unless i == 0
+              > 
+              = link_to post[:title], post_path(post)
+              %br
+  - if @current_user.user_name == "admin"
+    %p
+      = link_to 'Edit', edit_post_path(post) 
+      = link_to 'Delete', post, confirm: 'Are you sure?', 'data-method' => :delete  
 
