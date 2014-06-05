@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.0'
+gem 'rails', '3.2.0'
 gem 'nokogiri'
 gem 'rest-client'
 gem 'cells'
@@ -19,7 +19,6 @@ group :development, :test do
   gem 'strong_parameters'
   gem 'launchy'
   gem 'rspec-rails'
-  gem 'ZenTest', "4.8.2"
   gem 'simplecov'
   gem "scrapi", "~> 2.0.0"
 
@@ -28,7 +27,7 @@ group :test do
   gem 'cucumber-rails-training-wheels'
   gem 'database_cleaner'
   gem 'selenium-webdriver'
-  gem 'capybara', '2.0.0'
+  gem 'capybara', '>= 2.2.0'
   gem "sinatra"
   gem "webmock", :require => false
 end
@@ -42,12 +41,11 @@ end
 # in production environments by default.
 group :assets do
   gem 'therubyracer'              
-  gem 'sass-rails', "  ~> 3.1.0"
-  gem 'coffee-rails', "~> 3.1.0"
-  gem 'uglifier'
+  gem 'sass-rails', "  ~> 3.2.3"
+  gem 'coffee-rails', "~> 3.2.1"
+  gem 'uglifier', '>=1.0.3'
 end
 
-gem 'jquery-rails'
 
 # Use unicorn as the web server
 # gem 'unicorn'

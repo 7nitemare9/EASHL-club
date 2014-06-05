@@ -1,5 +1,5 @@
 require 'spec_helper'
 
-describe MediaController do
+describe MediasController do
 
 end

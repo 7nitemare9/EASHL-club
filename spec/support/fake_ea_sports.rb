@@ -1,7 +1,7 @@
 require 'sinatra/base'
 
 class FakeEaSports < Sinatra::Base
-  get '/nhl14proclubs/api/xbox/clubs/12345/matches' do
+  get '/iframe/nhl14proclubs/api/platforms/xbox/clubs/12345/matches' do
     json_response 200, 'matches.json'
   end
   get '/iframe/nhl14proclubs/api/platforms/xbox/clubs/12345/members/*/stats' do
