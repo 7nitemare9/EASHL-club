@@ -4,7 +4,25 @@ Spelpunkten::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
+  root 'posts#index'
+  
+  resources :matches
+  resources :players
+  resources :posts
+  resources :medias
+  resources :forum
+  resources :statistics
+  resources :shouts
 
+  get '/player/getMemberData' => 'players#getMemberData'
+  get '/player/OnlineStatus' => 'players#OnlineStatus'
+  get '/match/getMatchData' => 'matches#getMatchData'
+
+
+  get "/online/status" => proc { |env|
+    request = ActionDispatch::Request.new(env)
+      [ 200, {}, [ Cell::Rack.render_cell_for(:players, :online, request ) ]]
+    }
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
