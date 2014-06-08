@@ -1,5 +1,6 @@
 require 'sinatra/base'
 
+# Fakes EA sports json responses
 class FakeEaSports < Sinatra::Base
   get '/iframe/nhl14proclubs/api/platforms/xbox/clubs/12345/matches' do
     json_response 200, 'matches.json'
@@ -21,5 +22,4 @@ class FakeEaSports < Sinatra::Base
     status response_code
     File.open(File.dirname(__FILE__) + '/fixtures/' + file_name, 'rb').read
   end
-
 end

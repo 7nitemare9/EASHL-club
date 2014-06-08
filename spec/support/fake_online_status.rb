@@ -1,5 +1,6 @@
 require 'sinatra/base'
 
+# Fakes Online respons from xbox live
 class FakeOnlineStatus < Sinatra::Base
   get 'https://live.xbox.com/sv-SE/Profile?Gamertag=Jonbacken' do
     json_response 200, 'online_status.html'
@@ -12,5 +13,4 @@ class FakeOnlineStatus < Sinatra::Base
     status response_code
     File.open(File.dirname(__FILE__) + '/fixtures/' + file_name, 'rb').read
   end
-
 end
