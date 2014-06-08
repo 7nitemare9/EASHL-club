@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.2.0'
+gem 'rails', '~>4.0.0'
 gem 'nokogiri'
 gem 'rest-client'
 gem 'cells'
@@ -16,7 +16,6 @@ gem 'mysql2'
 group :development, :test do
   gem 'sqlite3'
  # gem 'ruby-debug19', :require => 'ruby-debug'
-  gem 'strong_parameters'
   gem 'launchy'
   gem 'rspec-rails'
   gem 'simplecov'
@@ -39,12 +38,10 @@ end
 
 # Gems used only for assets and not required
 # in production environments by default.
-group :assets do
-  gem 'therubyracer'              
-  gem 'sass-rails', "  ~> 3.2.3"
-  gem 'coffee-rails', "~> 3.2.1"
-  gem 'uglifier', '>=1.0.3'
-end
+gem 'therubyracer'              
+gem 'sass-rails'
+gem 'coffee-rails'
+gem 'uglifier'
 
 
 # Use unicorn as the web server
