@@ -1,28 +1,36 @@
+# Handles news-posts and prepares them for custom news display
 class Post < ActiveRecord::Base
-
   require 'nokogiri'
 
-  def self.get_news
+  def self.news
     news = []
-    posts = last(5).reverse.each do |post|
+    last(5).reverse.each do |post|
       news.push split_image_and_text(post)
     end
     news
   end
 
   def self.split_image_and_text(post)
-    news = {}
-    news[:title] = post.title
-    news[:image] = Nokogiri::HTML(post.text).css('img').map { |i| i['src'] }
-    if news[:image][0]
-      news[:text] = Nokogiri::HTML(post.text)
-      news[:text].at_xpath("//img[@src='#{news[:image][0]}']").remove
-      p news[:text]
-    else
-      news[:text] = post.text
-    end
-    news[:id] = post.id
-    news
+    {
+      title: post.title,
+      image: extract_images(post),
+      text: extract_text(post, extract_images(post)),
+      id: post.id
+    }
   end
 
+  def self.extract_images(post)
+    Nokogiri::HTML(post.text).css('img').map { |i| i['src'] }
+  end
+
+  def self.extract_text(post, images)
+    text
+    if images[0]
+      text = Nokogiri::HTML(post.text)
+      text.at_xpath("//img[@src='#{images[0]}']").remove
+    else
+      text = post.text
+    end
+    text
+  end
 end

@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   before_filter :is_admin, :except => [ :index, :show ]
 
   def index
-    @posts = Post.get_news
+    @posts = Post.news
   end
 
   def new
