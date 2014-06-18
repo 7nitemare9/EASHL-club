@@ -3,43 +3,25 @@ class Statistic
   def self.all_stats
     statistics = {}
     players = Player.all
-    statistics[:points] = points(active(players))
-    statistics[:goals] = goals(active(players))
-    statistics[:assists] = assists(active(players))
-    statistics[:pims] = pims(active(players))
+    statistics[:points] = average('points', active(players))
+    statistics[:goals] = average('goals', active(players))
+    statistics[:assists] = average('assists', active(players))
+    statistics[:pims] = average_low_first('pim', active(players))
     statistics[:team_players] = team_players(active(players))
     statistics[:defensive_players] = defensive_players(active(players))
     statistics[:goalies] = goalies(active_goalies(players))
     statistics
   end
 
-  def self.points(players)
+  def self.average(statistic, players)
     players.sort_by do |player|
-      stat(player)[:skpoints].to_i / stat(player)[:totalgp].to_f
+      stat(player)[('sk' + statistic).to_sym].to_i / stat(player)[:totalgp].to_f
     end.reverse
   end
 
-  def self.goals(players)
+  def self.average_low_first(statistic, players)
     players.sort_by do |player|
-      stat(player)[:skgoals].to_i / stat(player)[:totalgp].to_f
-    end.reverse
-  end
-
-  def self.assists(players)
-    players.sort_by do |player|
-      stat(player)[:skassists].to_i / stat(player)[:totalgp].to_f
-    end.reverse
-  end
-
-  def self.pims(players)
-    players.sort_by do |player|
-      stat(player)[:skassists].to_i / stat(player)[:totalgp].to_f
-    end.reverse
-  end
-
-  def self.pims(players)
-    players.sort_by do |player|
-      stat(player)[:skpim].to_i / stat(player)[:totalgp].to_f
+      stat(player)[('sk' + statistic).to_sym].to_i / stat(player)[:totalgp].to_f
     end
   end
 
@@ -81,7 +63,7 @@ class Statistic
   def self.active(players)
     active_players = []
     players.each do |player|
-      next if player.player_team_stat[:totalgp]
+      next unless player.player_team_stat[:totalgp]
       active_players.push player
     end
     active_players
@@ -90,7 +72,7 @@ class Statistic
   def self.active_goalies(players)
     active_goalies = []
     active(players).each do |player|
-      next if player.player_team_stat[:glgp].to_i > 0
+      next unless player.player_team_stat[:glgp].to_i > 0
       active_goalies << player
     end
     active_goalies

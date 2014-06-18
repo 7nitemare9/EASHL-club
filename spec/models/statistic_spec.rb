@@ -39,48 +39,48 @@ describe Statistic do
 
   it 'loads all players' do
     Player.should_receive(:all).and_return(hash)
-    Statistic.should_receive(:points)
-    Statistic.should_receive(:goals)
-    Statistic.should_receive(:assists)
-    Statistic.should_receive(:pims)
+    Statistic.should_receive(:average).with('points', hash)
+    Statistic.should_receive(:average).with('goals', hash)
+    Statistic.should_receive(:average).with('assists', hash)
+    Statistic.should_receive(:average_low_first).with('pim', hash)
     Statistic.should_receive(:team_players)
     Statistic.should_receive(:defensive_players)
     Statistic.all_stats
   end
 
   it 'gets and sorts points' do
-    Statistic.points(hash)[0].player_team_stat[:playername]
+    Statistic.average('points', hash)[0].player_team_stat[:playername]
     .should eq 'Highest'
-    Statistic.points(hash)[1].player_team_stat[:playername]
+    Statistic.average('points', hash)[1].player_team_stat[:playername]
     .should eq 'Middle'
-    Statistic.points(hash)[2].player_team_stat[:playername]
+    Statistic.average('points', hash)[2].player_team_stat[:playername]
     .should eq 'Lowest'
   end
 
   it 'gets and sorts goals' do
-    Statistic.goals(hash)[0].player_team_stat[:playername]
+    Statistic.average('goals', hash)[0].player_team_stat[:playername]
     .should eq 'Highest'
-    Statistic.goals(hash)[1].player_team_stat[:playername]
+    Statistic.average('goals', hash)[1].player_team_stat[:playername]
     .should eq 'Middle'
-    Statistic.goals(hash)[2].player_team_stat[:playername]
+    Statistic.average('goals', hash)[2].player_team_stat[:playername]
     .should eq 'Lowest'
   end
 
   it 'gets and sorts assists' do
-    Statistic.assists(hash)[0].player_team_stat[:playername]
+    Statistic.average('assists', hash)[0].player_team_stat[:playername]
     .should eq 'Highest'
-    Statistic.assists(hash)[1].player_team_stat[:playername]
+    Statistic.average('assists', hash)[1].player_team_stat[:playername]
     .should eq 'Middle'
-    Statistic.assists(hash)[2].player_team_stat[:playername]
+    Statistic.average('assists', hash)[2].player_team_stat[:playername]
     .should eq 'Lowest'
   end
 
   it 'gets and sorts pims' do
-    Statistic.pims(hash)[0].player_team_stat[:playername]
+    Statistic.average_low_first('pim', hash)[0].player_team_stat[:playername]
     .should eq 'Lowest'
-    Statistic.pims(hash)[1].player_team_stat[:playername]
+    Statistic.average_low_first('pim', hash)[1].player_team_stat[:playername]
     .should eq 'Middle'
-    Statistic.pims(hash)[2].player_team_stat[:playername]
+    Statistic.average_low_first('pim', hash)[2].player_team_stat[:playername]
     .should eq 'Highest'
   end
 
