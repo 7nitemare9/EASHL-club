@@ -1,8 +1,8 @@
+# Posts Controller
 class PostsController < ApplicationController
   require 'auth_helper'
   include AuthHelper
-
-  before_filter :is_admin, :except => [ :index, :show ]
+  before_filter :is_admin, except: [:index, :show]
 
   def index
     @posts = Post.news
@@ -19,9 +19,7 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    if @post.update_attributes(params[:post])
-      redirect_to root_path
-    end
+    redirect_to root_path if @post.update_attributes(params[:post])
   end
 
   def show
@@ -34,14 +32,12 @@ class PostsController < ApplicationController
 
   def destroy
     @post = Post.find(params[:id])
-    if @post.destroy
-      redirect_to root_path
-    end
+    redirect_to root_path if @post.destroy
   end
 
   private
+
   def post_params
     params.require(:post).permit(:title, :text)
   end
-
 end

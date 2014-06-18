@@ -1,3 +1,4 @@
+# Reads in all players in club
 class Player < ActiveRecord::Base
   has_one :player_team_stat
   has_one :player_season_stat
@@ -6,37 +7,33 @@ class Player < ActiveRecord::Base
   require 'open-uri'
   require 'json'
   require 'web_helpers'
-  @@team = ''
+  @team = ''
 
   def self.get_page(page, team)
-    url = "http://www.easports.com/iframe/nhl14proclubs/api/platforms/xbox/clubs/" + team + "/" +page
-    @@team = team
+    url = 'http://www.easports.com/iframe/nhl14proclubs/api/platforms/xbox/' \
+          'clubs/' + team + '/' + page
+    @team = team
     player_data WebHelpers.read_json(url)
   end
 
   def self.player_data(doc)
-    add_members doc #WebHelpers.parse_ea_json(doc)
-    delete_members doc #WebHelpers.parse_ea_json(doc)
+    add_members doc
+    delete_members doc
   end
 
   def self.add_members(doc)
-    read_players(doc).each do |player| 
+    read_players(doc).each do |player|
       add_to_database(player)
-      db_player = find_by_name(player[:name])
-      db_player.create_player_team_stat(
-        PlayerTeamStat.get_data(@@team, player[:eaid])
-      )
-      db_player.create_player_season_stat(
-        PlayerSeasonStat.get_data(player[:eaid])
-      )
+      add_player_team_stat(player)
+      add_player_season_stat(player)
     end
   end
 
   def self.add_to_database(player)
-    unless find_by_name(player[:name]) then
-      create!(player)
+    if find_by_name(player[:name])
+      existing_player(player).update_attributes(player)
     else
-      find_by_name(player[:name]).update_attributes(player)
+      create!(player)
     end
   end
 
@@ -46,7 +43,7 @@ class Player < ActiveRecord::Base
       read_players(doc).each do |player|
         found = 1 if player[:name] == dbplayer[:name]
       end
-      find_by_name(dbplayer[:name]).destroy if found == 0 
+      find_by_name(dbplayer[:name]).destroy if found == 0
     end
   end
 
@@ -54,27 +51,29 @@ class Player < ActiveRecord::Base
     list = []
     doc['raw'].each do |key|
       key.each do |member|
-        list << {name: member[1]["name"], eaid: member[0]}
+        list << { name: member[1]['name'], eaid: member[0] }
       end
     end
-    return list
+    list
   end
 
   def self.pos_num_to_pos(num)
-    case num
-    when "1"
-      "D"
-    when "2"
-      "D"
-    when "3"
-      "LW"
-    when "4"
-      "C"
-    when "5"
-      "RW"
-    when "0"
-      "G"
-    end
+    %w(G D D LW C RW)[num]
   end
 
+  def self.existing_player(player)
+    find_by_name(player[:name])
+  end
+
+  def self.add_player_team_stat(player)
+    existing_player(player).create_player_team_stat(
+      PlayerTeamStat.get_data(@team, player[:eaid])
+    )
+  end
+
+  def self.add_player_season_stat(player)
+    existing_player(player).create_player_season_stat(
+      PlayerSeasonStat.get_data(player[:eaid])
+    )
+  end
 end

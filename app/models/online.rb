@@ -1,28 +1,29 @@
+# Checks and stores online status of team members
 class Online < ActiveRecord::Base
+  require 'nokogiri'
+  require 'open-uri'
 
-require 'nokogiri'
-require 'open-uri'
-
-  def self.get_online_status
+  def self.online_status
     Player.all.each do |db_player|
-      url = 'https://live.xbox.com/sv-SE/Profile?Gamertag=' + CGI.escape(db_player[:name])
-      doc = WebHelpers.read_url(url)
-      member = read_status(doc, db_player[:name])
-      unless find_by_name(member[:name]) 
-        create!(member)
-      else
+      url = 'https://live.xbox.com/sv-SE/Profile?' \
+            'Gamertag=' + CGI.escape(db_player[:name])
+      member = read_status(WebHelpers.read_url(url), db_player[:name])
+      if find_by_name(member[:name])
         find_by_name(member[:name]).update_attributes(member)
+      else
+        create!(member)
       end
     end
   end
 
   def self.read_status(doc, name)
-    status = doc.at_css(".presence").text
-    member = {:text => status, 
-              :name => name,
-              :image => "https://avatar-ssl.xboxlive.com/avatar/" + name + "/avatarpic-l.png",
-              :status => "Online" }
-    if status.include? 'offline' or status.include? 'senast' 
+    status = doc.at_css('.presence').text
+    member = { text: status,
+               name: name,
+               image: 'https://avatar-ssl.xboxlive.com/' \
+               'avatar/' + name + '/avatarpic-l.png',
+               status: 'Online' }
+    if status.include?('offline') || status.include?('senast')
       member[:status] = 'Offline'
     end
     member
@@ -35,5 +36,4 @@ require 'open-uri'
     end
     list
   end
-
 end

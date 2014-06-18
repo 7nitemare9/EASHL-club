@@ -39,75 +39,75 @@ describe Statistic do
 
   it 'loads all players' do
     Player.should_receive(:all).and_return(hash)
-    Statistic.should_receive(:get_points)
-    Statistic.should_receive(:get_goals)
-    Statistic.should_receive(:get_assists)
-    Statistic.should_receive(:get_pims)
-    Statistic.should_receive(:get_team_players)
-    Statistic.should_receive(:get_defensive_players)
-    Statistic.get_all_stats
+    Statistic.should_receive(:points)
+    Statistic.should_receive(:goals)
+    Statistic.should_receive(:assists)
+    Statistic.should_receive(:pims)
+    Statistic.should_receive(:team_players)
+    Statistic.should_receive(:defensive_players)
+    Statistic.all_stats
   end
 
   it 'gets and sorts points' do
-    Statistic.get_points(hash)[0].player_team_stat[:playername]
+    Statistic.points(hash)[0].player_team_stat[:playername]
     .should eq 'Highest'
-    Statistic.get_points(hash)[1].player_team_stat[:playername]
+    Statistic.points(hash)[1].player_team_stat[:playername]
     .should eq 'Middle'
-    Statistic.get_points(hash)[2].player_team_stat[:playername]
+    Statistic.points(hash)[2].player_team_stat[:playername]
     .should eq 'Lowest'
   end
 
   it 'gets and sorts goals' do
-    Statistic.get_goals(hash)[0].player_team_stat[:playername]
+    Statistic.goals(hash)[0].player_team_stat[:playername]
     .should eq 'Highest'
-    Statistic.get_goals(hash)[1].player_team_stat[:playername]
+    Statistic.goals(hash)[1].player_team_stat[:playername]
     .should eq 'Middle'
-    Statistic.get_goals(hash)[2].player_team_stat[:playername]
+    Statistic.goals(hash)[2].player_team_stat[:playername]
     .should eq 'Lowest'
   end
 
   it 'gets and sorts assists' do
-    Statistic.get_assists(hash)[0].player_team_stat[:playername]
+    Statistic.assists(hash)[0].player_team_stat[:playername]
     .should eq 'Highest'
-    Statistic.get_assists(hash)[1].player_team_stat[:playername]
+    Statistic.assists(hash)[1].player_team_stat[:playername]
     .should eq 'Middle'
-    Statistic.get_assists(hash)[2].player_team_stat[:playername]
+    Statistic.assists(hash)[2].player_team_stat[:playername]
     .should eq 'Lowest'
   end
 
   it 'gets and sorts pims' do
-    Statistic.get_pims(hash)[0].player_team_stat[:playername]
+    Statistic.pims(hash)[0].player_team_stat[:playername]
     .should eq 'Lowest'
-    Statistic.get_pims(hash)[1].player_team_stat[:playername]
+    Statistic.pims(hash)[1].player_team_stat[:playername]
     .should eq 'Middle'
-    Statistic.get_pims(hash)[2].player_team_stat[:playername]
+    Statistic.pims(hash)[2].player_team_stat[:playername]
     .should eq 'Highest'
   end
 
   it 'gets and sorts team-players' do
-    Statistic.get_team_players(hash)[0].player_team_stat[:playername]
+    Statistic.team_players(hash)[0].player_team_stat[:playername]
     .should eq 'Highest'
-    Statistic.get_team_players(hash)[1].player_team_stat[:playername]
+    Statistic.team_players(hash)[1].player_team_stat[:playername]
     .should eq 'Middle'
-    Statistic.get_team_players(hash)[2].player_team_stat[:playername]
+    Statistic.team_players(hash)[2].player_team_stat[:playername]
     .should eq 'Lowest'
   end
 
   it 'gets and sorts defensive-players' do
-    Statistic.get_defensive_players(hash)[0].player_team_stat[:playername]
+    Statistic.defensive_players(hash)[0].player_team_stat[:playername]
     .should eq 'Highest'
-    Statistic.get_defensive_players(hash)[1].player_team_stat[:playername]
+    Statistic.defensive_players(hash)[1].player_team_stat[:playername]
     .should eq 'Middle'
-    Statistic.get_defensive_players(hash)[2].player_team_stat[:playername]
+    Statistic.defensive_players(hash)[2].player_team_stat[:playername]
     .should eq 'Lowest'
   end
 
   it 'gets and sorts goalies' do
-    Statistic.get_goalies(hash)[0].player_team_stat[:playername]
+    Statistic.goalies(hash)[0].player_team_stat[:playername]
     .should eq 'Highest'
-    Statistic.get_goalies(hash)[1].player_team_stat[:playername]
+    Statistic.goalies(hash)[1].player_team_stat[:playername]
     .should eq 'Middle'
-    Statistic.get_goalies(hash)[2].player_team_stat[:playername]
+    Statistic.goalies(hash)[2].player_team_stat[:playername]
     .should eq 'Lowest'
   end
 

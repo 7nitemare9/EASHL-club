@@ -11,7 +11,7 @@ class FakeEaSports < Sinatra::Base
   get '/iframe/nhl14proclubs/api/platforms/xbox/clubs/12345/members' do
     json_response 200, 'members.json'
   end
-  get '/iframe/nhl14proclubs/api/platforms/xbox/members/12345/stats' do
+  get '/iframe/nhl14proclubs/api/platforms/xbox/members/*/stats' do
     json_response 200, 'member_season.json'
   end
 

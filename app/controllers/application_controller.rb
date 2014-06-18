@@ -1,3 +1,4 @@
+# Application Controller
 class ApplicationController < ActionController::Base
   protect_from_forgery
   require 'phpbb_auth'
@@ -11,8 +12,8 @@ class ApplicationController < ActionController::Base
     @current_user = current_user
     unless @current_user
       @current_user = NoUser.new
-      @current_user.user_name = "not logged in"
+      @current_user.user_name = 'not logged in'
     end
-    @current_user    
+    @current_user
   end
 end

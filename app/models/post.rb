@@ -24,7 +24,7 @@ class Post < ActiveRecord::Base
   end
 
   def self.extract_text(post, images)
-    text
+    text = ''
     if images[0]
       text = Nokogiri::HTML(post.text)
       text.at_xpath("//img[@src='#{images[0]}']").remove

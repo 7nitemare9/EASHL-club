@@ -5,8 +5,8 @@ describe Match do
 
   let(:respons) do
     JSON.load(Net::HTTP.get(URI(
-      'http://www.easports.com//iframe/nhl14proclubs/api/platforms/xbox/clubs/
-      12345/matches?filters=sum,pretty&matches_returned=10'
+      'http://www.easports.com//iframe/nhl14proclubs/api/platforms/xbox/clubs/' \
+      '12345/matches?filters=sum,pretty&matches_returned=10'
     )))
   end
   let(:list_item_one) { respons['raw'].first }
