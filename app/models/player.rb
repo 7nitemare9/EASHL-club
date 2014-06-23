@@ -39,22 +39,20 @@ class Player < ActiveRecord::Base
 
   def self.delete_members(doc)
     all.each do |dbplayer|
-      found = 0
+      found = nil
       read_players(doc).each do |player|
-        found = 1 if player[:name] == dbplayer[:name]
+        found = true if player[:name] == dbplayer[:name]
       end
-      find_by_name(dbplayer[:name]).destroy if found == 0
+      find_by_name(dbplayer[:name]).destroy unless found
     end
   end
 
   def self.read_players(doc)
-    list = []
-    doc['raw'].each do |key|
-      key.each do |member|
-        list << { name: member[1]['name'], eaid: member[0] }
+    doc['raw'].map do |key|
+      key.map do |member|
+        { name: member[1]['name'], eaid: member[0] }
       end
-    end
-    list
+    end.flatten
   end
 
   def self.pos_num_to_pos(num)

@@ -30,10 +30,8 @@ class Online < ActiveRecord::Base
   end
 
   def self.status
-    list = []
-    Player.all.each do |player|
-      list << find_by_name(player[:name])
+    Player.all.map do |player|
+      find_by_name(player[:name])
     end
-    list
   end
 end

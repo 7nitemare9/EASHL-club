@@ -6,7 +6,7 @@ class Statistic
     statistics[:points] = average('points', active(players))
     statistics[:goals] = average('goals', active(players))
     statistics[:assists] = average('assists', active(players))
-    statistics[:pims] = average_low_first('pim', active(players))
+    statistics[:pims] = average('pim', active(players)).reverse
     statistics[:team_players] = team_players(active(players))
     statistics[:defensive_players] = defensive_players(active(players))
     statistics[:goalies] = goalies(active_goalies(players))
@@ -17,12 +17,6 @@ class Statistic
     players.sort_by do |player|
       stat(player)[('sk' + statistic).to_sym].to_i / stat(player)[:totalgp].to_f
     end.reverse
-  end
-
-  def self.average_low_first(statistic, players)
-    players.sort_by do |player|
-      stat(player)[('sk' + statistic).to_sym].to_i / stat(player)[:totalgp].to_f
-    end
   end
 
   def self.team_players(players)
@@ -49,9 +43,9 @@ class Statistic
   end
 
   def self.defensive_player_value(k)
-    ((k[:skplusmin].to_i / k[:totalgp].to_f) *  2) +
-    ((k[:skbs].to_i / k[:totalgp].to_f) * 5) +
-    ((k[:skhits].to_i / k[:totalgp].to_f) * 0.1)
+    ((k[:skplusmin].to_i *  2) +
+    (k[:skbs].to_i * 5) +
+    (k[:skhits].to_i * 0.1)) / k[:totalgp].to_f
   end
 
   def self.goalie_value(k)

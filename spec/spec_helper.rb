@@ -43,5 +43,6 @@ RSpec.configure do |config|
   config.before(:each) do
     stub_request(:any, /www.easports.com/).to_rack(FakeEaSports)
     stub_request(:any, /live.xbox.com/).to_rack(FakeOfflineStatus)
+    stub_request(:any, /bombers-hockey.com/).to_rack(FakeForumRss)
   end
 end

@@ -13,10 +13,6 @@ class Match < ActiveRecord::Base
     read_and_add_match_data WebHelpers.read_json(url)
   end
 
-  def self.pos(num)
-    %w(Goalie Def Def LW Center RW)[num.to_i]
-  end
-
   def self.read_and_add_match_data(doc)
     read_match_data(doc).each do |match|
       next if where(matchId: match[:match][:matchId]).first
@@ -28,24 +24,18 @@ class Match < ActiveRecord::Base
   end
 
   def self.read_match_data(hash_doc)
-    list = []
-    read_matches(hash_doc).each do |game|
-      list << {
+    read_matches(hash_doc).map do |game|
+      {
         match: { matchId: game[1]['matchId'].to_s,
                  timestamp: game[1]['timestamp'] },
         clubs: game[1]['clubs'],
         players: game[1]['players']
       }
     end
-    list
   end
 
   def self.read_matches(hash_doc)
-    list = []
-    hash_doc['raw'].each do |key|
-      list << key
-    end
-    list
+    hash_doc['raw'].map { |key| key }
   end
 
   def self.create_team_hash(clubs)

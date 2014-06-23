@@ -39,12 +39,6 @@ describe Statistic do
 
   it 'loads all players' do
     Player.should_receive(:all).and_return(hash)
-    Statistic.should_receive(:average).with('points', hash)
-    Statistic.should_receive(:average).with('goals', hash)
-    Statistic.should_receive(:average).with('assists', hash)
-    Statistic.should_receive(:average_low_first).with('pim', hash)
-    Statistic.should_receive(:team_players)
-    Statistic.should_receive(:defensive_players)
     Statistic.all_stats
   end
 
@@ -76,11 +70,11 @@ describe Statistic do
   end
 
   it 'gets and sorts pims' do
-    Statistic.average_low_first('pim', hash)[0].player_team_stat[:playername]
+    Statistic.average('pim', hash).reverse[0].player_team_stat[:playername]
     .should eq 'Lowest'
-    Statistic.average_low_first('pim', hash)[1].player_team_stat[:playername]
+    Statistic.average('pim', hash).reverse[1].player_team_stat[:playername]
     .should eq 'Middle'
-    Statistic.average_low_first('pim', hash)[2].player_team_stat[:playername]
+    Statistic.average('pim', hash).reverse[2].player_team_stat[:playername]
     .should eq 'Highest'
   end
 

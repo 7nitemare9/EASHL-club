@@ -16,6 +16,12 @@ describe Match do
     Match.get_matches('matches', '12345', '10')
   end
 
+  it 'iterate over matches' do
+    Match.should_receive(:create_team_hash).at_least(1).times
+    Match.should_receive(:create_player_hash).at_least(1).times
+    Match.read_and_add_match_data(respons)
+  end
+
   it 'reads and adds match data to database' do
     Match.read_match_data(respons)
   end
