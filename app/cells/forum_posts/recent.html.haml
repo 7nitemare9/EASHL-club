@@ -1,6 +1,6 @@
-%br
+.b_header
+  %img{:src => "/assets/latest matches.jpg"}
 - @posts.items.each do |item|
-  %a{ :href => item.link, :style => "margin-left:20px;" } #{ item.title }
-  %br
-  %br
+  %li.list-group-item
+    %a{ :href => item.link, :style => "margin-left:20px;" } #{ item.title }
 

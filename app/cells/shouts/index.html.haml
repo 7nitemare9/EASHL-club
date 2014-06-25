@@ -1,2 +1,6 @@
+.b_header
+  %img{:src => "/assets/onlinestatus.jpg"}
 - @shouts.each do |shout|
-  %p #{ shout.name }:   #{ shout.message }
+  %li.list-group-item
+    %h7 #{ shout.name }:   
+    %h8 #{ shout.message }
