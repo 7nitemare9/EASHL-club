@@ -6,7 +6,7 @@ class ShoutsController < ApplicationController
   end
 
   def create
-    Shout.create(params[:shout])
+    Shout.create(shout_params)
     render :shout_save
   end
 
@@ -16,5 +16,11 @@ class ShoutsController < ApplicationController
   def destroy
     @post = Shout.find(params[:id])
     redirect_to root_path if @post.destroy
+  end
+
+  private
+
+  def shout_params
+    params.require(:shout).permit(:message, :name)
   end
 end
