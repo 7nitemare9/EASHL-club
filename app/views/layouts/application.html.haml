@@ -49,24 +49,79 @@
                 %a.nav-forum{:href => "/forum"}
                   %img{:src => "/assets/NAV2/forum_hover.png"}
           / /.navbar-collapse
-      .col-md-6.b_img-responsive.col-md-push-3.b_bottom-padding
+      .col-lg-6.col-md-8.b_img-responsive.col-lg-push-3.b_bottom-padding
         .b_main_content
           .b_box
             = yield
-      .col-md-3.b_column.col-md-pull-6.col-sm-6.col-xs-12
+      .col-lg-3.b_column.col-lg-pull-6.col-md-4.col-sm-6.col-xs-12
         .b_box
           = render_cell :matches, :recent
-      .col-md-3.b_column.col-sm-6.col-xs-12
+      .col-lg-3.b_column.col-md-4.col-sm-6.col-xs-12
         .b_box
           = render_cell :forum_posts, :recent
-      .col-md-3.col-md-pull-6.b_column.col-sm-6.col-xs-12
+      .col-lg-3.col-lg-pull-6.col-md-4.b_column.col-sm-6.col-xs-12
         .b_box
           = render_cell :players, :online
-      .col-md-3.b_column.col-sm-6.col-xs-12
+      .col-lg-3.col-md-4.b_column.col-sm-6.col-xs-12
         .b_box
           #shouts
             = render_cell :shouts, :index
           = render_cell :shouts, :form
+      .col-lg-3.col-md-4.b_column.col-sm-6.col-xs-12.col-lg-pull-6
+        .b_box
+          .b_header
+            %img{:src => "/assets/livestream.jpg"}
+          .b_stream
+            %object{:type => "application/x-shockwave-flash", :height => "188px", :width => "288px", :data => "http://www.twitch.tv/widgets/live_embed_player.swf?channel=7nitemare9", :bgcolor => "#000000", :id => "live_embed_player_flash"}
+              %param{:name => "allowFullScreen",    :value => "true"}
+              %param{:name => "allowScriptAccess",  :value => "always"}
+              %param{:name => "allowNetworking",    :value => "all"}
+              %param{:name => "movie",              :value => "http://www.twitch.tv/widgets/live_embed_player.swf"}
+              %param{:name => "flashvars",          :value => "hostname=www.twitch.tv&channel=7nitemare9&auto_play=true&start_volume=25"}
+      .col-lg-3.b_column.col-md-4.col-sm-6.col-xs-12
+        .b_box
+          .b_header
+            %img{:src => "/assets/livestream.jpg"}
+          %p.b_link
+            %a.b_EA_link{:href => "http://www.easports.com/nhl/clubs/xbox/Bombers%20Hockey" }
+              %img{ :src => "/assets/links/EAsportsworld_hover.jpg"}
+          %p.b_link
+            %a.b_nhl_link{:href => "http://nhl.com" }
+              %img{ :src => "/assets/links/NHLlink_hover.jpg"}
+          %p.b_link
+            %a.b_2bc_link{:href => "https://www.youtube.com/channel/UCmvLM0Difjo_Xyc9CWLhDQ" }
+              %img{ :src => "/assets/links/2bc_hover.jpg"}
+          %p.b_link
+            %a.b_synergy_link{:href => "http://synergyhockey.wordpress.com/" }
+              %img{ :src => "/assets/links/Synergylink_hover.jpg"}
+
+      .col-lg-12.col-md-12.col-sm-12.col-xs-12.b_footer
+        .b_box
+          .col-lg-1.col-md-2
+          .col-lg-6.col-lg-pull-1.col-md-8.col-sm-12 
+            %img{ :src => "/assets/EA_sports.jpg", :width => "100"}
+            %img{ :src => "/assets/AWS-900x900.png", :width => "56"}
+            %img{ :src => "/assets/postgresql.jpg", :width => "56"}
+            %img{ :src => "/assets/Ruby-on-Rails4.jpg", :width => "170"}
+            %img{ :src => "/assets/twitter-bootstrap.jpg", :width => "100"}
+          .col-lg-1.col-md-2
+          .col-lg-5.col-lg-push-0.col-md8.col-md-push-2.col-sm-12
+            .col-lg-6.col-md-3.col-sm-6
+              .panel.panel-default
+                .panel-heading
+                  %h3.panel-title
+                    Idea, ruby, haml and css code
+                .panel-body
+                  Andreas "Sork Pippi" Östlund 
+            .col-lg-6.col-lg-push-0.col-md-3.col-md-push-1.col-sm-6
+              .panel.panel-default
+                .panel-heading
+                  %h3.panel-title
+                    Idea and Design
+                .panel-body
+                  Mattias "Dexrion" Nilsson
+          %br.b_clear
+
       / jQuery (necessary for Bootstrap's JavaScript plugins)
       %script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"}
       / Include all compiled plugins (below), or include individual files as needed
