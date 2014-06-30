@@ -56,7 +56,7 @@ class Player < ActiveRecord::Base
   end
 
   def self.pos_num_to_pos(num)
-    %w(G D D LW C RW)[num]
+    %w(G D D LW C RW)[num.to_i]
   end
 
   def self.existing_player(player)

@@ -61,7 +61,7 @@ describe Player do
   end
 
   it 'return right position from numbers' do
-    Player.pos_num_to_pos(0).should eq 'G'
-    Player.pos_num_to_pos(4).should eq 'C'
+    Player.pos_num_to_pos('0').should eq 'G'
+    Player.pos_num_to_pos('4').should eq 'C'
   end
 end
