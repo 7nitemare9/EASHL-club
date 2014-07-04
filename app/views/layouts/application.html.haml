@@ -5,6 +5,7 @@
       %meta{:content => "IE=edge", "http-equiv" => "X-UA-Compatible"}
         %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}
           %title Bombers Hockey
+          = stylesheet_link_tag "application"
           %link{:href => "/assets/bootstrap.min.css", :rel => "stylesheet"}
             %link{:href => "/assets/bombers.css", :rel => "stylesheet"}
               / HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries
@@ -64,6 +65,8 @@
           = render_cell :players, :online
       .col-lg-3.col-md-4.b_column.col-sm-6.col-xs-12
         .b_box
+          .b_header
+            %img{:src => "/assets/shout.png"}
           #shouts
             = render_cell :shouts, :index
           = render_cell :shouts, :form
@@ -125,4 +128,19 @@
       / jQuery (necessary for Bootstrap's JavaScript plugins)
       %script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"}
       / Include all compiled plugins (below), or include individual files as needed
+      =javascript_include_tag "application"
+      :javascript
+        $(document).ready(function() {
+          var pingAfter = 60000;
+          var refreshId = setInterval(function() {
+            $("#status").load('/online/status');
+          }, pingAfter);
+        });
+      :javascript
+        $(document).ready(function() {
+          var pingAfter = 5000;
+          var shoutsId = setInterval(function() {
+            $("#shouts").load('/shouts');
+          }, pingAfter);
+        });
       %script{:src => "/assets/bootstrap.min.js"}

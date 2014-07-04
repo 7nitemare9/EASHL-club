@@ -1,5 +1,6 @@
 - @shouts.each do |shout|
-  %p 
-    #{ shout.name }:   #{ shout.message }
+  %li.list-group-item
+    %h7 #{ shout.name }:   
+    %h8 #{ shout.message }
     - if @current_user.user_name == 'admin'
       = link_to 'Delete', shout, confirm: 'Are you sure?', 'data-method' => :delete  

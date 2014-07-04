@@ -1,5 +1,5 @@
 - goalie = nil
-- match.game_teams.each do |team|
+- match.game_teams.each_with_index do |team, index|
   .team #{ team.name }
   %table{:rules => "all"}
     %thead
@@ -41,7 +41,7 @@
         %tr{:class => "team_head"}
           %th GamerTag
           %th{:class => "cr"} Position
-          %th{:class => "cr"} GoalsAgainst
+          %th{:class => "cr"} Goals Againstg
           %th{:class => "cr"} Save %
           %th{:class => "cr"} Saves
           %th{:class => "cr"} Shots
@@ -53,4 +53,5 @@
           %td{:class => "cr"} #{ player.glsaves}
           %td{:class => "cr"} #{ player.glshots}
           - goalie = nil
-  %br
+  - if index == 0
+    %br

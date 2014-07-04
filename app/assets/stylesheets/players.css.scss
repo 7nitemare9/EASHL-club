@@ -1,0 +1,157 @@
+// Place all the styles related to the Players controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.scorebox {
+  background:url(/assets/boxscore/scorebox.jpg);
+  height:48px;
+  background-size: 100%;
+  margin:auto;
+}
+#rink {
+  position: relative;
+  height: 285px;
+  left: 25px;
+  background:url(/assets/boxscore/rink.png) no-repeat;
+  background-size: 92% 92%;
+}
+
+.player_image_box {
+  float:left;
+  position:relative;
+}
+
+.player_image {
+  border-radius: 15px;
+  -moz-border-radius: 15px;
+  margin-left:9px; 
+  margin-top:4px;
+  width:60px;
+  height: 60px;
+}
+
+.player_text_box {
+  position: absolute; 
+  margin-left: auto; 
+  margin-right: auto; 
+  bottom: -7px; 
+  color: #000000;
+  font-family: fantasy;
+  left: 8px; 
+  right: 0; 
+  text-align: center
+}
+
+.hlw {
+  top: 68%;
+  left: 48%;
+  position: absolute;
+}
+.hc {
+  top: 35%;
+  left: 53%;
+  position: absolute;
+}
+.hrw {
+  top: 3%;
+  left: 48%;
+  position: absolute;
+}
+.hld {
+  top: 59%;
+  left: 67%;
+  position: absolute;
+}
+.hrd {
+  top: 12%;
+  left: 67%;
+  position: absolute;
+}
+.hg {
+  top: 35%;
+  left: 80%;
+  position: absolute;
+}
+.alw {
+  top: 3%;
+  left: 35%;
+  position: absolute;
+}
+.ac {
+  top: 35%;
+  left: 30%;
+  position: absolute;
+}
+.arw {
+  top: 68%;
+  left: 35%;
+  position: absolute;
+}
+.ald {
+  top: 12%;
+  left: 15%;
+  position: absolute;
+}
+.ard {
+  top: 59%;
+  left: 15%;
+  position: absolute;
+}
+.ag {
+  top: 35%;
+  left: 3%;
+  position: absolute;
+}
+
+table {
+  width: 100%;
+}
+tbody tr:nth-child(odd) {
+  background: #202020;
+}
+tfoot tr:nth-child(even) {
+  background: #202020;
+}
+.team {
+  width: 100%;
+  background: #CE9216; 
+  color: #fff;
+  font-size: small;
+}
+.team_head {
+  width: 100%;
+  background: #ffffff;
+  color: #000000;
+  font-size: x-small;
+}
+.goalie_stats {
+  background: #181818;
+  color: #ffffff;
+}
+td {
+  color: #fff;
+  text-indent: 1%;
+  font-size: x-small;
+}
+th {
+  color: #000;
+  text-indent: 1%;
+  font-size: x-small;
+}
+
+td.cr { 
+  text-indent: inherit;
+  text-align: center;
+  color: #fff;
+  font-size: x-small;
+}
+th.cr { 
+  text-indent: inherit;
+  text-align: center;
+  font-size: x-small;
+}
+.tcenter {
+  width: 99%;
+  border: 1px solid #484848;
+  margin-bottom: 0;
+}
+
