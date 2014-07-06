@@ -1,29 +1,28 @@
-%div{:align => "center"}
-  %div{:style => "background:url(assets/lineupbg.png); height:25px; width:675px;"}
-    %div{:style => "float:left; width:55px; height:25px; text-align:center; margin-top:5px"} Nummer
-    %div{:style => "float:left; width:115px; height:25px; text-align:center; margin-top:5px"} Namn
-    %div{:style => "float:left; width:87px; height:25px; text-align:center; margin-top:5px"} Position
-    %div{:style => "float:left; width:80px; height:25px; text-align:center; margin-top:5px; margin-left:10px;"} Land
-    %div{:style => "float:left; width:80px; height:25px; text-align:center; margin-top:5px"} Stad
-    %div{:style => "float:left; width:60px; height:25px; text-align:center; margin-top:5px"} Längd
-    %div{:style => "float:left; width:60px; height:25px; text-align:center; margin-top:5px"} Vikt
-    %div{:style => "float:left; width:60px; height:25px; text-align:center; margin-top:5px"} Ålder
-    %div{:style => "float:left; width:53px; height:25px; text-align:center; margin-top:5px"} Info
--@players.each do |player|
-  %div{:align => "center"}
-    %div{:style => "background:url(assets/lineupbg.png); height:27px; width:675px;"}
-      %div{:style => "float:left; width:50px; height:25px; text-align:center; margin-top:2px"} #{player.number}
-      %div{:style => "float:left; width:145px; height:25px; margin-top:2px; text-align:left"}
-        %span{:style => "float:left; width:135px; height:25px; margin-top:2px; text-align:center"} #{player.RealName}
-      %div{:style => "float:left; width:67px; height:25px; margin-top:2px; text-align:left"} #{player.position}
-      %div{:style => "float:left; width:92px; height:25px; text-align:center; margin-top:-5px; background:url(assets/swedenflaglineup.png)no-repeat center center;"}
-      %div{:style => "float:left; width:75px; height:25px; margin-top:2px"} #{player.City}
-      %div{:style => "float:left; width:60px; height:25px; margin-top:2px"} #{player.height} m
-      %div{:style => "float:left; width:65px; height:25px; margin-top:2px"} #{player.weight} kg
-      %div{:style => "float:left; width:65px; height:25px; margin-top:2px"} #{player.age}
-      %div{:style => "float:left; width:53px; height:25px; text-align:center; margin-top:2px"}
-        =link_to 'Show', player
-        - if @current_user.user_name == "admin" or @current_user.user_name == player.name
-          =link_to 'Edit', edit_player_path(player)
-
-
+.content
+  %p
+    %img{ :src => "/assets/blank.jpg", :width => "100%" }
+    %p2 Lineup
+%table{ rules: "all" }
+  %thead
+    %tr.team_head
+      %th.cr Gamertag
+      %th.cr Name
+      %th.cr Number
+      %th.cr Position
+      %th.cr Country
+      %th.cr City
+      %th.cr Age
+      %th.cr Info
+  %tbody
+    -@players.each do |player|
+      %tr
+        %td.cr #{ player.name }
+        %td.cr #{ player.RealName }
+        %td.cr #{ player.number }
+        %td.cr #{ player.position }
+        %td.cr 
+          %img{ src: "assets/swedenflaglineup.png", width: "26", style: "min-width: 0%" }
+        %td.cr #{ player.City }
+        %td.cr #{ player.age }
+        %td.cr
+          =link_to 'Show', player
