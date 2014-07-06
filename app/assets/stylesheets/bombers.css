@@ -4,6 +4,9 @@ body {
 a {
   color: #ce9216;
 }
+a:hover {
+  color: #ce9216;
+}
 .online_image_box {
   float: left;
   position: relative;
@@ -221,6 +224,22 @@ input {
 }
 .b_bottom-padding {
   padding-bottom: 4vmin;
+}
+.content {
+  text-align: left;
+}
+.content p {
+  text-align: right;
+}
+.content p2 {
+  margin-top: -4.5%;
+  margin-right: 1%;
+  display: block;
+  color: #fff;
+}
+.content p3 {
+  color: #aaa;
+  margin: 1%;
 }
 @media (min-width: 1400px) {
   .b_bottom-padding {
