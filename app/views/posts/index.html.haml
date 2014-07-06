@@ -17,6 +17,8 @@
   }
   .title {
     font-size: x-large;
+    font-family: Myriad;
+    font-weight: bold;
   }
   .top_news {
     float: left;
@@ -47,7 +49,7 @@
         .top_news
           .title
             %p2 
-              = link_to post[:title], post_path(post)
+              = link_to(post[:title].upcase, post_path(post))
           %p3= raw post[:text] 
         .other_news
           - @posts.each.with_index do |post, i|

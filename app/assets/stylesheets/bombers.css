@@ -1,3 +1,12 @@
+@font-face {
+  font-family: Myriad;
+  src: url("/assets/fonts/MYRIADPRO-REGULAR.OTF");
+}
+@font-face {
+  font-family: Myriad;
+  font-weight: bold;
+  src: url("/assets/fonts/MYRIADPRO-BOLD.OTF");
+}
 body {
   background: url("/assets/bg_contentwrapper.jpg") repeat-y scroll center top transparent;
 }
@@ -232,6 +241,8 @@ input {
   text-align: right;
 }
 .content p2 {
+  font-family: Myriad;
+  font-weight: bold;
   margin-top: -4.5%;
   margin-right: 1%;
   display: block;
@@ -240,6 +251,9 @@ input {
 .content p3 {
   color: #aaa;
   margin: 1%;
+}
+.content p3 img {
+  min-width: 0%;
 }
 @media (min-width: 1400px) {
   .b_bottom-padding {

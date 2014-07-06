@@ -3,7 +3,7 @@
   .content
     %p
       %img{ :src => "/assets/blank.jpg", :width => "675" }
-      %p2 #{ @post.title } 
+      %p2 #{ @post.title.upcase } 
     %p3= raw @post.text 
     - if @current_user.user_name == "admin"
       %p
