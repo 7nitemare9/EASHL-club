@@ -1,224 +1,56 @@
-%div{style: "position: relative;"}
+.content
   %p
-    %img#p-target-1{height: "97", src: "assets/Awards/points.png", width: "335"}/
-    %img#defender-target-1{height: "97", src: "assets/Awards/defender.png", style: "margin-left:3px", width: "335"}/
-  %p
-  #p-content-1{style: "margin-top:-770px; margin-left:-940px"}
-    %table.tablesorter
-      %thead
-        %tr
-          %th Name
-          %th Goals
-          %th Assist
-          %th Points
-          %th Hits
-          %th PIM
-          %th +/-
-      %tbody
-        %tr
-          %td #{ @stats[:points][0][:name] }
-          %td #{ @stats[:points][0].player_team_stat[:skgoals].to_i / @stats[:points][0].player_team_stat[:totalgp].to_f }
-          %td #{ @stats[:points][0].player_team_stat[:skassists].to_i / @stats[:points][0].player_team_stat[:totalgp].to_f }
-          %td #{ @stats[:points][0].player_team_stat[:skpoints].to_i / @stats[:points][0].player_team_stat[:totalgp].to_f }
-          %td #{ @stats[:points][0].player_team_stat[:skhits].to_i / @stats[:points][0].player_team_stat[:totalgp].to_f }
-          %td #{ @stats[:points][0].player_team_stat[:skpims].to_i / @stats[:points][0].player_team_stat[:totalgp].to_f }
-          %td #{ @stats[:points][0].player_team_stat[:skplusmin].to_i / @stats[:points][0].player_team_stat[:totalgp].to_f }
-        %tr
-          %td #{ @stats[:points][1][:name] }
-          %td #{ @stats[:points][1].player_team_stat[:skgoals].to_i / @stats[:points][0].player_team_stat[:totalgp].to_f }
-          %td #{ @stats[:points][1].player_team_stat[:skassists].to_i / @stats[:points][0].player_team_stat[:totalgp].to_f }
-          %td #{ @stats[:points][1].player_team_stat[:skpoints].to_i / @stats[:points][0].player_team_stat[:totalgp].to_f }
-          %td #{ @stats[:points][1].player_team_stat[:skhits].to_i / @stats[:points][0].player_team_stat[:totalgp].to_f }
-          %td #{ @stats[:points][1].player_team_stat[:skpims].to_i / @stats[:points][0].player_team_stat[:totalgp].to_f }
-          %td #{ @stats[:points][1].player_team_stat[:skplusmin].to_i / @stats[:points][0].player_team_stat[:totalgp].to_f }
-        %tr
-          %td #{ @stats[:points][2][:name] }
-          %td #{ @stats[:points][2].player_team_stat[:skgoals].to_i / @stats[:points][0].player_team_stat[:totalgp].to_f }
-          %td #{ @stats[:points][2].player_team_stat[:skassists].to_i / @stats[:points][0].player_team_stat[:totalgp].to_f }
-          %td #{ @stats[:points][2].player_team_stat[:skpoints].to_i / @stats[:points][0].player_team_stat[:totalgp].to_f }
-          %td #{ @stats[:points][2].player_team_stat[:skhits].to_i / @stats[:points][0].player_team_stat[:totalgp].to_f }
-          %td #{ @stats[:points][2].player_team_stat[:skpims].to_i / @stats[:points][0].player_team_stat[:totalgp].to_f }
-          %td #{ @stats[:points][2].player_team_stat[:skplusmin].to_i / @stats[:points][0].player_team_stat[:totalgp].to_f }
-  - points = @stats[:points][0].player_team_stat
-  %div{style: "top: 32px; left: 19px; position: absolute;"}
-    %a{href: "player/Jollboll"}
-      %img{src: "images/Xbox/Jollboll_Online.jpg"}/
-  %div{style: "top: 56px; left: 95px; position: absolute;"}
-    %a{href: "player/Jollboll"} #{ @stats[:points][0][:name] }
-  %div{style: "top: 56px; left: 180px; position: absolute;"} #{ (points[:skgoals].to_i / points[:totalgp].to_f).round(2) }
-  %div{style: "top: 56px; left: 215px; position: absolute;"} #{ (points[:skassists].to_i / points[:totalgp].to_f).round(2)  }
-  %div{style: "top: 56px; left: 245px; position: absolute;"} #{ (points[:skpoints].to_i / points[:totalgp].to_f).round(2)  }
-  %div{style: "top: 56px; left: 268px; position: absolute;"} #{ (points[:skhits].to_i / points[:totalgp].to_f).round(2)  }
-  %div{style: "top: 56px; left: 290px; position: absolute;"} #{ (points[:skpim].to_i / points[:totalgp].to_f).round(2)  }
-  %div{style: "top: 56px; left: 312px; position: absolute;"} #{ (points[:skplusmin].to_i / points[:totalgp].to_f).round(2)  }
-  - points = @stats[:points][1].player_team_stat
-  %div{style: "top: 76px; left: 95px; position: absolute;"}
-    %a{href: "player/Dexrion"} #{ @stats[:points][1][:name] }
-  %div{style: "top: 76px; left: 180px; position: absolute;"} #{ (points[:skgoals].to_i / points[:totalgp].to_f).round(2) }
-  %div{style: "top: 76px; left: 215px; position: absolute;"} #{ (points[:skassists].to_i / points[:totalgp].to_f).round(2) }
-  %div{style: "top: 76px; left: 245px; position: absolute;"} #{ (points[:skpoints].to_i / points[:totalgp].to_f).round(2) }
-  %div{style: "top: 76px; left: 268px; position: absolute;"} #{ (points[:skhits].to_i / points[:totalgp].to_f).round(2) }
-  %div{style: "top: 76px; left: 290px; position: absolute;"} #{ (points[:skpim].to_i / points[:totalgp].to_f).round(2) }
-  %div{style: "top: 76px; left: 312px; position: absolute;"} #{ (points[:skplusmin].to_i / points[:totalgp].to_f).round(2) }
-
-  - defense = @stats[:defensive_players][0].player_team_stat
-  %div{style: "top: 32px; left: 357px; position: absolute;"}
-    %a{href: "player/Dexrion"}
-      %img{src: "images/Xbox/Dexrion_Online.jpg"}/
-  %div{style: "top: 56px; left: 433px; position: absolute;"}
-    %a{href: "player/Dexrion"} #{ @stats[:defensive_players][0][:name] }
-  %div{style: "top: 56px; left: 518px; position: absolute;"} #{ (defense[:skgoals].to_i / defense[:totalgp].to_f).round(2) }    
-  %div{style: "top: 56px; left: 553px; position: absolute;"} #{ (defense[:skassists].to_i / defense[:totalgp].to_f).round(2)  } 
-  %div{style: "top: 56px; left: 583px; position: absolute;"} #{ (defense[:skpoints].to_i / defense[:totalgp].to_f).round(2)  }
-  %div{style: "top: 56px; left: 606px; position: absolute;"} #{ (defense[:skhits].to_i / defense[:totalgp].to_f).round(2)  }  
-  %div{style: "top: 56px; left: 628px; position: absolute;"} #{ (defense[:skpim].to_i / defense[:totalgp].to_f).round(2)  }   
-  %div{style: "top: 56px; left: 650px; position: absolute;"} #{ (defense[:skplusmin].to_i / defense[:totalgp].to_f).round(2)  }     
-  - defense = @stats[:defensive_players][1].player_team_stat
-  %div{style: "top: 76px; left: 433px; position: absolute;"}
-    %a{href: "player/Jollboll"} #{ @stats[:defensive_players][1][:name] }
-  %div{style: "top: 76px; left: 518px; position: absolute;"} #{ (defense[:skgoals].to_i / defense[:totalgp].to_f).round(2) }    
-  %div{style: "top: 76px; left: 553px; position: absolute;"} #{ (defense[:skassists].to_i / defense[:totalgp].to_f).round(2)  } 
-  %div{style: "top: 76px; left: 583px; position: absolute;"} #{ (defense[:skpoints].to_i / defense[:totalgp].to_f).round(2)  }
-  %div{style: "top: 76px; left: 606px; position: absolute;"} #{ (defense[:skhits].to_i / defense[:totalgp].to_f).round(2)  }  
-  %div{style: "top: 76px; left: 628px; position: absolute;"} #{ (defense[:skpim].to_i / defense[:totalgp].to_f).round(2)  }   
-  %div{style: "top: 76px; left: 650px; position: absolute;"} #{ (defense[:skplusmin].to_i / defense[:totalgp].to_f).round(2)  }     
-%div{style: "position: relative;"}
-  %p
-    %img#a-target-1{height: "97", src: "assets/Awards/assists.png", width: "335"}/
-    %img#g-target-1{height: "97", src: "assets/Awards/Goals.png", style: "margin-left:3px", width: "335"}/
-  - assists = @stats[:assists][0].player_team_stat
-  %div{style: "top: 32px; left: 19px; position: absolute;"}
-    %a{href: "player/Jollboll"}
-      %img{src: "images/Xbox/Jollboll_Online.jpg"}/
-  %div{style: "top: 56px; left: 95px; position: absolute;"}
-    %a{href: "player/Jollboll"} #{ @stats[:assists][0][:name] }
-  %div{style: "top: 56px; left: 180px; position: absolute;"} #{ (assists[:skgoals].to_i / assists[:totalgp].to_f).round(2) }
-  %div{style: "top: 56px; left: 215px; position: absolute;"} #{ (assists[:skassists].to_i / assists[:totalgp].to_f).round(2)  }
-  %div{style: "top: 56px; left: 245px; position: absolute;"} #{ (assists[:skpoints].to_i / assists[:totalgp].to_f).round(2)  }
-  %div{style: "top: 56px; left: 268px; position: absolute;"} #{ (assists[:skhits].to_i / assists[:totalgp].to_f).round(2)  }
-  %div{style: "top: 56px; left: 290px; position: absolute;"} #{ (assists[:skpim].to_i / assists[:totalgp].to_f).round(2)  }
-  %div{style: "top: 56px; left: 312px; position: absolute;"} #{ (assists[:skplusmin].to_i / assists[:totalgp].to_f).round(2)  }
-  - assists = @stats[:assists][1].player_team_stat
-  %div{style: "top: 76px; left: 95px; position: absolute;"}
-    %a{href: "player/Dexrion"} #{ @stats[:assists][1][:name] }
-  %div{style: "top: 76px; left: 180px; position: absolute;"} #{ (assists[:skgoals].to_i / assists[:totalgp].to_f).round(2) }
-  %div{style: "top: 76px; left: 215px; position: absolute;"} #{ (assists[:skassists].to_i / assists[:totalgp].to_f).round(2) }
-  %div{style: "top: 76px; left: 245px; position: absolute;"} #{ (assists[:skpoints].to_i / assists[:totalgp].to_f).round(2) }
-  %div{style: "top: 76px; left: 268px; position: absolute;"} #{ (assists[:skhits].to_i / assists[:totalgp].to_f).round(2) }
-  %div{style: "top: 76px; left: 290px; position: absolute;"} #{ (assists[:skpim].to_i / assists[:totalgp].to_f).round(2) }
-  %div{style: "top: 76px; left: 312px; position: absolute;"} #{ (assists[:skplusmin].to_i / assists[:totalgp].to_f).round(2) }
-
-  - goals = @stats[:goals][0].player_team_stat
-  %div{style: "top: 32px; left: 357px; position: absolute;"}
-    %a{href: "player/Dexrion"}
-      %img{src: "images/Xbox/Dexrion_Online.jpg"}/
-  %div{style: "top: 56px; left: 433px; position: absolute;"}
-    %a{href: "player/Dexrion"} #{ @stats[:goals][0][:name] }
-  %div{style: "top: 56px; left: 518px; position: absolute;"} #{ (goals[:skgoals].to_i / goals[:totalgp].to_f).round(2) }    
-  %div{style: "top: 56px; left: 553px; position: absolute;"} #{ (goals[:skassists].to_i / goals[:totalgp].to_f).round(2)  } 
-  %div{style: "top: 56px; left: 583px; position: absolute;"} #{ (goals[:skpoints].to_i / goals[:totalgp].to_f).round(2)  }
-  %div{style: "top: 56px; left: 606px; position: absolute;"} #{ (goals[:skhits].to_i / goals[:totalgp].to_f).round(2)  }  
-  %div{style: "top: 56px; left: 628px; position: absolute;"} #{ (goals[:skpim].to_i / goals[:totalgp].to_f).round(2)  }   
-  %div{style: "top: 56px; left: 650px; position: absolute;"} #{ (goals[:skplusmin].to_i / goals[:totalgp].to_f).round(2)  }     
-  - goals = @stats[:goals][1].player_team_stat
-  %div{style: "top: 76px; left: 433px; position: absolute;"}
-    %a{href: "player/Jollboll"} #{ @stats[:goals][1][:name] }
-  %div{style: "top: 76px; left: 518px; position: absolute;"} #{ (goals[:skgoals].to_i / goals[:totalgp].to_f).round(2) }    
-  %div{style: "top: 76px; left: 553px; position: absolute;"} #{ (goals[:skassists].to_i / goals[:totalgp].to_f).round(2)  } 
-  %div{style: "top: 76px; left: 583px; position: absolute;"} #{ (goals[:skpoints].to_i / goals[:totalgp].to_f).round(2)  }
-  %div{style: "top: 76px; left: 606px; position: absolute;"} #{ (goals[:skhits].to_i / goals[:totalgp].to_f).round(2)  }  
-  %div{style: "top: 76px; left: 628px; position: absolute;"} #{ (goals[:skpim].to_i / goals[:totalgp].to_f).round(2)  }   
-  %div{style: "top: 76px; left: 650px; position: absolute;"} #{ (goals[:skplusmin].to_i / goals[:totalgp].to_f).round(2)  }     
-%div{style: "position: relative;"}
-  %p
-    %img#b-target-1{height: "97", src: "assets/Awards/UTVISNINGAR.png", width: "335"}/
-    %img#pm-target-1{height: "97", src: "assets/Awards/PLUSMINUS.png", style: "margin-left:3px;", width: "335"}/
-  - pim = @stats[:pims][-1].player_team_stat
-  %div{style: "top: 32px; left: 19px; position: absolute;"}
-    %a{href: "player/Jollboll"}
-      %img{src: "images/Xbox/Jollboll_Online.jpg"}/
-  %div{style: "top: 56px; left: 95px; position: absolute;"}
-    %a{href: "player/Jollboll"} #{ @stats[:pims][-1][:name] }
-  %div{style: "top: 56px; left: 180px; position: absolute;"} #{ (pim[:skgoals].to_i / pim[:totalgp].to_f).round(2) }
-  %div{style: "top: 56px; left: 215px; position: absolute;"} #{ (pim[:skassists].to_i / pim[:totalgp].to_f).round(2)  }
-  %div{style: "top: 56px; left: 245px; position: absolute;"} #{ (pim[:skpoints].to_i / pim[:totalgp].to_f).round(2)  }
-  %div{style: "top: 56px; left: 268px; position: absolute;"} #{ (pim[:skhits].to_i / pim[:totalgp].to_f).round(2)  }
-  %div{style: "top: 56px; left: 290px; position: absolute;"} #{ (pim[:skpim].to_i / pim[:totalgp].to_f).round(2)  }
-  %div{style: "top: 56px; left: 312px; position: absolute;"} #{ (pim[:skplusmin].to_i / pim[:totalgp].to_f).round(2)  }
-  - pim = @stats[:pims][-2].player_team_stat
-  %div{style: "top: 76px; left: 95px; position: absolute;"}
-    %a{href: "player/Dexrion"} #{ @stats[:pims][-2][:name] }
-  %div{style: "top: 76px; left: 180px; position: absolute;"} #{ (pim[:skgoals].to_i / pim[:totalgp].to_f).round(2) }
-  %div{style: "top: 76px; left: 215px; position: absolute;"} #{ (pim[:skassists].to_i / pim[:totalgp].to_f).round(2) }
-  %div{style: "top: 76px; left: 245px; position: absolute;"} #{ (pim[:skpoints].to_i / pim[:totalgp].to_f).round(2) }
-  %div{style: "top: 76px; left: 268px; position: absolute;"} #{ (pim[:skhits].to_i / pim[:totalgp].to_f).round(2) }
-  %div{style: "top: 76px; left: 290px; position: absolute;"} #{ (pim[:skpim].to_i / pim[:totalgp].to_f).round(2) }
-  %div{style: "top: 76px; left: 312px; position: absolute;"} #{ (pim[:skplusmin].to_i / pim[:totalgp].to_f).round(2) }
-
-  - team_players = @stats[:team_players][0].player_team_stat
-  %div{style: "top: 32px; left: 357px; position: absolute;"}
-    %a{href: "player/Dexrion"}
-      %img{src: "images/Xbox/Dexrion_Online.jpg"}/
-  %div{style: "top: 56px; left: 433px; position: absolute;"}
-    %a{href: "player/Dexrion"} #{ @stats[:team_players][0][:name] }
-  %div{style: "top: 56px; left: 518px; position: absolute;"} #{ (team_players[:skgoals].to_i / team_players[:totalgp].to_f).round(2) }    
-  %div{style: "top: 56px; left: 553px; position: absolute;"} #{ (team_players[:skassists].to_i / team_players[:totalgp].to_f).round(2)  } 
-  %div{style: "top: 56px; left: 583px; position: absolute;"} #{ (team_players[:skpoints].to_i / team_players[:totalgp].to_f).round(2)  }
-  %div{style: "top: 56px; left: 606px; position: absolute;"} #{ (team_players[:skhits].to_i / team_players[:totalgp].to_f).round(2)  }  
-  %div{style: "top: 56px; left: 628px; position: absolute;"} #{ (team_players[:skpim].to_i / team_players[:totalgp].to_f).round(2)  }   
-  %div{style: "top: 56px; left: 650px; position: absolute;"} #{ (team_players[:skplusmin].to_i / team_players[:totalgp].to_f).round(2)  }     
-  - team_players = @stats[:team_players][1].player_team_stat
-  %div{style: "top: 76px; left: 433px; position: absolute;"}
-    %a{href: "player/Jollboll"} #{ @stats[:team_players][1][:name] }
-  %div{style: "top: 76px; left: 518px; position: absolute;"} #{ (team_players[:skgoals].to_i / team_players[:totalgp].to_f).round(2) }    
-  %div{style: "top: 76px; left: 553px; position: absolute;"} #{ (team_players[:skassists].to_i / team_players[:totalgp].to_f).round(2)  } 
-  %div{style: "top: 76px; left: 583px; position: absolute;"} #{ (team_players[:skpoints].to_i / team_players[:totalgp].to_f).round(2)  }
-  %div{style: "top: 76px; left: 606px; position: absolute;"} #{ (team_players[:skhits].to_i / team_players[:totalgp].to_f).round(2)  }  
-  %div{style: "top: 76px; left: 628px; position: absolute;"} #{ (team_players[:skpim].to_i / team_players[:totalgp].to_f).round(2)  }   
-  %div{style: "top: 76px; left: 650px; position: absolute;"} #{ (team_players[:skplusmin].to_i / team_players[:totalgp].to_f).round(2)  }     
-%div{style: "position: relative;"}
-  %p
-    %img{height: "97", src: "assets/Awards/Malvakt.png", width: "335"}/
-    %img#pim-target-1{height: "97", src: "assets/Awards/Snallast.png", style: "margin-left:3px;", width: "335"}/
-  - pim = @stats[:goalies][0].player_team_stat
-  %div{style: "top: 32px; left: 19px; position: absolute;"}
-    %a{href: "player/Jollboll"}
-      %img{src: "images/Xbox/Jollboll_Online.jpg"}/
-  %div{style: "top: 56px; left: 95px; position: absolute;"}
-    %a{href: "player/Jollboll"} #{ @stats[:goalies][0][:name] }
-  %div{style: "top: 56px; left: 180px; position: absolute;"} #{ pim[:glsavepct].to_f.round(2) }
-  %div{style: "top: 56px; left: 215px; position: absolute;"} #{ pim[:glgaa].to_f.round(2)  }
-  %div{style: "top: 56px; left: 245px; position: absolute;"} #{ (pim[:glsaves].to_i / pim[:glgp].to_f).round(2)  }
-  %div{style: "top: 56px; left: 268px; position: absolute;"} #{ (pim[:glwins].to_i / pim[:glgp].to_f).round(2)  }
-  %div{style: "top: 56px; left: 290px; position: absolute;"} #{ pim[:glso].to_i  }
-  - pim = @stats[:goalies][1].player_team_stat
-  %div{style: "top: 76px; left: 95px; position: absolute;"}
-    %a{href: "player/Dexrion"} #{ @stats[:goalies][1][:name] }
-  %div{style: "top: 76px; left: 180px; position: absolute;"} #{ pim[:glsavepct].to_f.round(2) }                  
-  %div{style: "top: 76px; left: 215px; position: absolute;"} #{ pim[:glgaa].to_f.round(2)  }                     
-  %div{style: "top: 76px; left: 245px; position: absolute;"} #{ (pim[:glsaves].to_i / pim[:glgp].to_f).round(2)  }
-  %div{style: "top: 76px; left: 268px; position: absolute;"} #{ (pim[:glwins].to_i / pim[:glgp].to_f).round(2)  } 
-  %div{style: "top: 76px; left: 290px; position: absolute;"} #{ pim[:glso].to_i  }
-
-  - pims = @stats[:pims][0].player_team_stat
-  %div{style: "top: 32px; left: 357px; position: absolute;"}
-    %a{href: "player/Dexrion"}
-      %img{src: "images/Xbox/Dexrion_Online.jpg"}/
-  %div{style: "top: 56px; left: 433px; position: absolute;"}
-    %a{href: "player/Dexrion"} #{ @stats[:pims][0][:name] }
-  %div{style: "top: 56px; left: 518px; position: absolute;"} #{ (pims[:skgoals].to_i / pims[:totalgp].to_f).round(2) }    
-  %div{style: "top: 56px; left: 553px; position: absolute;"} #{ (pims[:skassists].to_i / pims[:totalgp].to_f).round(2)  } 
-  %div{style: "top: 56px; left: 583px; position: absolute;"} #{ (pims[:skpoints].to_i / pims[:totalgp].to_f).round(2)  }
-  %div{style: "top: 56px; left: 606px; position: absolute;"} #{ (pims[:skhits].to_i / pims[:totalgp].to_f).round(2)  }  
-  %div{style: "top: 56px; left: 628px; position: absolute;"} #{ (pims[:skpim].to_i / pims[:totalgp].to_f).round(2)  }   
-  %div{style: "top: 56px; left: 650px; position: absolute;"} #{ (pims[:skplusmin].to_i / pims[:totalgp].to_f).round(2)  }     
-  - pims = @stats[:pims][1].player_team_stat
-  %div{style: "top: 76px; left: 433px; position: absolute;"}
-    %a{href: "player/Jollboll"} #{ @stats[:pims][1][:name] }
-  %div{style: "top: 76px; left: 518px; position: absolute;"} #{ (pims[:skgoals].to_i / pims[:totalgp].to_f).round(2) }    
-  %div{style: "top: 76px; left: 553px; position: absolute;"} #{ (pims[:skassists].to_i / pims[:totalgp].to_f).round(2)  } 
-  %div{style: "top: 76px; left: 583px; position: absolute;"} #{ (pims[:skpoints].to_i / pims[:totalgp].to_f).round(2)  }
-  %div{style: "top: 76px; left: 606px; position: absolute;"} #{ (pims[:skhits].to_i / pims[:totalgp].to_f).round(2)  }  
-  %div{style: "top: 76px; left: 628px; position: absolute;"} #{ (pims[:skpim].to_i / pims[:totalgp].to_f).round(2)  }   
-  %div{style: "top: 76px; left: 650px; position: absolute;"} #{ (pims[:skplusmin].to_i / pims[:totalgp].to_f).round(2)  }     
-%div{style: "position: relative;"}
+    %img{ :src => "/assets/blank.jpg", :width => "100%" }
+    %p2 STATISTICS 
+- @stats.each do |category|
+  .col-lg-6
+    .b_box.b_box_stats
+      .b_stat_title 
+        %p #{ category[0].to_s.upcase } 
+      .b_stats.thumbnail
+        %img{ src: "https://avatar-ssl.xboxlive.com/avatar/" + category[1].first[:name] + "/avatarpic-l.png" }
+        .caption
+          %h6 #{ category[1].first[:name] }
+      - unless category[0].to_s == 'goalies'
+        %table.b_stat_table
+          %thead
+            %tr.team_head
+              %th.cr Name
+              %th.cr Goals
+              %th.cr Assists
+              %th.cr Points
+              %th.cr Hits
+              %th.cr Pims
+              %th.cr +/-
+          %tbody
+            - category[1].each do |player|
+              - stats = player.player_team_stat
+              %tr
+                %td.cr #{ player[:name] }
+                %td.cr #{ (stats[:skgoals].to_i / stats[:totalgp].to_f).round(2) }
+                %td.cr #{ (stats[:skassists].to_i / stats[:totalgp].to_f).round(2) }
+                %td.cr #{ (stats[:skpoints].to_i / stats[:totalgp].to_f).round(2) }
+                %td.cr #{ (stats[:skhits].to_i / stats[:totalgp].to_f).round(2) }
+                %td.cr #{ (stats[:skpim].to_i / stats[:totalgp].to_f).round(2) }
+                %td.cr #{ (stats[:skplusmin].to_i / stats[:totalgp].to_f).round(2) }
+      - else
+        %table.b_stat_table
+          %thead
+            %tr.team_head
+              %th.cr Name
+              %th.cr Save%
+              %th.cr GAA
+              %th.cr Saves
+              %th.cr Win%
+              %th.cr SO
+          %tbody
+            - category[1].each do |player|
+              - stats = player.player_team_stat
+              %tr
+                %td.cr #{ player[:name] }
+                %td.cr #{ (stats[:glsavepct].to_f * 100).round(2) }
+                %td.cr #{ stats[:glgaa].to_f.round(2) }
+                %td.cr #{ (stats[:glsaves].to_i / stats[:glgp].to_f).round(2) }
+                %td.cr #{ (stats[:glwins].to_i / stats[:glgp].to_f).round(2) }
+                %td.cr #{ stats[:glso].to_i }
+            

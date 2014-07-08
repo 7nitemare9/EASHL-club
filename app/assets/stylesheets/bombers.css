@@ -200,6 +200,7 @@ input {
 }
 .b_main_content {
   background: #303030;
+  display: flex;
 }
 .b_link {
   margin-top: 4px;
@@ -247,6 +248,7 @@ input {
   margin-right: 1%;
   display: block;
   color: #fff;
+  margin: auto;
 }
 .content p3 {
   color: #aaa;
@@ -254,6 +256,41 @@ input {
 }
 .content p3 img {
   min-width: 0%;
+}
+.b_stat_table {
+  width: 85%;
+  margin-bottom: 1%;
+}
+.b_stats.thumbnail {
+  width: 15%;
+}
+.b_stats h6 {
+  font-size: 9px;
+}
+.b_stat_title {
+  width: 100%;
+  border-bottom: 2px solid #fff;
+  text-align: right;
+  margin-bottom: 1%;
+  background: #1A1819;
+}
+.b_stat_title p {
+  margin-right: 3%;
+  background: #1A1819;
+  margin-top: 6%;
+  margin-bottom: 0%;
+  color: #fff;
+  font-family: Myriad;
+  font-weight: bold;
+  font-size: x-small;
+}
+.b_box_stats {
+  background: #1A1819;
+  margin-top: 10%;
+  display: inline-block;
+}
+.b_main_content .b_box {
+  padding-bottom: 5%;
 }
 @media (min-width: 1400px) {
   .b_bottom-padding {

@@ -1,27 +1,27 @@
 .content
-  %div{:style => "height:351px; width:674px; position:relative; background-image:url('/assets/players/bakg_base1-#{@player.typ}.png');"}
+  %div{style: "background-image:url('/assets/players/bakg_base1-#{@player.typ}.png'); background-repeat: no-repeat; display: flex; background-size: 100%; margin-bottom: 5%;"}
     / News Subject
-    %h3
-      %img{:style => "margin-left:-5px; margin-top:5px;", :height => "21", :src => "/assets/players/bar_playerinfo.png", :width => "410"}
-        %img{:style => "margin-right:-7px; margin-top:2px", :align => "right", :alt => "", :height => "346", :src => "/assets/players/spelarkort_#{@player.name}.png", :width => "250"}/
-    %div{:style => "max-width:350px; margin-left:3px"}
-      %p{:style => "margin-top:-10px"} Name: #{@player.RealName}
-      %p Origin: #{@player.City}
-      %p Age: #{@player.age}
-      %p Height: #{@player.height} m
-      %p Weight: #{@player.weight} kg
-    %div{:style => "margin-left:323px; margin-top:-245px;"}
-      %p
-        %img{:width => "128", :height => "128", :style => "margin-top:98px; margin-left:-50px; margin-bottom:-10px", :alt => "", :src => "/assets/players/gameface-fx_#{@player.name}.png"}/
-      %p
-        %a{:href => ""}
-          %img{:style => "margin-left:-30px", :height => "43", :src => "/assets/facebook.jpg", :width => "42"}/
-        %a{:href => ""}
-          %img{:alt => "", :height => "43", :src => "/assets/msnlogo.jpg", :width => "42"}/
-      %p{:style => "margin-left:-130px"} Strenghts:
-      %p{:style => "margin-left:-130px; margin-top:-10px"} #{@player.strength}
-      %p{:style => "margin-left:-130px"} Style: 
-      %p{:style => "margin-left:-130px; margin-top:-10px"} #{@player.style}
+    .playerinfo
+      %img{ :src => "/assets/players/bar_playerinfo.png" }
+      .playerinfo_text
+        %p2 Gamertag: 
+        %p #{@player.name}
+        %p2 Name: 
+        %p #{@player.RealName}
+        %p2 Origin: 
+        %p #{@player.City}
+        %p2 Age: 
+        %p #{@player.age}
+      .playerface
+        %img{ :src => "/assets/players/gameface-fx_#{@player.name}.png"}
+        .strength
+          %p2 Strenghts:
+          %p #{@player.strength}
+        .style
+          %p2 Style: 
+          %p #{@player.style}
+    .playercard
+      %img{ :src => "/assets/players/spelarkort_#{@player.name}.png"}/
   - player = @player.player_team_stat
   - if (player.totalgp.to_i - player.glgp.to_i) > 0
     %table{:rules => "all"}
