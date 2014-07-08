@@ -248,7 +248,6 @@ input {
   margin-right: 1%;
   display: block;
   color: #fff;
-  margin: auto;
 }
 .content p3 {
   color: #aaa;
@@ -256,6 +255,9 @@ input {
 }
 .content p3 img {
   min-width: 0%;
+}
+.content iframe {
+  margin: 6%;
 }
 .b_stat_table {
   width: 85%;
