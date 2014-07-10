@@ -70,7 +70,10 @@
           = render_cell :matches, :recent
       .col-lg-3.b_column.col-md-4.col-sm-6.col-xs-12
         .b_box
-          = render_cell :forum_posts, :recent
+          - if @current_user.user_name == "not logged in"
+            = render_cell :forum_posts, :not_logged_in
+          - else
+            = render_cell :forum_posts, :recent
       .col-lg-3.col-lg-pull-6.col-md-4.b_column.col-sm-6.col-xs-12
         .b_box
           = render_cell :players, :online
