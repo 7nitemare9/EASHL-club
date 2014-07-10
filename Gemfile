@@ -8,6 +8,7 @@ gem 'jquery-rails'
 gem 'thin'
 gem 'phpbb-auth', :git => 'https://github.com/7nitemare9/phpbb-auth.git'
 gem 'mysql2'
+gem 'kaminari'
 #gem 'taps'
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
@@ -33,12 +34,12 @@ end
 
 end
 group :production do
-  gem 'pg'  
+  gem 'pg'
 end
 
 # Gems used only for assets and not required
 # in production environments by default.
-gem 'therubyracer'              
+gem 'therubyracer'
 gem 'sass-rails'
 gem 'coffee-rails'
 gem 'uglifier'

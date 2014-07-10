@@ -1,9 +1,8 @@
 # Matches Controller
 class MatchesController < ApplicationController
   def index
-    @matches = Match.all
+    @matches = Match.order('timestamp DESC').page(params[:page]).per(15)
   end
-
   def show
     @match = Match.find(params[:id])
   end

@@ -69,7 +69,7 @@ a:hover {
   padding-right: 0px !important;
   max-width: 1300px;
   margin-left: 0px !important;
-  margin-right: 0px !important;  
+  margin-right: 0px !important;
 }
   .b_navigation li {
     float: left;
@@ -163,13 +163,13 @@ input {
   border: 1px solid transparent;
   border-radius: 4px;
 }
-.b_column li.list-group-item:nth-child(odd) {
+li.list-group-item:nth-child(odd) {
   padding-top: 2px;
   padding-bottom:0px;
   background: #303030;
   border: none;
 }
-.b_column li.list-group-item:nth-child(even) {
+li.list-group-item:nth-child(even) {
   padding-top: 2px;
   padding-bottom:0px;
   background: #404040;
@@ -288,11 +288,9 @@ input {
 }
 .b_box_stats {
   background: #1A1819;
-  margin-top: 10%;
+  margin-top: 7%;
+  margin-bottom: 3%;
   display: inline-block;
-}
-.b_main_content .b_box {
-  padding-bottom: 5%;
 }
 @media (min-width: 1400px) {
   .b_bottom-padding {

@@ -23,21 +23,21 @@
 .player_image {
   border-radius: 15px;
   -moz-border-radius: 15px;
-  margin-left:9px; 
+  margin-left:9px;
   margin-top:4px;
   width:60px;
   height: 60px;
 }
 
 .player_text_box {
-  position: absolute; 
-  margin-left: auto; 
-  margin-right: auto; 
-  bottom: -7px; 
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  bottom: -7px;
   color: #000000;
   font-family: fantasy;
-  left: 8px; 
-  right: 0; 
+  left: 8px;
+  right: 0;
   text-align: center
 }
 
@@ -106,20 +106,26 @@ table {
   width: 100%;
 }
 tbody tr:nth-child(odd) {
-  background: #202020;
+  background: #303030;
 }
 tfoot tr:nth-child(even) {
-  background: #202020;
+  background: #303030;
+}
+tbody tr:nth-child(even) {
+  background: #404040;
+}
+tfoot tr:nth-child(odd) {
+  background: #404040;
 }
 .team {
   width: 100%;
-  background: #CE9216; 
+  background: #CE9216;
   color: #fff;
   font-size: small;
 }
 .team_head {
   width: 100%;
-  background: #ffffff;
+  background: #ffffff !important;
   color: #000000;
   font-size: x-small;
 }
@@ -138,13 +144,13 @@ th {
   font-size: x-small;
 }
 
-td.cr { 
+td.cr {
   text-indent: inherit;
   text-align: center;
   color: #fff;
   font-size: x-small;
 }
-th.cr { 
+th.cr {
   text-indent: inherit;
   text-align: center;
   font-size: x-small;
