@@ -1,10 +1,16 @@
-=form_tag '/forum/ucp.php?mode=login', :id => 'user-login-form', :method => 'post', :class => 'login' do
-  %input{:type => "hidden", :name => "redirect", :value => request.fullpath}
-  %label{:for => "username"}
-    Username
-  %input{:type => "text", :name => "username", :id => "username" }
-  %label{:for => "password"}
-    Password
-  %input{:type => "password", :name => "password", :id => "password" }
-  %input{:type => "submit", :name => 'login', :value => "     ", :class => "special_button"}
-    
+.modal-dialog
+  .modal-content.b_modal
+    .modal-header.b_modal_header
+      %button{:type => "button", :class => "close", "data-dismiss" => "modal"}x
+      %p LOGIN
+    .modal-body
+      =form_tag '/forum/ucp.php?mode=login', :id => 'user-login-form', :method => 'post', :class => 'login' do
+        %input{:type => "hidden", :name => "redirect", :value => request.fullpath}
+        %label{:for => "username"}
+          Username
+        %input{:type => "text", :name => "username", :id => "username" }
+        %label{:for => "password"}
+          Password
+        %input{:type => "password", :name => "password", :id => "password" }
+        %input{:type => "submit", :name => 'login', :value => "Login", :class => "special_button"}
+

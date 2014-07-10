@@ -109,8 +109,12 @@ input {
   background: #383838;
   border-color: #484848;
 }
+.navbar-nav {
+  width: 100%;
+}
 .nav-filler {
   background: url(/assets/NAV2/filler.jpg);
+  padding: 0px !important;
 }
 .nav-homepage {
   background: url(/assets/NAV2/home.png) no-repeat;
@@ -146,6 +150,27 @@ input {
   background: url(/assets/NAV2/forum.png) no-repeat;
   width: 79px;
   padding: 0px !important;
+}
+.nav-logout {
+  background: url(/assets/NAV2/logout.png) no-repeat;
+  width: 78px;
+  padding: 0px !important;
+}
+.nav-login {
+  background: url(/assets/NAV2/filler.png) no-repeat;
+  width: 78px;
+  padding: 0px !important;
+}
+a.nav-login p{
+  font-family: Myriad;
+  font-weight: bold;
+  font-size: x-small;
+  color: #fff;
+  margin-top: 13%;
+  text-align: center;
+}
+.log_in_out {
+  float: right !important;
 }
 .b_header {
   background: url(/assets/head_bg.jpg) repeat-x;
@@ -234,6 +259,24 @@ li.list-group-item:nth-child(even) {
 }
 .b_bottom-padding {
   padding-bottom: 4vmin;
+}
+.b_modal {
+  background: #303030;
+}
+.b_modal label{
+  font-family: Myriad;
+  font-weight: normal;
+  color: #fff;
+}
+.b_modal_header {
+  background: #181818;
+  padding: 0;
+}
+.b_modal_header p{
+  text-align: center;
+  font-family: Myriad;
+  font-weight: bold;
+  color: #fff;
 }
 .content {
   text-align: left;
