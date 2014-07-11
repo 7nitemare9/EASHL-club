@@ -7,5 +7,6 @@
       %p3 #{ raw media.text }
 
       %p
+        = paginate @medias
         = link_to 'Edit', edit_media_path(media)
         = link_to 'Delete', media, confirm: 'Are you sure?', 'data-method' => :delete

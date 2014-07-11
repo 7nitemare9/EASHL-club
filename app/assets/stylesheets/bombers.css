@@ -417,4 +417,6 @@ li.list-group-item:nth-child(even) {
 body {
   color: #ddd;
 }
-
+.pagination {
+  margin: 2%;
+}

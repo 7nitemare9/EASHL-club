@@ -1,7 +1,7 @@
 # Media page controller
 class MediasController < ApplicationController
   def index
-    @medias = Media.all.reverse
+    @medias = Media.all.page(params[:page]).per(1)
   end
 
   def new
