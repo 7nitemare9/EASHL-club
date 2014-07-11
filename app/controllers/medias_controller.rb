@@ -1,5 +1,9 @@
 # Media page controller
 class MediasController < ApplicationController
+  require 'auth_helper'
+  include AuthHelper
+  before_filter :is_admin, except: [:index, :show]
+
   def index
     @medias = Media.all.page(params[:page]).per(1)
   end
