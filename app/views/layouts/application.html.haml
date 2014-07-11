@@ -146,7 +146,18 @@
       =javascript_include_tag "application"
       :javascript
         bkLib.onDomLoaded(function() {
-          var editor = new nicEditor({fullPanel : true}).panelInstance('post_text',{hasPanel : true});
+          try {
+            new nicEditor({fullPanel : true}).panelInstance('media_text');
+          }
+          catch(e) {}
+          try {
+            new nicEditor({fullPanel : true}).panelInstance('post_text');
+          }
+          catch(e) {}
+        });
+      :javascript
+        bkLib.onDomLoaded(function() {
+          new nicEditor({fullPanel : true}).panelInstance('post_text');
         });
       :javascript
         $(document).ready(function() {

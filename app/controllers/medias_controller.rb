@@ -15,7 +15,7 @@ class MediasController < ApplicationController
 
   def update
     @media = Media.find(params[:id])
-    redirect_to root_path if @media.update_attributes(params[:media])
+    redirect_to root_path if @media.update_attributes(media_params)
   end
 
   def show
