@@ -16,6 +16,7 @@
   %body
     .container
       .container-fluid
+        = link_to "create new", :action => "new"
         %nav.navbar.navbar-default{:role => "navigation"}
           %a{:href => "/posts"}
             %img.img-responsive{:src => "/assets/header.png"}/
@@ -143,6 +144,10 @@
       %script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"}
       / Include all compiled plugins (below), or include individual files as needed
       =javascript_include_tag "application"
+      :javascript
+        bkLib.onDomLoaded(function() {
+          var editor = new nicEditor({fullPanel : true}).panelInstance('post_text',{hasPanel : true});
+        });
       :javascript
         $(document).ready(function() {
           var pingAfter = 60000;

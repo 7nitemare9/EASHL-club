@@ -4,7 +4,7 @@
       %p
         %img{ :src => "/assets/blank.jpg", :width => "100%" }
         %p2 #{ media.title.upcase }
-      p3 #{ raw media.text }
+      %p3 #{ raw media.text }
 
       %p
         = link_to 'Edit', edit_media_path(media)

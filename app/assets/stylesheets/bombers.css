@@ -89,6 +89,7 @@ a:hover {
   background: #333333;
   border: 1px solid #484848;
   border-radius: 4px;
+  width: 100%;
 }
 h7 {
   margin-left: 5px;
@@ -267,6 +268,7 @@ li.list-group-item:nth-child(even) {
   font-family: Myriad;
   font-weight: normal;
   color: #fff;
+ 100%
 }
 .b_modal_header {
   background: #181818;
@@ -410,5 +412,8 @@ li.list-group-item:nth-child(even) {
 .panel-heading {
   color: #fff;
   padding: 6px 9px;
+}
+body {
+  color: #ddd;
 }
 

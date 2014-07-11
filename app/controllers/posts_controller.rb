@@ -2,7 +2,7 @@
 class PostsController < ApplicationController
   require 'auth_helper'
   include AuthHelper
-  before_filter :is_admin, except: [:index, :show]
+  #before_filter :is_admin, except: [:index, :show]
 
   def index
     @posts = Post.news
@@ -19,7 +19,7 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    redirect_to root_path if @post.update_attributes(params[:post])
+    redirect_to root_path if @post.update_attributes(post_params)
   end
 
   def show
