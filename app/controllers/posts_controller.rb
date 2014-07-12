@@ -2,7 +2,7 @@
 class PostsController < ApplicationController
   require 'auth_helper'
   include AuthHelper
-  before_filter :is_admin, except: [:index, :show]
+  #before_filter :is_admin, except: [:index, :show]
 
   def index
     @posts = Post.news

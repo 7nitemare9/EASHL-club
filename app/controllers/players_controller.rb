@@ -4,7 +4,7 @@ class PlayersController < ApplicationController
   include AuthHelper
 
   before_filter :is_admin,
-                except: [:index, :getMemberData, :OnlineStatus, :show]
+                except: [:index, :member_data, :online_status, :show]
 
   def index
     @players = Player.all
