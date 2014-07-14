@@ -5,7 +5,7 @@ class ForumPost
 
   def self.topics
     RSS::Parser.parse(
-      open('http://www.bombers-hockey.com/forum/syndication.php')
+      open(Rails.application.secrets.forum_rss_uri)
     )
   end
 end

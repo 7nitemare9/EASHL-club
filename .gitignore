@@ -17,4 +17,5 @@ app/assets/images/
 vendor/
 public/bhf/
 public/php/
+config/secrets.yml
 

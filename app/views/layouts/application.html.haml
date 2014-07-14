@@ -70,7 +70,7 @@
           = render_cell :matches, :recent
       .col-lg-3.b_column.col-md-4.col-sm-6.col-xs-12
         .b_box
-          - if @current_user.user_name == "not logged in"
+          - if @current_user.user_name == "not logged in" && Rails.application.secrets.authorize
             = render_cell :forum_posts, :not_logged_in
           - else
             = render_cell :forum_posts, :recent

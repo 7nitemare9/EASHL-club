@@ -39,6 +39,6 @@ class MatchesController < ApplicationController
   end
 
   def match_data
-    @page = Match.get_matches('matches', params[:team], params[:num_matches])
+    @page = Match.get_matches(params[:num_matches] || '10')
   end
 end

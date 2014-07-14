@@ -13,7 +13,7 @@ describe Match do
 
   it 'gets match data from ea webpage' do
     Match.should_receive(:read_and_add_match_data).with(respons)
-    Match.get_matches('matches', '12345', '10')
+    Match.get_matches('10')
   end
 
   it 'iterate over matches' do

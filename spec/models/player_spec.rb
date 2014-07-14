@@ -8,7 +8,7 @@ describe Player do
 
   it 'gets the player info and stats for the club' do
     Player.should_receive(:player_data)
-    Player.get_page('members', '12345')
+    Player.members()
   end
 
   it 'should add new members and data and remove non members' do

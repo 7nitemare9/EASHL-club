@@ -9,6 +9,7 @@ gem 'thin'
 gem 'phpbb-auth', :git => 'https://github.com/7nitemare9/phpbb-auth.git'
 gem 'mysql2'
 gem 'kaminari'
+gem 'rails-secrets'
 #gem 'taps'
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'

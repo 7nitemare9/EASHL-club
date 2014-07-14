@@ -48,7 +48,7 @@ class PlayersController < ApplicationController
   end
 
   def member_data
-    @page = Player.get_page('members', params[:team])
+    @page = Player.members()
   end
 
   def online_status

@@ -7,12 +7,10 @@ class Player < ActiveRecord::Base
   require 'open-uri'
   require 'json'
   require 'web_helpers'
-  @team = ''
 
-  def self.get_page(page, team)
+  def self.members()
     url = 'http://www.easports.com/iframe/nhl14proclubs/api/platforms/xbox/' \
-          'clubs/' + team + '/' + page
-    @team = team
+      'clubs/' + Rails.application.secrets.team_id + '/members'
     player_data WebHelpers.read_json(url)
   end
 
@@ -65,7 +63,7 @@ class Player < ActiveRecord::Base
 
   def self.add_player_team_stat(player)
     existing_player(player).create_player_team_stat(
-      PlayerTeamStat.get_data(@team, player[:eaid])
+      PlayerTeamStat.get_data(Rails.application.secrets.team_id, player[:eaid])
     )
   end
 
