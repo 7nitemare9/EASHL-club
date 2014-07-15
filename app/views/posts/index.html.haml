@@ -42,24 +42,24 @@
     position: relative;
   }
 - post = @posts.first
-.box
-  .post_image
-    - post[:image][0] ||= "assets/blank.jpg"
-    %img{ :src => post[:image][0], :width => "650"}
-      .tray
-        .top_news
-          .title
-            %p2
-              = link_to(post[:title].upcase, post_path(post[:id]))
-          %p3= raw post[:text]
-        .other_news
-          - @posts.each.with_index do |post, i|
-            - unless i == 0
-              >
-              = link_to post[:title], post_path(post[:id])
-              %br
-  - if @current_user.user_name == "admin"
-    %p
-      = link_to 'Edit', edit_post_path(post[:id])
-      = link_to 'Delete', post, confirm: 'Are you sure?', 'data-method' => :delete
-
+.news
+  .box
+    .post_image
+      - post[:image][0] ||= "assets/blank.jpg"
+      %img{ :src => post[:image][0], :width => "650"}
+        .tray
+          .top_news
+            .title
+              %p2
+                = link_to(post[:title].upcase, post_path(post[:id]))
+            %p3= raw post[:text]
+          .other_news
+            - @posts.each.with_index do |post, i|
+              - unless i == 0
+                %div{class: i.to_s}
+                  >
+                  = link_to post[:title], post_path(post[:id])
+    - if @current_user.user_name == "admin"
+      %p
+        = link_to 'Edit', edit_post_path(post[:id])
+        = link_to 'Delete', post, confirm: 'Are you sure?', 'data-method' => :delete

@@ -172,4 +172,19 @@
             $("#shouts").load('/shouts');
           }, pingAfter);
         });
+      :javascript
+        $(document).ready(function() {
+          var pingAfter = 15000;
+          var i = 0;
+          var newsId = setInterval(function() {
+            if(i > 5){
+              i = 0;
+            } else {
+              i++;
+            }
+            $.get('/posts', {id: i}, function( data ) {
+              $(".b_main_content .b_box .news").replaceWith(data);
+            });
+          }, pingAfter);
+        });
       %script{:src => "/assets/bootstrap.min.js"}

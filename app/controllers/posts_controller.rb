@@ -5,6 +5,10 @@ class PostsController < ApplicationController
   #before_filter :is_admin, except: [:index, :show]
 
   def index
+    if params[:id]
+      @posts = Post.news.rotate(params[:id].to_i)
+      render layout: false
+    end
     @posts = Post.news
   end
 
