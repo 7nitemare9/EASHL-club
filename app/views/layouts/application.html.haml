@@ -14,7 +14,7 @@
   %body
     .container
       .container-fluid
-        - if @current_user.user_name == "admin"
+        - if @current_user.user_name == "admin" or Rails.application.secrets.authorize == false
           = link_to "create new", :action => "new"
         %nav.navbar.navbar-default{:role => "navigation"}
           %a{:href => "/posts"}

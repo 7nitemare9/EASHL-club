@@ -14,7 +14,8 @@ class Post < ActiveRecord::Base
     {
       title: post.title,
       image: extract_images(post),
-      text: extract_text(post, extract_images(post)),
+      youtube: extract_iframe(post),
+      text: extract_text(post, extract_images(post), extract_iframe(post)),
       id: post.id
     }
   end
@@ -23,13 +24,17 @@ class Post < ActiveRecord::Base
     Nokogiri::HTML(post.text).css('img').map { |i| i['src'] }
   end
 
-  def self.extract_text(post, images)
-    text = ''
+  def self.extract_iframe(post)
+    Nokogiri::HTML(post.text).css('iframe').map { |i| i['src'] }
+  end
+
+  def self.extract_text(post, images, youtube)
+    text = Nokogiri::HTML(post.text)
     if images[0]
-      text = Nokogiri::HTML(post.text)
       text.at_xpath("//img[@src='#{images[0]}']").remove
-    else
-      text = post.text
+    end
+    if youtube[0]
+      text.at_xpath("//iframe[@src='#{youtube[0]}']").remove
     end
     text
   end
