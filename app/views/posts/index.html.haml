@@ -17,7 +17,7 @@
     font-size: x-small;
   }
   .title a:link {
-    font-size: x-large !important;
+    font-size: x-large ;
     font-family: Myriad;
     font-weight: bold;
   }
@@ -54,8 +54,9 @@
       .tray
         .top_news
           .title
+            - size = 'font-size: ' + [4, (125 / post[:title].length.to_f)].min.to_s + 'vh'
             %p2
-              = link_to(post[:title].upcase, post_path(post[:id]))
+              = link_to(post[:title].upcase, post_path(post[:id]),{:style => size})
           %p3= raw post[:text]
         .other_news
           - @posts.each.with_index do |post, i|
