@@ -54,7 +54,7 @@
       .tray
         .top_news
           .title
-            - size = 'font-size: ' + [4, (125 / post[:title].length.to_f)].min.to_s + 'vh'
+            - size = 'font-size: ' + [1.15, (35 / post[:title].length.to_f)].min.to_s + 'vw'
             %p2
               = link_to(post[:title].upcase, post_path(post[:id]),{:style => size})
           %p3= raw post[:text]
