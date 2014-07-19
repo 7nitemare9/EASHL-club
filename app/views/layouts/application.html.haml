@@ -41,7 +41,7 @@
                 %a.nav-media{:href => "/medias"}
                   %img{:src => "/assets/NAV2/media_hover.png"}
               %li
-                %a.nav-info{:href => "/clubinfo"}
+                %a.nav-info{:href => "/info"}
                   %img{:src => "/assets/NAV2/clubinfo_hover.png"}
               %li
                 %a.nav-results{:href => "/matches"}
@@ -52,8 +52,7 @@
               - if @current_user.user_name == "not logged in"
                 %li.log_in_out
                   %a.nav-login{"data-toggle" => "modal", "data-target" => "#myModal", :href => "#myModal"}
-                    %img{:src => "/assets/NAV2/logout_hover.png"}
-                    %p LOGIN
+                    %img{:src => "/assets/NAV2/login_hover.png"}
               - else
                 %li.log_in_out
                   %a.nav-logout{:href => "/forum/ucp.php?mode=logout&sid=#{ cookies['bombers-hockey_sid'] }"}
@@ -174,7 +173,7 @@
         });
       :javascript
         $(document).ready(function() {
-          var pingAfter = 15000;
+          var pingAfter = 15000000;
           var i = 0;
           var newsId = setInterval(function() {
             if(i > 5){

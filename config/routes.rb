@@ -5,7 +5,7 @@ Spelpunkten::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
   root 'posts#index'
-  
+
   resources :matches
   resources :players
   resources :posts
@@ -13,6 +13,7 @@ Spelpunkten::Application.routes.draw do
   resources :forum
   resources :statistics
   resources :shouts
+  resources :info
 
   get '/player/getMemberData' => 'players#member_data'
   get '/player/OnlineStatus' => 'players#online_status'

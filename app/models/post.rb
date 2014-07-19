@@ -36,6 +36,6 @@ class Post < ActiveRecord::Base
     if youtube[0]
       text.at_xpath("//iframe[@src='#{youtube[0]}']").remove
     end
-    text
+    text.to_html
   end
 end
