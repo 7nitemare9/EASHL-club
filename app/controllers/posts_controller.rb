@@ -4,12 +4,25 @@ class PostsController < ApplicationController
   include AuthHelper
   #before_filter :is_admin, except: [:index, :show]
 
+
   def index
-    if params[:id]
-      @posts = Post.news.rotate(params[:id].to_i)
-      render layout: false
-    end
+   #if params[:id]
+   #   @posts = Post.news.rotate(params[:id].to_i)
+   #   render layout: false
+   # end
+   # @posts = Post.news
     @posts = Post.news
+    respond_to do |format|
+      format.html
+      format.json {render :json => @posts}
+    end
+  end
+
+  def data
+    @posts.news
+    respond_to do |format|
+      format.json {render :json => @posts}
+    end
   end
 
   def new
