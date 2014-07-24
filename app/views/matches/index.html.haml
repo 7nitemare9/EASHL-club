@@ -1,0 +1,24 @@
+.box
+  .content
+    %p
+      %img{ :src => "/assets/blank.jpg", :width => "100%" }
+      %p2 RESULTS
+    %br
+    - @matches.each do |match|
+      %li.list-group-item
+        =link_to match.game_teams[0].name  + " - " + match.game_teams[1].name, match
+        - if match.game_teams[0].name == Rails.application.secrets.team_name
+          - if match.game_teams[0].goals > match.game_teams[1].goals
+            %span.badge.pull-right{:style => "background: #4a4"}
+              = match.game_teams[0].goals.to_s + " - " + match.game_teams[0].goalsAgainst.to_s
+          - else
+            %span.badge.pull-right{:style => "background: #a44"}
+              = match.game_teams[0].goals.to_s + " - " + match.game_teams[0].goalsAgainst.to_s
+        -else
+          - if match.game_teams[0].goals < match.game_teams[1].goals
+            %span.badge.pull-right{:style => "background: #4a4"}
+              = match.game_teams[0].goals.to_s + " - " + match.game_teams[0].goalsAgainst.to_s
+          - else
+            %span.badge.pull-right{:style => "background: #a44"}
+              = match.game_teams[0].goals.to_s + " - " + match.game_teams[0].goalsAgainst.to_s
+    = paginate @matches

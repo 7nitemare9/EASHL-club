@@ -1,0 +1,11 @@
+.b_header
+  %img{:src => "/assets/onlinestatus.jpg"}
+.b_content
+  - @players.each do |player|
+    .thumbnail
+      -if player[:status] == 'Online'
+        %img.online_image{:src => player[:image], :title => player[:text]}
+      -else
+        %img.online_image_grayscale{:src => player[:image], :title => player[:text]}
+      .caption
+        %h6 #{player[:name]}

@@ -1,0 +1,31 @@
+Inspecting 34 files
+.................CCCCCCCC.........
+
+Offenses:
+
+app/helpers/application_helper.rb:1:1: C: Missing top-level module documentation comment.
+module ApplicationHelper
+^^^^^^
+app/helpers/matches_helper.rb:1:1: C: Missing top-level module documentation comment.
+module MatchesHelper
+^^^^^^
+app/helpers/news_helper.rb:1:1: C: Missing top-level module documentation comment.
+module NewsHelper
+^^^^^^
+app/helpers/posts_helper.rb:1:1: C: Missing top-level module documentation comment.
+module PostsHelper
+^^^^^^
+app/helpers/home_helper.rb:1:1: C: Missing top-level module documentation comment.
+module HomeHelper
+^^^^^^
+app/helpers/media_helper.rb:1:1: C: Missing top-level module documentation comment.
+module MediaHelper
+^^^^^^
+app/helpers/players_helper.rb:1:1: C: Missing top-level module documentation comment.
+module PlayersHelper
+^^^^^^
+app/helpers/auth_helper.rb:3:7: C: Rename [33mis_admin[0m to [33madmin?[0m.
+  def is_admin
+      ^^^^^^^^
+
+34 files inspected, 8 offenses detected

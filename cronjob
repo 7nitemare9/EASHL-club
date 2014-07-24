@@ -1,0 +1,3 @@
+*/10 * * * * curl localhost/player/getMemberData?team=281934 > /dev/null
+*/7 * * * * curl "localhost/match/getMatchData?team=281934&num_matches=10" > /dev/null
+*/4 * * * * curl localhost/player/OnlineStatus > /dev/null

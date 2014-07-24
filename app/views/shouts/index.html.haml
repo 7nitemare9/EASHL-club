@@ -1,0 +1,9 @@
+- @shouts.each do |shout|
+  %li.list-group-item
+    %h7 #{ shout.name }:
+    %h8 #{ shout.message }
+    - if @current_user.user_name == 'admin'
+      = link_to 'Delete', shout, confirm: 'Are you sure?', 'data-method' => :delete
+- Range.new(0, 4 - @shouts.count).each do
+  %li.list-group-item
+    %a{ :style => "margin-left:20px;" }
