@@ -14,6 +14,7 @@ Spelpunkten::Application.routes.draw do
   resources :statistics
   resources :shouts
   resources :info
+  resources :tweets
 
   get '/player/getMemberData' => 'players#member_data'
   get '/player/OnlineStatus' => 'players#online_status'

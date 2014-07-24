@@ -9,11 +9,14 @@
 # from scratch. The latter is a flawed and unsustainable approach (the more migrations
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
-# It's strongly recommended to check this file into your version control system.
+# It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140530115254) do
+ActiveRecord::Schema.define(version: 20140724154141) do
 
-  create_table "game_players", :force => true do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "game_players", force: true do |t|
     t.integer "match_id"
     t.string  "glga"
     t.string  "glsavepct"
@@ -35,7 +38,7 @@ ActiveRecord::Schema.define(:version => 20140530115254) do
     t.string  "blazeId"
   end
 
-  create_table "game_teams", :force => true do |t|
+  create_table "game_teams", force: true do |t|
     t.integer "match_id"
     t.string  "teamId"
     t.string  "memberstring"
@@ -47,19 +50,19 @@ ActiveRecord::Schema.define(:version => 20140530115254) do
     t.string  "clubId"
   end
 
-  create_table "matches", :force => true do |t|
+  create_table "matches", force: true do |t|
     t.string  "matchId"
     t.integer "timestamp"
   end
 
-  create_table "medias", :force => true do |t|
+  create_table "medias", force: true do |t|
     t.string   "title"
     t.text     "text"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "onlines", :force => true do |t|
+  create_table "onlines", force: true do |t|
     t.string   "status"
     t.text     "image"
     t.string   "name"
@@ -68,7 +71,7 @@ ActiveRecord::Schema.define(:version => 20140530115254) do
     t.text     "text"
   end
 
-  create_table "player_season_stats", :force => true do |t|
+  create_table "player_season_stats", force: true do |t|
     t.integer  "player_id"
     t.string   "skwins"
     t.string   "sklosses"
@@ -124,7 +127,7 @@ ActiveRecord::Schema.define(:version => 20140530115254) do
     t.datetime "updated_at"
   end
 
-  create_table "player_team_stats", :force => true do |t|
+  create_table "player_team_stats", force: true do |t|
     t.integer  "player_id"
     t.string   "playername"
     t.string   "totalgp"
@@ -152,7 +155,7 @@ ActiveRecord::Schema.define(:version => 20140530115254) do
     t.datetime "updated_at"
   end
 
-  create_table "players", :force => true do |t|
+  create_table "players", force: true do |t|
     t.string   "name"
     t.integer  "matches"
     t.integer  "goals"
@@ -175,14 +178,14 @@ ActiveRecord::Schema.define(:version => 20140530115254) do
     t.text     "eaid"
   end
 
-  create_table "posts", :force => true do |t|
+  create_table "posts", force: true do |t|
     t.string   "title"
     t.text     "text"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "shouts", :force => true do |t|
+  create_table "shouts", force: true do |t|
     t.string   "message"
     t.string   "email"
     t.string   "name"
@@ -190,7 +193,13 @@ ActiveRecord::Schema.define(:version => 20140530115254) do
     t.datetime "updated_at"
   end
 
-  create_table "users", :force => true do |t|
+  create_table "tweets", force: true do |t|
+    t.text     "messages"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", force: true do |t|
     t.string   "user_name"
     t.datetime "created_at"
     t.datetime "updated_at"
