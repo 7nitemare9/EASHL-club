@@ -150,6 +150,11 @@ input {
   width: 72px;
   padding: 0px !important;
 }
+.nav-links {
+  background: url(/assets/NAV2/links.png) no-repeat;
+  width: 71px;
+  padding: 0px !important;
+}
 .nav-forum {
   background: url(/assets/NAV2/forum.png) no-repeat;
   width: 71px;
@@ -199,12 +204,14 @@ li.list-group-item:nth-child(odd) {
   padding-bottom:0px;
   background: #303030;
   border: none;
+  min-width: 200px;
 }
 li.list-group-item:nth-child(even) {
   padding-top: 2px;
   padding-bottom:0px;
   background: #404040;
   border: none;
+  min-width: 200px;
 }
 .b_latest_games li.list-group-item a {
   color: #ffffff;
@@ -423,4 +430,15 @@ body {
 }
 .pagination {
   margin: 2%;
+}
+.dropdown-menu .list-group-item a {
+  color: #FBB600;
+}
+.dropdown-menu {
+  padding: 0;
+  border-radius: 5px; !important;
+}
+.navbar-nav li .dropdown-menu {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }

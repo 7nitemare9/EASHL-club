@@ -46,6 +46,26 @@
               %li
                 %a.nav-results{:href => "/matches"}
                   %img{:src => "/assets/NAV2/results_hover.png"}
+              %li.dropdown
+                %a.nav-links.dropdown-toggle{:href => "#", "data-toggle" => "dropdown"}
+                  %img{:src => "/assets/NAV2/links_hover.png"}
+                %ul.dropdown-menu
+                  %li.list-group-item
+                    %a{:href => "http://www.nhl.com"}NHL.com
+                  %li.list-group-item
+                    %a{:href => "http://consolehockey.com"}ConsoleHockey
+                  %li.list-group-item
+                    %a{:href => "http://www.easports.com/nhl15"}EA Sports NHL15
+                  %li.list-group-item
+                    %a{:href => "http://youtube.com/2bcproductions"}2bcproductions
+                  %li.list-group-item
+                    %a{:href => "http://synergyhockey.wordpress.com/tag/eashl/"}Synery hockey
+                  %li.list-group-item
+                    %a{:href => "http://ramjagsinghluktarcurry.blogg.se"}Jesus blogg
+                  %li.list-group-item
+                    %a{:href => "http://www.operationsports.se"}Operation Sports
+                  %li.list-group-item
+                    %a{:href => "http://shl.se"}SHL
               %li
                 %a.nav-forum{:href => "/forum"}
                   %img{:src => "/assets/NAV2/forum_hover.png"}
@@ -170,4 +190,3 @@
             });
           }, pingAfter);
         });
-      %script{:src => "/assets/bootstrap.min.js"}
