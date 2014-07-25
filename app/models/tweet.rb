@@ -12,10 +12,10 @@ class Tweet < ActiveRecord::Base
   def self.all_tweets
     if where(id: 1).first == nil
       Tweet.create!({messages: auth.home_timeline.to_json}).messages
-    elsif (where(id: 1).first.updated_at + 61).to_time < Time.now
-      tweets = auth.home_timeline.first
+    elsif (where(id: 1).first.updated_at + 120).to_time < Time.now
+      tweets = auth.home_timeline
       p "old"
-      unless tweets.respond_to?('status')
+      unless tweets.first.respond_to?('status')
         p "update"
         where(id: 1).first.update_attributes({messages: tweets.to_json})
       end

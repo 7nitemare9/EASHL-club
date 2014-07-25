@@ -23,7 +23,8 @@
       %img{ :src => "/assets/players/spelarkort_#{@player.name}.png"}/
   - player = @player.player_team_stat
   - if (player.totalgp.to_i - player.glgp.to_i) > 0
-    %table{:rules => "all"}
+    .titlecard Club Stats
+    %table
       %thead
         %tr{:class => "team_head"}
           %th Player name
@@ -55,7 +56,7 @@
           %td{:class => "cr"} #{ player.skbs}
           %td{:class => "cr"} #{ player.skshotpct}
   - unless player.glgp == "0"
-    %table{:rules => "all"}
+    %table
       %thead
         %tr{:class => "team_head"}
           %th{:class => "cr"} Games played
@@ -78,8 +79,8 @@
           %td{:class => "cr"} #{ player.glwins}
   - player = @player.player_season_stat
   - unless player.skgp == "0"
-    %p NHL 14 Season
-    %table{:rules => "all"}
+    .titlecard NHL 14 Season
+    %table
       %thead
         %tr{:class => "team_head"}
           %th{:class => "cr"} Games played
@@ -108,7 +109,7 @@
           %td{:class => "cr"} #{ player.skshg}
           %td{:class => "cr"} #{ player.skbs}
           %td{:class => "cr"} #{ player.skshotpct}
-    %table{:rules => "all"}
+    %table
       %thead
         %tr{:class => "team_head"}
           %th{:class => "cr"} Wins
@@ -137,7 +138,7 @@
           %td{:class => "cr"} #{ player.skfop}
           %td{:class => "cr"} #{ player.skgiveaways}
           %td{:class => "cr"} #{ player.sktakeaways}
-    %table{:rules => "all"}
+    %table
       %thead
         %tr{:class => "team_head"}
           %th{:class => "cr"} GP as LW
@@ -151,7 +152,7 @@
           %td{:class => "cr"} #{ player.cgp }
           %td{:class => "cr"} #{ player.dgp }
   - unless player.glgp == "0"
-    %table{:rules => "all"}
+    %table
       %thead
         %tr{:class => "team_head"}
           %th{:class => "cr"} GP as Goalie
@@ -172,7 +173,7 @@
           %td{:class => "cr"} #{ player.glso}
           %td{:class => "cr"} #{ player.glsoperiods}
           %td{:class => "cr"} #{ player.glwins}
-    %table{:rules => "all"}
+    %table
       %thead
         %tr{:class => "team_head"}
           %th{:class => "cr"} Losses

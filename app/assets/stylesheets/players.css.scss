@@ -101,18 +101,30 @@
   left: 3%;
   position: absolute;
 }
+.titlecard {
+  background: #FBB600;
+  color: #484848;
+  width: 99%;
+  margin: 0.5%;
+  height:21px;
+  text-align: center;
+}
 
 table {
-  width: 100%;
+  width: 99%;
+  margin: 0.5%;
+  border: 1px solid #484848;
 }
 tbody tr:nth-child(odd) {
   background: #303030;
+  height: 21px;
 }
 tfoot tr:nth-child(even) {
   background: #303030;
 }
 tbody tr:nth-child(even) {
   background: #404040;
+  height: 21px;
 }
 tfoot tr:nth-child(odd) {
   background: #404040;
@@ -125,8 +137,9 @@ tfoot tr:nth-child(odd) {
 }
 .team_head {
   width: 100%;
-  background: #ffffff !important;
-  color: #000000;
+  background: url(/assets/players/bar_playerinfo.png) !important;
+  height: 23px;
+  color: #484848;
   font-size: x-small;
 }
 .goalie_stats {
@@ -139,7 +152,7 @@ td {
   font-size: x-small;
 }
 th {
-  color: #000;
+  color: #FBB600;
   text-indent: 1%;
   font-size: x-small;
 }
@@ -151,6 +164,7 @@ td.cr {
   font-size: x-small;
 }
 th.cr {
+  color: #FBB600;
   text-indent: inherit;
   text-align: center;
   font-size: x-small;
