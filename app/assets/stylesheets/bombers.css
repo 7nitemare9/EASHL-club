@@ -11,10 +11,14 @@ body {
   background: url("/assets/bg_contentwrapper.jpg") repeat-y scroll center top transparent;
 }
 a {
-  color: #ce9216;
+  color: #FBB600;
 }
 a:hover {
-  color: #ce9216;
+  color: #FBB600;
+}
+.b_border {
+  border: solid 1px #ffb600;
+  display: flex;
 }
 .online_image_box {
   float: left;
@@ -36,8 +40,6 @@ a:hover {
 }
 .online_image_grayscale {
   float: left;
-  margin-left: 1vmin;
-  margin-top: 1vmin;
   display: block;
   width: 100%;
   height: auto;
@@ -47,8 +49,6 @@ a:hover {
 }
 .online_image {
   float: left;
-  margin-left: 1vmin;
-  margin-top: 1vmin;
   display: block;
   width: 100%;
   height: auto;
@@ -63,7 +63,7 @@ a:hover {
   margin-bottom: 40px;
 }
   .b_footer img{
-    border: 1px solid #ce9216;
+    border: 1px solid #FBB600;
     border-radius: 4px;
     margin: 5px;
   }
@@ -96,7 +96,7 @@ a:hover {
 }
 h7 {
   margin-left: 5px;
-  color: #ce9216;
+  color: #FBB600;
 }
 h8 {
   color: #fff;
@@ -392,13 +392,13 @@ li.list-group-item:nth-child(even) {
 }
 .thumbnail {
   background-color: #272727;
-  border: 1px solid #333333;
+  border: none;
   float: left;
   margin-bottom: 2px !important;
 }
 .caption {
   text-align: center;
-  color: #ce9216 !important;
+  color: #FBB600 !important;
   padding: 0px !important;
 }
 .panel {
@@ -406,7 +406,7 @@ li.list-group-item:nth-child(even) {
   margin: 5px;
 }
 .panel-default {
-  border-color: #ce9216;
+  border-color: #FBB600;
 }
 .panel-default .panel-heading {
   background-color: #202020;
