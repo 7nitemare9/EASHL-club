@@ -314,7 +314,7 @@ li.list-group-item:nth-child(even) {
   min-width: 0%;
 }
 .content iframe {
-  margin: 6%;
+  margin: 0;
 }
 .b_stat_table {
   width: 85%;
@@ -441,4 +441,18 @@ body {
 .navbar-nav li .dropdown-menu {
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
+}
+
+; forum css
+
+#content-wrapper {
+  background: #383838;
+  padding: 0px;
+}
+#header-wrapper {
+  height: 25px;
+}
+iframe #header img{
+  height: 0px;
+  min-height: 0px;
 }
