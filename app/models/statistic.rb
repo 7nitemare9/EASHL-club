@@ -75,4 +75,103 @@ class Statistic
   def self.stat(player)
     player.player_team_stat
   end
+
+  def self.stats
+    {forwards: forward_stats, defenders: defender_stats, goalies: goalie_stats}
+  end
+
+  def self.goalie_stats
+    unique_player_names(game_players('0')).map do |name|
+      goalie = {name: name.first.personaName, goals_against: 0, saves: 0, goals_againt_avg: 0,
+        shots_against: 0, shut_outs: 0, save_percent: 0, games_played: 0}
+      all_but_empty(game_players('0')).each do |player|
+        if name.first.personaName == player.first.personaName
+          goalie[:goals_against] += player.first.glga.to_i
+          goalie[:saves] += player.first.glsaves.to_i
+          goalie[:shots_against] += player.first.glshots.to_i
+          p player.first.glshots.to_i
+          goalie[:shut_outs] += 1 if (player.first.glga == '0')
+          goalie[:games_played] += 1
+        end
+      end
+      goalie[:save_percent] = (goalie[:saves] / goalie[:shots_against].to_f) * 100
+      goalie[:goals_againt_avg] = goalie[:goals_against] / goalie[:games_played].to_f
+      goalie
+    end
+  end
+
+  def self.forward_stats
+    unique_player_names(forwards).map do |name|
+      forward = {name: name.first.personaName, assists: 0, give_aways: 0, goals: 0,
+                 hits: 0, pims: 0, plus_minus: 0, points: 0, shots: 0, takeaways: 0,
+                 shot_percent: 0, games_played: 0}
+      all_but_empty(forwards).each do |player|
+        if name.first.personaName == player.first.personaName
+          forward = player_stats_adder(forward, player.first)
+        end
+      end
+      forward[:shot_percent] = (forward[:goals] / forward[:shots].to_f) * 100
+      forward
+    end
+  end
+
+  def self.defender_stats
+    unique_player_names(defenders).map do |name|
+      defender = {name: name.first.personaName, assists: 0, give_aways: 0, goals: 0,
+                 hits: 0, pims: 0, plus_minus: 0, points: 0, shots: 0, takeaways: 0,
+                 shot_percent: 0, games_played: 0}
+      all_but_empty(defenders).each do |player|
+        if name.first.personaName == player.first.personaName
+          defender = player_stats_adder(defender, player.first)
+        end
+      end
+      defender[:shot_percent] = (defender[:goals] / defender[:shots].to_f) * 100
+      defender
+    end
+  end
+
+  def self.player_stats_adder(forward, player)
+    forward[:assists] += player.skassists.to_i
+    forward[:give_aways] += player.skgiveaways.to_i
+    forward[:goals] += player.skgoals.to_i
+    forward[:hits] += player.skhits.to_i
+    forward[:pims] += player.skpim.to_i
+    forward[:plus_minus] += player.skplusmin.to_i
+    forward[:points] += player.skpoints.to_i
+    forward[:shots] += player.skshots.to_i
+    forward[:takeaways] += player.sktakeaways.to_i
+    forward[:games_played] += 1
+    forward
+  end
+
+  def self.defenders
+    defenders = game_players('1')
+    defenders += game_players('2')
+  end
+
+  def self.forwards
+    forward = game_players('3')
+    forward += game_players('4')
+    forward += game_players('5')
+  end
+
+  def self.game_players(position)
+    Match.all.map do |player|
+      player.game_players.where(position: position).where(team: Rails.application.secrets.team_id)
+    end
+  end
+
+  def self.unique_player_names(players)
+    players.reject do |player|
+      player.empty?
+    end.uniq do |p|
+      p.first.personaName
+    end
+  end
+
+  def self.all_but_empty(players)
+    players.reject do |player|
+      player.empty?
+    end
+  end
 end

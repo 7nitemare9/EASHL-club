@@ -72,7 +72,7 @@ class Match < ActiveRecord::Base
   end
 
   def self.team_player(team, player)
-    do_not_touch = %w(id match_id personaName, team, blazeId)
+    do_not_touch = %w(id match_id personaName team blazeId)
     hash = {}
     GamePlayer.attribute_names.each do |attr|
       hash[attr.to_sym] = player[1][attr] unless do_not_touch.include?(attr)
