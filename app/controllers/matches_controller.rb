@@ -1,7 +1,7 @@
 # Matches Controller
 class MatchesController < ApplicationController
   def index
-    @matches = Match.order('timestamp DESC').page(params[:page]).per(15)
+    @matches = Match.order('timestamp DESC').includes(:game_teams).page(params[:page]).per(15)
   end
   def show
     @match = Match.find(params[:id])

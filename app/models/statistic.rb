@@ -77,14 +77,17 @@ class Statistic
   end
 
   def self.stats
-    {forwards: forward_stats, defenders: defender_stats, goalies: goalie_stats}
+    all_players = Match.all(:include => :game_players)
+    {forwards: forward_stats(all_players), defenders: defender_stats(all_players),
+      goalies: goalie_stats(all_players)}
   end
 
-  def self.goalie_stats
-    unique_player_names(game_players('0')).map do |name|
+  def self.goalie_stats(all_players)
+    goalies = all_but_empty(game_players(all_players, '0'))
+    unique_player_names(goalies).map do |name|
       goalie = {name: name.first.personaName, goals_against: 0, saves: 0, goals_againt_avg: 0,
         shots_against: 0, shut_outs: 0, save_percent: 0, games_played: 0}
-      all_but_empty(game_players('0')).each do |player|
+      goalies.each do |player|
         if name.first.personaName == player.first.personaName
           goalie[:goals_against] += player.first.glga.to_i
           goalie[:saves] += player.first.glsaves.to_i
@@ -100,12 +103,13 @@ class Statistic
     end
   end
 
-  def self.forward_stats
-    unique_player_names(forwards).map do |name|
+  def self.forward_stats(all_players)
+    forwrds = all_but_empty(forwards(all_players))
+    unique_player_names(forwrds).map do |name|
       forward = {name: name.first.personaName, assists: 0, give_aways: 0, goals: 0,
                  hits: 0, pims: 0, plus_minus: 0, points: 0, shots: 0, takeaways: 0,
                  shot_percent: 0, games_played: 0}
-      all_but_empty(forwards).each do |player|
+      forwrds.each do |player|
         if name.first.personaName == player.first.personaName
           forward = player_stats_adder(forward, player.first)
         end
@@ -115,12 +119,13 @@ class Statistic
     end
   end
 
-  def self.defender_stats
-    unique_player_names(defenders).map do |name|
+  def self.defender_stats(all_players)
+    d = all_but_empty(defenders(all_players))
+    unique_player_names(d).map do |name|
       defender = {name: name.first.personaName, assists: 0, give_aways: 0, goals: 0,
                  hits: 0, pims: 0, plus_minus: 0, points: 0, shots: 0, takeaways: 0,
                  shot_percent: 0, games_played: 0}
-      all_but_empty(defenders).each do |player|
+      d.each do |player|
         if name.first.personaName == player.first.personaName
           defender = player_stats_adder(defender, player.first)
         end
@@ -144,27 +149,25 @@ class Statistic
     forward
   end
 
-  def self.defenders
-    defenders = game_players('1')
-    defenders += game_players('2')
+  def self.defenders(all_players)
+    defenders = game_players(all_players, '1')
+    defenders += game_players(all_players, '2')
   end
 
-  def self.forwards
-    forward = game_players('3')
-    forward += game_players('4')
-    forward += game_players('5')
+  def self.forwards(all_players)
+    forward = game_players(all_players, '3')
+    forward += game_players(all_players, '4')
+    forward += game_players(all_players, '5')
   end
 
-  def self.game_players(position)
-    Match.all.map do |player|
+  def self.game_players(players, position)
+    players.map do |player|
       player.game_players.where(position: position).where(team: Rails.application.secrets.team_id)
     end
   end
 
   def self.unique_player_names(players)
-    players.reject do |player|
-      player.empty?
-    end.uniq do |p|
+    players.uniq do |p|
       p.first.personaName
     end
   end

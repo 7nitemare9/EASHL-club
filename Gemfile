@@ -12,11 +12,9 @@ gem 'kaminari'
 gem 'rails-secrets'
 gem 'edn'
 gem 'twitter'
-#gem 'taps'
-# Bundle edge Rails instead:
-# gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
-# for Heroku deployment - as described in Ap. A of ELLS book
+gem 'bullet', :group => 'development'
+
 group :development, :test do
   gem 'sqlite3'
  # gem 'ruby-debug19', :require => 'ruby-debug'
