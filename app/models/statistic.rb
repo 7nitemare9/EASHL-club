@@ -85,20 +85,20 @@ class Statistic
   def self.goalie_stats(all_players)
     goalies = all_but_empty(game_players(all_players, '0'))
     unique_player_names(goalies).map do |name|
-      goalie = {name: name.first.personaName, goals_against: 0, saves: 0, goals_againt_avg: 0,
-        shots_against: 0, shut_outs: 0, save_percent: 0, games_played: 0}
+      goalie = {name: name.first.personaName, goals_against: 0, saves: 0, GAA: 0,
+        shots_against: 0, SO: 0, save_percent: 0, games: 0}
       goalies.each do |player|
         if name.first.personaName == player.first.personaName
           goalie[:goals_against] += player.first.glga.to_i
           goalie[:saves] += player.first.glsaves.to_i
           goalie[:shots_against] += player.first.glshots.to_i
           p player.first.glshots.to_i
-          goalie[:shut_outs] += 1 if (player.first.glga == '0')
-          goalie[:games_played] += 1
+          goalie[:SO] += 1 if (player.first.glga == '0')
+          goalie[:games] += 1
         end
       end
       goalie[:save_percent] = (goalie[:saves] / goalie[:shots_against].to_f) * 100
-      goalie[:goals_againt_avg] = goalie[:goals_against] / goalie[:games_played].to_f
+      goalie[:GAA] = goalie[:goals_against] / goalie[:games].to_f
       goalie
     end
   end
@@ -106,9 +106,9 @@ class Statistic
   def self.forward_stats(all_players)
     forwrds = all_but_empty(forwards(all_players))
     unique_player_names(forwrds).map do |name|
-      forward = {name: name.first.personaName, assists: 0, give_aways: 0, goals: 0,
-                 hits: 0, pims: 0, plus_minus: 0, points: 0, shots: 0, takeaways: 0,
-                 shot_percent: 0, games_played: 0}
+      forward = {name: name.first.personaName, assists: 0, giveaways: 0, goals: 0,
+                 hits: 0, pims: 0, plus_minus:  0, points: 0, shots: 0, takeaways: 0,
+        shot_percent: 0, games: 0}
       forwrds.each do |player|
         if name.first.personaName == player.first.personaName
           forward = player_stats_adder(forward, player.first)
@@ -122,9 +122,9 @@ class Statistic
   def self.defender_stats(all_players)
     d = all_but_empty(defenders(all_players))
     unique_player_names(d).map do |name|
-      defender = {name: name.first.personaName, assists: 0, give_aways: 0, goals: 0,
+      defender = {name: name.first.personaName, assists: 0, giveaways: 0, goals: 0,
                  hits: 0, pims: 0, plus_minus: 0, points: 0, shots: 0, takeaways: 0,
-                 shot_percent: 0, games_played: 0}
+                 shot_percent: 0, games: 0}
       d.each do |player|
         if name.first.personaName == player.first.personaName
           defender = player_stats_adder(defender, player.first)
@@ -137,7 +137,7 @@ class Statistic
 
   def self.player_stats_adder(forward, player)
     forward[:assists] += player.skassists.to_i
-    forward[:give_aways] += player.skgiveaways.to_i
+    forward[:giveaways] += player.skgiveaways.to_i
     forward[:goals] += player.skgoals.to_i
     forward[:hits] += player.skhits.to_i
     forward[:pims] += player.skpim.to_i
@@ -145,7 +145,7 @@ class Statistic
     forward[:points] += player.skpoints.to_i
     forward[:shots] += player.skshots.to_i
     forward[:takeaways] += player.sktakeaways.to_i
-    forward[:games_played] += 1
+    forward[:games] += 1
     forward
   end
 
