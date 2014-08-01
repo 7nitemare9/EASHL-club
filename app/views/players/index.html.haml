@@ -17,7 +17,7 @@
       %th.cr Info
   %tbody
     -@players.each do |player|
-      - next unless player.position == "Forward"
+      - next if player.position == "Defense" or player.position == "Goaltender"
       %tr
         %td.cr #{ player.name }
         %td.cr #{ player.RealName }
