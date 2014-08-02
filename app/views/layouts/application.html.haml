@@ -156,6 +156,10 @@
             new nicEditor({fullPanel : true}).panelInstance('post_text');
           }
           catch(e) {}
+          try {
+            new nicEditor({fullPanel : true}).panelInstance('info_text');
+          }
+          catch(e) {}
         });
       :javascript
         bkLib.onDomLoaded(function() {
