@@ -38,7 +38,7 @@ class InfosController < ApplicationController
   private
 
   def media_params
-    params.require(:media).permit(:title, :text)
+    params.require(:info).permit(:title, :text)
   end
 end
 
