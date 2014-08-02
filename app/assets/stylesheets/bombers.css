@@ -308,7 +308,9 @@ li.list-group-item:nth-child(even) {
 .content p3 {
   color: #aaa;
   margin: 1%;
-  text-indent: 2%;
+}
+.contnent p3 div {
+  margin: 0% 3%;
 }
 .content p3 img {
   min-width: 0%;
