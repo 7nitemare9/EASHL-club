@@ -13,7 +13,7 @@ Spelpunkten::Application.routes.draw do
   resources :forum
   resources :statistics
   resources :shouts
-  resources :info
+  resources :infos
   resources :tweets
 
   get '/player/getMemberData' => 'players#member_data'
