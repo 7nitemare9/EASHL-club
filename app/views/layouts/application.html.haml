@@ -109,12 +109,7 @@
               %param{:name => "movie",              :value => "http://www.twitch.tv/widgets/live_embed_player.swf"}
               %param{:name => "flashvars",          :value => "hostname=www.twitch.tv&channel=7nitemare9&auto_play=true&start_volume=25"}
       .col-lg-3.col-md-4.b_column.col-sm-6.col-xs-12
-        .b_box
-          .b_header
-            %img{:src => "/assets/shout.png"}
-          #shouts
-            = render_cell :shouts, :index
-          = render_cell :shouts, :form
+        #shouts
       .col-lg-12.col-md-12.col-sm-12.col-xs-12.b_footer
         .b_box
           .col-lg-1.col-md-2
