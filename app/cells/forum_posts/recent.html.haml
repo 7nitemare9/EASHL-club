@@ -2,6 +2,7 @@
   %img{:src => "/assets/forumposts.jpg"}
 - @posts.items.each do |item|
   %li.list-group-item
+    - item.link["bhf"] = "forum"
     %a{ :href => item.link, :style => "margin-left:20px;" }
       %p{:style => "display: inline;"} #{ item.title }
       %p2{:style => "display: inline; float: right; font-size: x-small;"} #{item.dc_creator}
