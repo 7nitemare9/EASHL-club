@@ -167,25 +167,4 @@
             $("#status").load('/online/status');
           }, pingAfter);
         });
-      :javascript
-        $(document).ready(function() {
-          var pingAfter = 5000;
-          var shoutsId = setInterval(function() {
-            $("#shouts").load('/shouts');
-          }, pingAfter);
-        });
-      :javascript
-        $(document).ready(function() {
-          var pingAfter = 15000000;
-          var i = 0;
-          var newsId = setInterval(function() {
-            if(i > 5){
-              i = 0;
-            } else {
-              i++;
-            }
-            $.get('/posts', {id: i}, function( data ) {
-              $(".b_main_content .b_box .news").replaceWith(data);
-            });
-          }, pingAfter);
-        });
+
