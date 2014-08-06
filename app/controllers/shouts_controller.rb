@@ -2,7 +2,7 @@
 class ShoutsController < ApplicationController
   def index
     respond_to do |format|
-      format.html {render :html => Shout.find_all}
+      format.html {render :html => @shouts = Shout.find_all}
       format.json {render :json => Shout.find_all}
     end
   end
