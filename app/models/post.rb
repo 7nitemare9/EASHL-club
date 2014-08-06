@@ -1,5 +1,6 @@
 # Handles news-posts and prepares them for custom news display
 class Post < ActiveRecord::Base
+  has_many :comments
   require 'nokogiri'
 
   def self.news

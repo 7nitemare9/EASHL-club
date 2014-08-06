@@ -40,7 +40,10 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
+    respond_to do |format|
+      format.html {render :html => @post = Post.find(params[:id])}
+      format.json {render :json => Post.find(params[:id]).comments}
+    end
   end
 
   def edit
