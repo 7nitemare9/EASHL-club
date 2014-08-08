@@ -13,12 +13,12 @@
         %p #{@player.age}
       .playerface
         %img{ :src => "/assets/players/gameface-fx_#{@player.name}.png"}
-        .strength
-          %p2 Strenghts:
-          %p #{@player.strength}
-        .style
-          %p2 Style:
-          %p #{@player.style}
+      .strength
+        %p2 Strenghts:
+        %p #{@player.strength}
+      .style
+        %p2 Style:
+        %p #{@player.style}
     .playercard
       %img{ :src => "/assets/players/spelarkort_#{@player.name}.png"}/
   - player = @player.player_team_stat
