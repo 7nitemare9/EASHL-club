@@ -12,6 +12,7 @@ gem 'kaminari'
 gem 'rails-secrets'
 gem 'edn'
 gem 'twitter'
+gem 'newrelic_rpm'
 
 gem 'bullet', :group => 'development'
 
