@@ -69,6 +69,9 @@
               %li
                 %a.nav-forum{:href => "/forum"}
                   %img{:src => "/assets/NAV2/forum_hover.png"}
+              %li
+                %a.nav-code{:href => "/codes"}
+                  %img{:src => "/assets/NAV2/code_hover.png"}
               - if @current_user.user_name == "not logged in"
                 %li.log_in_out
                   %a.nav-login{"data-toggle" => "modal", "data-target" => "#myModal", :href => "#myModal"}
@@ -153,6 +156,10 @@
           catch(e) {}
           try {
             new nicEditor({fullPanel : true}).panelInstance('info_text');
+          }
+          catch(e) {}
+          try {
+            new nicEditor({fullPanel : true}).panelInstance('code_text');
           }
           catch(e) {}
         });
