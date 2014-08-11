@@ -1,4 +1,3 @@
-
 class InfosController < ApplicationController
   require 'auth_helper'
   include AuthHelper

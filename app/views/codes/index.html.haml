@@ -1,0 +1,13 @@
+- @codes.each do |code|
+  .box
+    .content
+      %p
+        %img{ :src => "/assets/blank.jpg", :width => "100%" }
+        %p2 #{ code.title.upcase }
+      %p3 #{ raw code.text }
+
+      %p
+        = paginate @codes
+        - if @current_user.user_name == "admin"
+          = link_to 'Edit', edit_code_path(code)
+          = link_to 'Delete', code, confirm: 'Are you sure?', 'data-method' => :delete
