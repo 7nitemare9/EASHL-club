@@ -16,6 +16,7 @@ doc/
 app/assets/images/
 vendor/
 public/bhf/
+publir/bhf_off/
 public/php/
 config/secrets.yml
 
