@@ -5,7 +5,7 @@ class Post < ActiveRecord::Base
 
   def self.news
     news = []
-    last(5).reverse.each do |post|
+    last(20).reverse.each do |post|
       news.push split_image_and_text(post)
     end
     news
