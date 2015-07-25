@@ -76,7 +76,7 @@
               - if @current_user.user_name == "not logged in"
                 %li.log_in_out
                   %a.nav-login{"data-toggle" => "modal", "data-target" => "#myModal", :href => "#myModal"}
-                    %img{:src => "/assets/NAV2/login_hover.png", :style => "padding-left: 16px; background: url(/assets/NAV2/filler.jpg);"}
+                    %img{:src => "/assets/NAV2/login_hover.png", :style => "background: url(/assets/NAV2/filler.jpg);"}
               - else
                 %li.log_in_out
                   %a.nav-logout{:href => "/bhf/ucp.php?mode=logout&sid=#{ cookies['bombers-hockey_sid'] }"}
@@ -179,7 +179,7 @@
       :javascript
         $(document).ready(function(){
           console.log("loaded");
-          $('li img').on('click',function(){
+          $('.row li img').on('click',function(){
             console.log("click");
             var src = $(this).attr('src');
             console.log(src.search('test'));
