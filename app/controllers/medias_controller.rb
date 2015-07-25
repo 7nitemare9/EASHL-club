@@ -5,7 +5,7 @@ class MediasController < ApplicationController
   before_filter :is_admin, except: [:index, :show]
 
   def index
-    @medias = Media.order('id DESC').page(params[:page]).per(1)
+    @medias = Media.order('id DESC').page(params[:page]).per(6)
   end
 
   def new

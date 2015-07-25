@@ -176,3 +176,25 @@
           }, pingAfter);
         });
 
+      :javascript
+        $(document).ready(function(){
+          console.log("loaded");
+          $('li img').on('click',function(){
+            console.log("click");
+            var src = $(this).attr('src');
+            console.log(src.search('test'));
+            if(src.search('youtube') != -1){
+              src = src.replace('img.youtube.com/vi', 'www.youtube.com/embed').replace('/0.jpg', '');
+              var img = '<iframe src="' + src + '" width="560" height="315"/>';
+            } else {
+              var img = '<img src="' + src + '"/>';
+            }
+            $('#gModal').modal();
+            $('#gModal').on('shown.bs.modal', function(){
+              $('#gModal .modal-body').html(img);
+            });
+            $('#gModal').on('hidden.bs.modal', function(){
+              $('#gModal .modal-body').html('');
+            });
+          });
+        });
