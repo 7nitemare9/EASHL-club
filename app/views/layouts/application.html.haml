@@ -98,7 +98,10 @@
           - else
             = render_cell :forum_posts, :recent
       .col-lg-3.col-lg-pull-6.col-md-4.b_column.col-sm-6.col-xs-12
-        #online-status
+        .b_box
+          .b_header
+            %img{:src => "/assets/calendar.png"}
+          #calendar
       .col-lg-3.col-md-4.b_column.col-sm-6.col-xs-12#tweets
       .col-lg-3.col-md-4.col-lg-pull-6.b_column.col-sm-6.col-xs-12
         .b_box
@@ -149,6 +152,8 @@
       %script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"}
       / Include all compiled plugins (below), or include individual files as needed
       =javascript_include_tag "application"
+      %script{:src => "http://www.nhl.com/nhl/js/_jslib-plugins.min.js?v=8.41" }
+      %script{:src => "http://www.nhl.com/js/_club-plugins.min.js?v=8.41" }
       :javascript
         bkLib.onDomLoaded(function() {
           try {
@@ -196,5 +201,48 @@
             $('#gModal').on('hidden.bs.modal', function(){
               $('#gModal .modal-body').html('');
             });
+          });
+        });
+      :javascript
+        var sssScheduleTeamCal_String = '{}';
+        var sssScheduleTeamCal = jQuery.parseJSON(sssScheduleTeamCal_String);
+
+      :javascript
+
+        jQuery(document).ready(function(){
+
+          jQuery("#calendar").datepicker({
+
+            dayContentJson : sssScheduleTeamCal,
+
+            beforeShowDay: function(date) {
+              var simpleDate=(date.getMonth()+1)+"/"+date.getDate()+"/"+(date.getFullYear());
+              if (sssScheduleTeamCal.hasOwnProperty(simpleDate)) {
+                return [true, "", simpleDate];
+              }
+              return [false, "", ""];
+            },
+            onChangeMonthYear : function(year, month, inst) {
+              if(sssScheduleTeamCal) {
+                var simpleDate=(month+"/01/"+year);
+                jQuery.ajaxSetup({ async: false });
+                jQuery("#sssScheduleTeamCal_json").load("file:///C:/Users/nitemare/Documents/bomers/json.htm?jsonVarName=sssScheduleTeamCal&date="+simpleDate);
+                jQuery.ajaxSetup({ async: true });
+                //TODO: oooh, maybe i set this property a more friendly way
+                inst.settings.dayContentJson=sssScheduleTeamCal;
+              }
+            },
+
+            onSelect: function(dateText, inst) {
+
+              var fullDate=jQuery.datepicker.parseDate('mm/dd/yy', dateText);
+              var simpleDate = (fullDate.getMonth()+1)+"/"+fullDate.getDate()+"/"+fullDate.getFullYear();
+              //jQuery.post("http://bruins.nhl.com/club/TeamCalendarDetailPage.htm?jsonVarName=sssScheduleTeamCal&id="+sssScheduleTeamCal[simpleDate].id, {}, function(data) { jQuery('#basicModalContent').html(data); }, 'html');
+              jQuery('#basicModalContent').modal();
+            }
+
+          });
+          jQuery("#sssScheduleTeamCal_calendar").find(".ui-state-hover").each(function() {
+            jQuery(this).removeClass('ui-state-hover');
           });
         });
