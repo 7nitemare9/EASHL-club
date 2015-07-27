@@ -1,0 +1,13 @@
+:ruby
+  days = {}
+  @schedules.each do |schedule|
+    days = schedule.date.strftime("%-m/%-d/%Y").to_s + '":{"cellContent":"<img class=\\\\"opponentLogo\\\\" src=\\\\"' + schedule.logo.to_s + '\\\\" border=\\\\"0\\\\"/>' +
+    '<div class=\\\\"dayOfMonthResult\\\\">' + schedule.time.strftime("%H.%M").to_s + '</div>"}'
+  end
+
+:javascript
+  var sssScheduleTeamCal_String = '{}';
+  var sssScheduleTeamCal = jQuery.parseJSON(sssScheduleTeamCal_String);
+  sssScheduleTeamCal_String = '{\"#{days.to_s}}';
+
+  sssScheduleTeamCal = jQuery.parseJSON(sssScheduleTeamCal_String);
