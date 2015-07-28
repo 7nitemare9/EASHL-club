@@ -106,15 +106,7 @@
       .col-lg-3.col-md-4.b_column.col-sm-6.col-xs-12#tweets
       .col-lg-3.col-md-4.col-lg-pull-6.b_column.col-sm-6.col-xs-12
         .b_box
-          .b_header
-            %img{:src => "/assets/livestream.jpg"}
-          .b_stream
-            %object{:type => "application/x-shockwave-flash", :height => "188px", :width => "288px", :data => "http://www.twitch.tv/widgets/live_embed_player.swf?channel=7nitemare9", :bgcolor => "#000000", :id => "live_embed_player_flash"}
-              %param{:name => "allowFullScreen",    :value => "true"}
-              %param{:name => "allowScriptAccess",  :value => "always"}
-              %param{:name => "allowNetworking",    :value => "all"}
-              %param{:name => "movie",              :value => "http://www.twitch.tv/widgets/live_embed_player.swf"}
-              %param{:name => "flashvars",          :value => "hostname=www.twitch.tv&channel=7nitemare9&auto_play=true&start_volume=25"}
+          #b_stream
       .col-lg-3.col-md-4.b_column.col-sm-6.col-xs-12
         #shouts
       .col-lg-12.col-md-12.col-sm-12.col-xs-12.b_footer
@@ -205,7 +197,6 @@
           });
         });
       :javascript
-        var sssScheduleTeamCal = jQuery.parseJSON(sssScheduleTeamCal_String);
         var sssScheduleTeamCal_String = '{}';
         var sssScheduleTeamCal = jQuery.parseJSON(sssScheduleTeamCal_String);
 
