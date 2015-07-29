@@ -22,179 +22,180 @@
     .playercard
       %img{ :src => "/assets/players/spelarkort_#{@player.name}.png"}/
   - player = @player.player_team_stat
-  - if (player.totalgp.to_i - player.glgp.to_i) > 0
-    .titlecard Club Stats
-    %table
-      %thead
-        %tr{:class => "team_head"}
-          %th Player name
-          %th{:class => "cr"} Games played
-          %th{:class => "cr"} Points
-          %th{:class => "cr"} Goals
-          %th{:class => "cr"} Assists
-          %th{:class => "cr"} Shots
-          %th{:class => "cr"} PIM
-          %th{:class => "cr"} Hits
-          %th{:class => "cr"} +/-
-          %th{:class => "cr"} PP Goals
-          %th{:class => "cr"} SH Goals
-          %th{:class => "cr"} Blocked shots
-          %th{:class => "cr"} Shot %
-      %tbody
-        %tr
-          %td #{ player.playername }
-          %td{:class => "cr"} #{ (player.totalgp.to_i - player.glgp.to_i) }
-          %td{:class => "cr"} #{ player.skpoints}
-          %td{:class => "cr"} #{ player.skgoals}
-          %td{:class => "cr"} #{ player.skassists}
-          %td{:class => "cr"} #{ player.skshots}
-          %td{:class => "cr"} #{ player.skpim}
-          %td{:class => "cr"} #{ player.skhits}
-          %td{:class => "cr"} #{ player.skplusmin}
-          %td{:class => "cr"} #{ player.skppg}
-          %td{:class => "cr"} #{ player.skshg}
-          %td{:class => "cr"} #{ player.skbs}
-          %td{:class => "cr"} #{ player.skshotpct}
-  - unless player.glgp == "0"
-    %table
-      %thead
-        %tr{:class => "team_head"}
-          %th{:class => "cr"} Games played
-          %th{:class => "cr"} Goals against
-          %th{:class => "cr"} GAA
-          %th{:class => "cr"} Saves
-          %th{:class => "cr"} Save %
-          %th{:class => "cr"} Shut outs
-          %th{:class => "cr"} SO periods
-          %th{:class => "cr"} Wins
-      %tbody
-        %tr
-          %td{:class => "cr"} #{ player.glgp }
-          %td{:class => "cr"} #{ player.glga}
-          %td{:class => "cr"} #{ player.glgaa}
-          %td{:class => "cr"} #{ player.glsaves}
-          %td{:class => "cr"} #{ player.glsavepct}
-          %td{:class => "cr"} #{ player.glso}
-          %td{:class => "cr"} #{ player.glsoperiods}
-          %td{:class => "cr"} #{ player.glwins}
-  - player = @player.player_season_stat
-  - unless player.skgp == "0"
-    .titlecard NHL 14 Season
-    %table
-      %thead
-        %tr{:class => "team_head"}
-          %th{:class => "cr"} Games played
-          %th{:class => "cr"} Points
-          %th{:class => "cr"} Goals
-          %th{:class => "cr"} Assists
-          %th{:class => "cr"} Shots
-          %th{:class => "cr"} PIM
-          %th{:class => "cr"} Hits
-          %th{:class => "cr"} +/-
-          %th{:class => "cr"} PP Goals
-          %th{:class => "cr"} SH Goals
-          %th{:class => "cr"} Blocked shots
-          %th{:class => "cr"} Shot %
-      %tbody
-        %tr
-          %td{:class => "cr"} #{ player.skgp }
-          %td{:class => "cr"} #{ player.skpoints}
-          %td{:class => "cr"} #{ player.skgoals}
-          %td{:class => "cr"} #{ player.skassists}
-          %td{:class => "cr"} #{ player.skshots}
-          %td{:class => "cr"} #{ player.skpim}
-          %td{:class => "cr"} #{ player.skhits}
-          %td{:class => "cr"} #{ player.skplusmin}
-          %td{:class => "cr"} #{ player.skppg}
-          %td{:class => "cr"} #{ player.skshg}
-          %td{:class => "cr"} #{ player.skbs}
-          %td{:class => "cr"} #{ player.skshotpct}
-    %table
-      %thead
-        %tr{:class => "team_head"}
-          %th{:class => "cr"} Wins
-          %th{:class => "cr"} Losses
-          %th{:class => "cr"} GW Goals
-          %th{:class => "cr"} Offsides
-          %th{:class => "cr"} Fights
-          %th{:class => "cr"} Fights won
-          %th{:class => "cr"} Face offs
-          %th{:class => "cr"} FO won
-          %th{:class => "cr"} FO loss
-          %th{:class => "cr"} FO %
-          %th{:class => "cr"} Giveaways
-          %th{:class => "cr"} Takeaways
-      %tbody
-        %tr
-          %td{:class => "cr"} #{ player.skwins }
-          %td{:class => "cr"} #{ player.sklosses }
-          %td{:class => "cr"} #{ player.skgwg }
-          %td{:class => "cr"} #{ player.skoffsides}
-          %td{:class => "cr"} #{ player.skfights}
-          %td{:class => "cr"} #{ player.skfightswon}
-          %td{:class => "cr"} #{ player.skfo}
-          %td{:class => "cr"} #{ player.skfow}
-          %td{:class => "cr"} #{ player.skfol}
-          %td{:class => "cr"} #{ player.skfop}
-          %td{:class => "cr"} #{ player.skgiveaways}
-          %td{:class => "cr"} #{ player.sktakeaways}
-    %table
-      %thead
-        %tr{:class => "team_head"}
-          %th{:class => "cr"} GP as LW
-          %th{:class => "cr"} GP as RW
-          %th{:class => "cr"} GP as Center
-          %th{:class => "cr"} GP as Defense
-      %tbody
-        %tr
-          %td{:class => "cr"} #{ player.lwgp }
-          %td{:class => "cr"} #{ player.rwgp }
-          %td{:class => "cr"} #{ player.cgp }
-          %td{:class => "cr"} #{ player.dgp }
-  - unless player.glgp == "0"
-    %table
-      %thead
-        %tr{:class => "team_head"}
-          %th{:class => "cr"} GP as Goalie
-          %th{:class => "cr"} Goals against
-          %th{:class => "cr"} GAA
-          %th{:class => "cr"} Saves
-          %th{:class => "cr"} Save %
-          %th{:class => "cr"} Shut outs
-          %th{:class => "cr"} SO periods
-          %th{:class => "cr"} Wins
-      %tbody
-        %tr
-          %td{:class => "cr"} #{ player.glgp }
-          %td{:class => "cr"} #{ player.glga}
-          %td{:class => "cr"} #{ player.glgaa}
-          %td{:class => "cr"} #{ player.glsaves}
-          %td{:class => "cr"} #{ player.glsavepct}
-          %td{:class => "cr"} #{ player.glso}
-          %td{:class => "cr"} #{ player.glsoperiods}
-          %td{:class => "cr"} #{ player.glwins}
-    %table
-      %thead
-        %tr{:class => "team_head"}
-          %th{:class => "cr"} Losses
-          %th{:class => "cr"} Shot against
-          %th{:class => "cr"} Breakaways
-          %th{:class => "cr"} Breakaway Saves
-          %th{:class => "cr"} Breakaway %
-          %th{:class => "cr"} Penalty shots
-          %th{:class => "cr"} Penalty saves
-          %th{:class => "cr"} Penalty %
-      %tbody
-        %tr
-          %td{:class => "cr"} #{ player.gllosses}
-          %td{:class => "cr"} #{ player.glshots}
-          %td{:class => "cr"} #{ player.glbrkshots}
-          %td{:class => "cr"} #{ player.glbrksaves}
-          %td{:class => "cr"} #{ player.glbrksavepct}
-          %td{:class => "cr"} #{ player.glpenshots}
-          %td{:class => "cr"} #{ player.glpensaves}
-          %td{:class => "cr"} #{ player.glpensavepct}
-  - if @current_user.user_name == "admin" or @current_user.user_name.upcase == @player.name.upcase
-    = link_to 'Edit', edit_player_path(@player)
-    = link_to 'Back', players_path
-    = link_to 'Delete', player, confirm: 'Are you sure?', 'data-method' => :delete
+  -unless player == nil
+    - if (player.totalgp.to_i - player.glgp.to_i) > 0
+      .titlecard Club Stats
+      %table
+        %thead
+          %tr{:class => "team_head"}
+            %th Player name
+            %th{:class => "cr"} Games played
+            %th{:class => "cr"} Points
+            %th{:class => "cr"} Goals
+            %th{:class => "cr"} Assists
+            %th{:class => "cr"} Shots
+            %th{:class => "cr"} PIM
+            %th{:class => "cr"} Hits
+            %th{:class => "cr"} +/-
+            %th{:class => "cr"} PP Goals
+            %th{:class => "cr"} SH Goals
+            %th{:class => "cr"} Blocked shots
+            %th{:class => "cr"} Shot %
+        %tbody
+          %tr
+            %td #{ player.playername }
+            %td{:class => "cr"} #{ (player.totalgp.to_i - player.glgp.to_i) }
+            %td{:class => "cr"} #{ player.skpoints}
+            %td{:class => "cr"} #{ player.skgoals}
+            %td{:class => "cr"} #{ player.skassists}
+            %td{:class => "cr"} #{ player.skshots}
+            %td{:class => "cr"} #{ player.skpim}
+            %td{:class => "cr"} #{ player.skhits}
+            %td{:class => "cr"} #{ player.skplusmin}
+            %td{:class => "cr"} #{ player.skppg}
+            %td{:class => "cr"} #{ player.skshg}
+            %td{:class => "cr"} #{ player.skbs}
+            %td{:class => "cr"} #{ player.skshotpct}
+    - unless player.glgp == "0"
+      %table
+        %thead
+          %tr{:class => "team_head"}
+            %th{:class => "cr"} Games played
+            %th{:class => "cr"} Goals against
+            %th{:class => "cr"} GAA
+            %th{:class => "cr"} Saves
+            %th{:class => "cr"} Save %
+            %th{:class => "cr"} Shut outs
+            %th{:class => "cr"} SO periods
+            %th{:class => "cr"} Wins
+        %tbody
+          %tr
+            %td{:class => "cr"} #{ player.glgp }
+            %td{:class => "cr"} #{ player.glga}
+            %td{:class => "cr"} #{ player.glgaa}
+            %td{:class => "cr"} #{ player.glsaves}
+            %td{:class => "cr"} #{ player.glsavepct}
+            %td{:class => "cr"} #{ player.glso}
+            %td{:class => "cr"} #{ player.glsoperiods}
+            %td{:class => "cr"} #{ player.glwins}
+    - player = @player.player_season_stat
+    - unless player.skgp == "0"
+      .titlecard NHL 14 Season
+      %table
+        %thead
+          %tr{:class => "team_head"}
+            %th{:class => "cr"} Games played
+            %th{:class => "cr"} Points
+            %th{:class => "cr"} Goals
+            %th{:class => "cr"} Assists
+            %th{:class => "cr"} Shots
+            %th{:class => "cr"} PIM
+            %th{:class => "cr"} Hits
+            %th{:class => "cr"} +/-
+            %th{:class => "cr"} PP Goals
+            %th{:class => "cr"} SH Goals
+            %th{:class => "cr"} Blocked shots
+            %th{:class => "cr"} Shot %
+        %tbody
+          %tr
+            %td{:class => "cr"} #{ player.skgp }
+            %td{:class => "cr"} #{ player.skpoints}
+            %td{:class => "cr"} #{ player.skgoals}
+            %td{:class => "cr"} #{ player.skassists}
+            %td{:class => "cr"} #{ player.skshots}
+            %td{:class => "cr"} #{ player.skpim}
+            %td{:class => "cr"} #{ player.skhits}
+            %td{:class => "cr"} #{ player.skplusmin}
+            %td{:class => "cr"} #{ player.skppg}
+            %td{:class => "cr"} #{ player.skshg}
+            %td{:class => "cr"} #{ player.skbs}
+            %td{:class => "cr"} #{ player.skshotpct}
+      %table
+        %thead
+          %tr{:class => "team_head"}
+            %th{:class => "cr"} Wins
+            %th{:class => "cr"} Losses
+            %th{:class => "cr"} GW Goals
+            %th{:class => "cr"} Offsides
+            %th{:class => "cr"} Fights
+            %th{:class => "cr"} Fights won
+            %th{:class => "cr"} Face offs
+            %th{:class => "cr"} FO won
+            %th{:class => "cr"} FO loss
+            %th{:class => "cr"} FO %
+            %th{:class => "cr"} Giveaways
+            %th{:class => "cr"} Takeaways
+        %tbody
+          %tr
+            %td{:class => "cr"} #{ player.skwins }
+            %td{:class => "cr"} #{ player.sklosses }
+            %td{:class => "cr"} #{ player.skgwg }
+            %td{:class => "cr"} #{ player.skoffsides}
+            %td{:class => "cr"} #{ player.skfights}
+            %td{:class => "cr"} #{ player.skfightswon}
+            %td{:class => "cr"} #{ player.skfo}
+            %td{:class => "cr"} #{ player.skfow}
+            %td{:class => "cr"} #{ player.skfol}
+            %td{:class => "cr"} #{ player.skfop}
+            %td{:class => "cr"} #{ player.skgiveaways}
+            %td{:class => "cr"} #{ player.sktakeaways}
+      %table
+        %thead
+          %tr{:class => "team_head"}
+            %th{:class => "cr"} GP as LW
+            %th{:class => "cr"} GP as RW
+            %th{:class => "cr"} GP as Center
+            %th{:class => "cr"} GP as Defense
+        %tbody
+          %tr
+            %td{:class => "cr"} #{ player.lwgp }
+            %td{:class => "cr"} #{ player.rwgp }
+            %td{:class => "cr"} #{ player.cgp }
+            %td{:class => "cr"} #{ player.dgp }
+    - unless player.glgp == "0"
+      %table
+        %thead
+          %tr{:class => "team_head"}
+            %th{:class => "cr"} GP as Goalie
+            %th{:class => "cr"} Goals against
+            %th{:class => "cr"} GAA
+            %th{:class => "cr"} Saves
+            %th{:class => "cr"} Save %
+            %th{:class => "cr"} Shut outs
+            %th{:class => "cr"} SO periods
+            %th{:class => "cr"} Wins
+        %tbody
+          %tr
+            %td{:class => "cr"} #{ player.glgp }
+            %td{:class => "cr"} #{ player.glga}
+            %td{:class => "cr"} #{ player.glgaa}
+            %td{:class => "cr"} #{ player.glsaves}
+            %td{:class => "cr"} #{ player.glsavepct}
+            %td{:class => "cr"} #{ player.glso}
+            %td{:class => "cr"} #{ player.glsoperiods}
+            %td{:class => "cr"} #{ player.glwins}
+      %table
+        %thead
+          %tr{:class => "team_head"}
+            %th{:class => "cr"} Losses
+            %th{:class => "cr"} Shot against
+            %th{:class => "cr"} Breakaways
+            %th{:class => "cr"} Breakaway Saves
+            %th{:class => "cr"} Breakaway %
+            %th{:class => "cr"} Penalty shots
+            %th{:class => "cr"} Penalty saves
+            %th{:class => "cr"} Penalty %
+        %tbody
+          %tr
+            %td{:class => "cr"} #{ player.gllosses}
+            %td{:class => "cr"} #{ player.glshots}
+            %td{:class => "cr"} #{ player.glbrkshots}
+            %td{:class => "cr"} #{ player.glbrksaves}
+            %td{:class => "cr"} #{ player.glbrksavepct}
+            %td{:class => "cr"} #{ player.glpenshots}
+            %td{:class => "cr"} #{ player.glpensaves}
+            %td{:class => "cr"} #{ player.glpensavepct}
+    - if @current_user.user_name == "admin" or @current_user.user_name.upcase == @player.name.upcase
+      = link_to 'Edit', edit_player_path(@player)
+      = link_to 'Back', players_path
+      = link_to 'Delete', @player, confirm: 'Are you sure?', 'data-method' => :delete

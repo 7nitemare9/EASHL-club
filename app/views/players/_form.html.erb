@@ -10,11 +10,16 @@
       </ul>
     </div>
   <% end %>
+  <div class="field">
+    <%= f.label "Gamertag" %><br />
+    <%= f.text_field :name %>
+  </div>
 
   <div class="field">
     <%= f.label :RealName %><br />
     <%= f.text_field :RealName %>
   </div>
+
   <div class="field">
     <%= f.label :City %><br />
     <%= f.text_field :City %>
