@@ -195,7 +195,7 @@
             %td{:class => "cr"} #{ player.glpenshots}
             %td{:class => "cr"} #{ player.glpensaves}
             %td{:class => "cr"} #{ player.glpensavepct}
-    - if @current_user.user_name == "admin" or @current_user.user_name.upcase == @player.name.upcase
-      = link_to 'Edit', edit_player_path(@player)
-      = link_to 'Back', players_path
-      = link_to 'Delete', @player, confirm: 'Are you sure?', 'data-method' => :delete
+  - if @current_user.user_name == "admin" or @current_user.user_name.upcase == @player.name.upcase
+    = link_to 'Edit', edit_player_path(@player)
+    = link_to 'Back', players_path
+    = link_to 'Delete', @player, confirm: 'Are you sure?', 'data-method' => :delete
