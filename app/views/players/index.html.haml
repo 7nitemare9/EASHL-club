@@ -1,87 +1,38 @@
 .content
   %p
-    %img{ :src => "/assets/blank.jpg", :width => "100%" }
+    %img{:src => "/assets/blank.jpg", :width => "100%"}/
     %p2 LINEUP
-%br
-.titlecard Forwards
-%table
-  %thead
-    %tr.team_head
-      %th.cr Gamertag
-      %th.cr Name
-      %th.cr Number
-      %th.cr Position
-      %th.cr Country
-      %th.cr City
-      %th.cr Age
-      %th.cr Info
-  %tbody
-    -@players.each do |player|
+.centering
+  .titlecard Forwards
+  .card-container
+    - @players.each do |player|
       - next if player.position == "Defense" or player.position == "Goaltender"
-      %tr
-        %td.cr #{ player.name }
-        %td.cr #{ player.RealName }
-        %td.cr #{ player.number }
-        %td.cr #{ player.position }
-        %td.cr
-          %img{ src: "assets/swedenflaglineup.png", width: "26", style: "min-width: 0%" }
-        %td.cr #{ player.City }
-        %td.cr #{ player.age }
-        %td.cr
-          =link_to 'Show', player
-
-%br
-.titlecard Defenders
-%table
-  %thead
-    %tr.team_head
-      %th.cr Gamertag
-      %th.cr Name
-      %th.cr Number
-      %th.cr Position
-      %th.cr Country
-      %th.cr City
-      %th.cr Age
-      %th.cr Info
-  %tbody
-    -@players.each do |player|
+      .flip-container{:ontouchstart => "this.classlist.toggle('hover')"}
+        %a{:href => "players/#{ player.id }"}
+          .flipper
+            .front
+              %img{:alt => "Alternate Text", :src => "~/assets/players/#{ player.name }-s-front.png"}/
+            .back
+              %img{:alt => "Alternate Text", :src => "~/assets/players/#{ player.name }-s-back.png"}/
+  .titlecard Defenders
+  .card-container
+    - @players.each do |player|
       - next unless player.position == "Defense"
-      %tr
-        %td.cr #{ player.name }
-        %td.cr #{ player.RealName }
-        %td.cr #{ player.number }
-        %td.cr #{ player.position }
-        %td.cr
-          %img{ src: "assets/swedenflaglineup.png", width: "26", style: "min-width: 0%" }
-        %td.cr #{ player.City }
-        %td.cr #{ player.age }
-        %td.cr
-          =link_to 'Show', player
-
-%br
-.titlecard Goalies
-%table
-  %thead
-    %tr.team_head
-      %th.cr Gamertag
-      %th.cr Name
-      %th.cr Number
-      %th.cr Position
-      %th.cr Country
-      %th.cr City
-      %th.cr Age
-      %th.cr Info
-  %tbody
-    -@players.each do |player|
+      .flip-container{:ontouchstart => "this.classlist.toggle('hover')"}
+        %a{:href => "players/#{ player.id }"}
+          .flipper
+            .front
+              %img{:alt => "Alternate Text", :src => "~/assets/players/#{ player.name }-s-front.png"}/
+            .back
+              %img{:alt => "Alternate Text", :src => "~/assets/players/#{ player.name }-s-back.png"}/
+  .titlecard Goalies
+  .card-container
+    - @players.each do |player|
       - next unless player.position == "Goaltender"
-      %tr
-        %td.cr #{ player.name }
-        %td.cr #{ player.RealName }
-        %td.cr #{ player.number }
-        %td.cr #{ player.position }
-        %td.cr
-          %img{ src: "assets/swedenflaglineup.png", width: "26", style: "min-width: 0%" }
-        %td.cr #{ player.City }
-        %td.cr #{ player.age }
-        %td.cr
-          =link_to 'Show', player
+      .flip-container{:ontouchstart => "this.classlist.toggle('hover')"}
+        %a{:href => "players/#{ player.id }"}
+          .flipper
+            .front
+              %img{:alt => "Alternate Text", :src => "~/assets/players/#{ player.name }-s-front.png"}/
+            .back
+              %img{:alt => "Alternate Text", :src => "~/assets/players/#{ player.name }-s-back.png"}/
