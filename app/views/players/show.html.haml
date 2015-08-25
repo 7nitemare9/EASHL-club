@@ -15,7 +15,7 @@
         %p2 Style:
         %p #{@player.style}
     .playercard
-      %img{ :src => "/assets/players/spelarkort_#{@player.name}-l.png"}/
+      %img{ :src => "/assets/players/spelarkort-#{@player.name}-l.png"}/
   - player = @player.player_team_stat
   -unless player == nil
     - if (player.totalgp.to_i - player.glgp.to_i) > 0
