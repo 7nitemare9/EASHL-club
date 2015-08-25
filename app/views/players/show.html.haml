@@ -1,18 +1,13 @@
 .content
-  %div{style: "background-image:url('/assets/players/bakg_base1-#{@player.typ}.png'); background-repeat: no-repeat; display: flex; background-size: 100%; margin-bottom: 5%;"}
+  %div{style: "background-image:url('/assets/players/#{@player.name}-p-info.png'); background-repeat: no-repeat; display: flex; background-size: 100%; height:275px;"}
     .playerinfo
-      %img{ :src => "/assets/players/bar_playerinfo.png" }
       .playerinfo_text
         %p2 Gamertag:
         %p #{@player.name}
-        %p2 Name:
-        %p #{@player.RealName}
         %p2 Origin:
         %p #{@player.City}
         %p2 Age:
         %p #{@player.age}
-      .playerface
-        %img{ :src => "/assets/players/gameface-fx_#{@player.name}.png"}
       .strength
         %p2 Strenghts:
         %p #{@player.strength}
@@ -20,7 +15,7 @@
         %p2 Style:
         %p #{@player.style}
     .playercard
-      %img{ :src => "/assets/players/spelarkort_#{@player.name}.png"}/
+      %img{ :src => "/assets/players/spelarkort_#{@player.name}-l.png"}/
   - player = @player.player_team_stat
   -unless player == nil
     - if (player.totalgp.to_i - player.glgp.to_i) > 0

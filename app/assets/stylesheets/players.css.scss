@@ -201,9 +201,9 @@ th.cr {
 }
 
 .playercard {
-    width: 60%;
-    margin-top: 0.5%;
-    margin-right: 0.2%;
+    width: 42.5%;
+    margin-top: 2%;
+    margin-right: 3.5%;
 }
 
 .playerinfo img {
@@ -217,8 +217,8 @@ th.cr {
 .playerinfo_text {
     float: left;
     color: #FBB600;
-    margin: 3%;
-    width: 60%;
+    margin: 15% 0% 0% 3%;
+    width: 45%;
 }
 
     .playerinfo_text p2 {
@@ -229,10 +229,10 @@ th.cr {
 
     .playerinfo_text p {
         text-align: left !important;
-        margin-left: 30%;
         font-family: Myriad;
         font-size: small;
         color: #fff;
+        margin-left: 45%;
     }
 
 .playerface {
@@ -241,13 +241,12 @@ th.cr {
 }
 
 .strength {
-    margin-top: 43%;
-    margin-left: 46%;
+    margin: 35% 25% 0% 3%;
     color: #fff;
 }
 
 .style {
-    margin-left: 46%;
+    margin: 0% 25% 0% 3%;
     color: #fff;
 }
 
@@ -271,7 +270,7 @@ th.cr {
     color: #FBB600 !important;
 }
 
-.centering{
+.centering {
     text-align: center;
 }
 
