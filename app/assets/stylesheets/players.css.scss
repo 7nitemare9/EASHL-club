@@ -315,6 +315,7 @@ th.cr {
 }
 
 .front, .back {
+    box-shadow: -3px 3px 4px #111111;
     -moz-backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
