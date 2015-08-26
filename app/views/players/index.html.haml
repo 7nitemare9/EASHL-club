@@ -3,8 +3,9 @@
     %img{:src => "/assets/blank.jpg", :width => "100%"}/
     %p2 LINEUP
 .centering
+  %br
   .titlecard 
-    %img{:scr => "assets/players/forwards.png"}
+    %img{:src => "assets/players/forwards.png"}
   .card-container
     - @players.each do |player|
       - next if player.position == "Defense" or player.position == "Goaltender"
