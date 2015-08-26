@@ -3,7 +3,8 @@
     %img{:src => "/assets/blank.jpg", :width => "100%"}/
     %p2 LINEUP
 .centering
-  .titlecard Forwards
+  .titlecard 
+    %img{:scr => "assets/players/forwards.png"}
   .card-container
     - @players.each do |player|
       - next if player.position == "Defense" or player.position == "Goaltender"
@@ -14,7 +15,8 @@
               %img{:alt => "Alternate Text", :src => "assets/players/#{ player.name }-s-front.png"}/
             .back
               %img{:alt => "Alternate Text", :src => "assets/players/#{ player.name }-s-back.png"}/
-  .titlecard Defenders
+  .titlecard
+    %img{:src => "assets/players/defenders.png"}
   .card-container
     - @players.each do |player|
       - next unless player.position == "Defense"
@@ -25,7 +27,8 @@
               %img{:alt => "Alternate Text", :src => "assets/players/#{ player.name }-s-front.png"}/
             .back
               %img{:alt => "Alternate Text", :src => "assets/players/#{ player.name }-s-back.png"}/
-  .titlecard Goalies
+  .titlecard
+    %img{:src => "assets/players/goalkeepers.png"}
   .card-container
     - @players.each do |player|
       - next unless player.position == "Goaltender"
