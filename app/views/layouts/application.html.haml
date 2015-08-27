@@ -240,3 +240,12 @@
             jQuery(this).removeClass('ui-state-hover');
           });
         });
+      :javascript
+        $(document).ready(function(e) {
+        try {
+        $("body select").msDropdown({roundedCorner:false});
+        } catch(e) {
+        alert(e.message);
+        }
+        });
+        

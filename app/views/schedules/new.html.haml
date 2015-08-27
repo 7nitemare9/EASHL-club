@@ -1,0 +1,15 @@
+.box
+  .content
+    - images = Dir["app/assets/images/schedule/*"].map {|l| l.sub!("app/assets/images/", "/assets/")}
+    %h1 New schedule
+    = form_for :schedule, url: schedules_path do |f|
+      = f.date_field :date, :value => Date.today
+      = f.select :logo, images.map {|i| [i.sub("/assets/schedule/", ""), i, :data => {:image => i}] }, {}, {:style => "width: 200px"}
+      = f.time_field :time, :value => "00:00"
+      = f.submit
+    %br
+    %br
+    %br
+    %br
+    %br
+    %br

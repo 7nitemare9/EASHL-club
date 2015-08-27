@@ -1,9 +1,10 @@
 :ruby
-  days = {}
+  days = "" 
   @schedules.each do |schedule|
-    days = schedule.date.strftime("%-m/%-d/%Y").to_s + '":{"cellContent":"<img class=\\\\"opponentLogo\\\\" src=\\\\"' + schedule.logo.to_s + '\\\\" border=\\\\"0\\\\"/>' +
-    '<div class=\\\\"dayOfMonthResult\\\\">' + schedule.time.strftime("%H.%M").to_s + '</div>"}'
+    days += schedule.date.strftime("%-m/%-d/%Y").to_s + '":{"cellContent":"<img class=\\\\"opponentLogo\\\\" src=\\\\"' + schedule.logo.to_s + '\\\\" border=\\\\"0\\\\"/>' +
+    '<div class=\\\\"dayOfMonthResult\\\\">' + schedule.time.strftime("%H.%M").to_s + '</div>"}, \\"'
   end
+  days = days[0...-4]
 
 :javascript
   var sssScheduleTeamCal_String = '{}';
