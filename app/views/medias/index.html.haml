@@ -16,7 +16,7 @@
         - @medias.each do |media|
           %li.col-lg-4.col-md-4.col-sm-4.col-xs-4
             #{ raw media.text.gsub('iframe', 'img').gsub('https://www.youtube.com/embed', 'http://img.youtube.com/vi').gsub('" fr', '/0.jpg" fr').gsub('<br>', '')}
-            - if @current_user.user_name == "admin"
+            - if @current_user.user_name == "admin" or Rails.application.secrets.authorize == false
               = link_to 'Edit', edit_media_path(media)
               = link_to 'Delete', media, confirm: 'Are you sure?', 'data-method' => :delete
     %p

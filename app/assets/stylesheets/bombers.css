@@ -213,6 +213,13 @@ input {
     margin-left: 16px;
     padding: 0px !important;
 }
+.nav-admin {
+    background: url(/assets/NAV2/admin.png) no-repeat;
+    width: 67px;
+    margin-right: 0px;
+    margin-left: 16px;
+    padding: 0px !important;
+}
 
 a.nav-login p {
     font-family: Myriad;

@@ -1,10 +1,13 @@
 class StreamsController < ApplicationController
+  require 'auth_helper'
+  include AuthHelper
+  before_filter :is_admin, except: [:index]
   before_action :set_stream, only: [:show, :edit, :update, :destroy]
 
   # GET /streams
   def index
     respond_to do |format|
-      format.html {render :html => @streams = Stream.streams}
+      format.html {render :html => @streams = Stream.all}
       format.json {render :json => Stream.streams}
     end
   end

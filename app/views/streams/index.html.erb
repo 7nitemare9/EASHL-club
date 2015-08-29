@@ -13,7 +13,7 @@
   <tbody>
     <% @streams.each do |stream| %>
       <tr>
-        <td><%= unless stream == nil then stream["channel"]["url"] end %></td>
+        <td><%= stream.name  %></td>
         <td><%= link_to 'Show', stream %></td>
       </tr>
     <% end %>

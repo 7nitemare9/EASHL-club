@@ -15,8 +15,8 @@
   %body
     .container
       .container-fluid
-        - if @current_user.user_name == "admin" or Rails.application.secrets.authorize == false
-          = link_to "create new", :action => "new"
+        / - if @current_user.user_name == "admin" or Rails.application.secrets.authorize == false
+        /   = link_to "create new", :action => "new"
         %nav.navbar.navbar-default{:role => "navigation"}
           %a{:href => "/posts"}
             %img.img-responsive{:src => "/assets/header.png"}/
@@ -56,11 +56,11 @@
                   %li.list-group-item
                     %a{:href => "http://consolehockey.com"}ConsoleHockey
                   %li.list-group-item
-                    %a{:href => "http://www.easports.com/nhl15"}EA Sports NHL15
+                    %a{:href => "http://www.easports.com/nhl16"}EA Sports NHL15
                   %li.list-group-item
                     %a{:href => "http://youtube.com/2bcproductions"}2bcproductions
                   %li.list-group-item
-                    %a{:href => "http://synergyhockey.wordpress.com/tag/eashl/"}Synery hockey
+                    %a{:href => "http://synergyhockey.wordpress.com/"}Synergy hockey
                   %li.list-group-item
                     %a{:href => "http://ramjagsinghluktarcurry.blogg.se"}Jesus blogg
                   %li.list-group-item
@@ -73,10 +73,27 @@
               %li
                 %a.nav-code{:href => "/codes"}
                   %img{:src => "/assets/NAV2/code_hover.png"}
-              - if @current_user.user_name == "not logged in"
+              - if @current_user.user_name == "not logged in" and Rails.application.secrets.authorize == true
                 %li.log_in_out
                   %a.nav-login{"data-toggle" => "modal", "data-target" => "#myModal", :href => "#myModal"}
                     %img{:src => "/assets/NAV2/login_hover.png", :style => "background: url(/assets/NAV2/filler.jpg);"}
+              - elsif @current_user.user_name == "admin" or Rails.application.secrets.authorize == false
+                %li.log_in_out.dropdown
+                  %a.nav-admin.dropdown-toggle{:href => "#", "data-toggle" => "dropdown"}
+                    %img{:src => "/assets/NAV2/admin_hover.png"}
+                  %ul.dropdown-menu
+                    %li.list-group-item
+                      %a{:href => "/posts/new"}Create news
+                    %li.list-group-item
+                      %a{:href => "/schedules/new"}Create event
+                    %li.list-group-item
+                      %a{:href => "/players/new"}Add player
+                    %li.list-group-item
+                      %a{:href => "/medias/new"}Add media
+                    %li.list-group-item
+                      %a{:href => "/streams"}Handle streams
+                    %li.list-group-item
+                      %a{:href => "/bhf/ucp.php?mode=logout&sid=#{ cookies['bombers-hockey_sid'] }"}Log out
               - else
                 %li.log_in_out
                   %a.nav-logout{:href => "/bhf/ucp.php?mode=logout&sid=#{ cookies['bombers-hockey_sid'] }"}

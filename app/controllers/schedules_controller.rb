@@ -1,4 +1,7 @@
 class SchedulesController < ApplicationController
+  require 'auth_helper'
+  include AuthHelper  
+  before_filter :is_admin, except: [:index]
   before_action :set_schedule, only: [:show, :edit, :update, :destroy]
 
   # GET /schedules
