@@ -1,18 +1,19 @@
-.box
-  .content
-    %p
-      %img{ :src => "/assets/blank.jpg", :width => "100%" }
-      %p2 NEW info
-    :javascript
-      bkLib.onDomLoaded(nicEditors.allTextAreas);
-    = form_for :info, url: infos_path do |f|
-      %p3
-        = f.label :title
-        %br
-        = f.text_field :title, :style => "width:95%;"
-      %p3
-        = f.label :text
-        %br
-        = f.text_area :text, :style => "width:95%; height: 500px;"
-      %p3
-        = f.submit
+.b_box
+  .box
+    .content
+      %p
+        %img{ :src => "/assets/blank.jpg", :width => "100%" }
+        %p2 NEW info
+      :javascript
+        bkLib.onDomLoaded(nicEditors.allTextAreas);
+      = form_for :info, url: infos_path do |f|
+        %p3
+          = f.label :title
+          %br
+          = f.text_field :title, :style => "width:95%;"
+        %p3
+          = f.label :text
+          %br
+          = f.text_area :text, :style => "width:95%; height: 500px;"
+        %p3
+          = f.submit

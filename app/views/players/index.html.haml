@@ -1,42 +1,43 @@
-.content
-  %p
-    %img{:src => "/assets/blank.jpg", :width => "100%"}/
-    %p2 LINEUP
-.centering
-  %br
-  .titlecard 
-    %img{:src => "assets/players/forwards.png"}
-  .card-container
-    - @players.each do |player|
-      - next if player.position == "Defense" or player.position == "Goaltender"
-      .flip-container{:ontouchstart => "this.classlist.toggle('hover')"}
-        %a{:href => "players/#{ player.id }"}
-          .flipper
-            .front
-              %img{:alt => "Alternate Text", :src => "assets/players/#{ player.name }-s-front.png"}/
-            .back
-              %img{:alt => "Alternate Text", :src => "assets/players/#{ player.name }-s-back.png"}/
-  .titlecard
-    %img{:src => "assets/players/defenders.png"}
-  .card-container
-    - @players.each do |player|
-      - next unless player.position == "Defense"
-      .flip-container{:ontouchstart => "this.classlist.toggle('hover')"}
-        %a{:href => "players/#{ player.id }"}
-          .flipper
-            .front
-              %img{:alt => "Alternate Text", :src => "assets/players/#{ player.name }-s-front.png"}/
-            .back
-              %img{:alt => "Alternate Text", :src => "assets/players/#{ player.name }-s-back.png"}/
-  .titlecard
-    %img{:src => "assets/players/goalkeepers.png"}
-  .card-container
-    - @players.each do |player|
-      - next unless player.position == "Goaltender"
-      .flip-container{:ontouchstart => "this.classlist.toggle('hover')"}
-        %a{:href => "players/#{ player.id }"}
-          .flipper
-            .front
-              %img{:alt => "Alternate Text", :src => "assets/players/#{ player.name }-s-front.png"}/
-            .back
-              %img{:alt => "Alternate Text", :src => "assets/players/#{ player.name }-s-back.png"}/
+.b_box
+  .content
+    %p
+      %img{:src => "/assets/blank.jpg", :width => "100%"}/
+      %p2 LINEUP
+  .centering
+    %br
+    .titlecard
+      %img{:src => "assets/players/forwards.png"}
+    .card-container
+      - @players.each do |player|
+        - next if player.position == "Defense" or player.position == "Goaltender"
+        .flip-container{:ontouchstart => "this.classlist.toggle('hover')"}
+          %a{:href => "players/#{ player.id }"}
+            .flipper
+              .front
+                %img{:alt => "Alternate Text", :src => "assets/players/#{ player.name }-s-front.png"}/
+              .back
+                %img{:alt => "Alternate Text", :src => "assets/players/#{ player.name }-s-back.png"}/
+    .titlecard
+      %img{:src => "assets/players/defenders.png"}
+    .card-container
+      - @players.each do |player|
+        - next unless player.position == "Defense"
+        .flip-container{:ontouchstart => "this.classlist.toggle('hover')"}
+          %a{:href => "players/#{ player.id }"}
+            .flipper
+              .front
+                %img{:alt => "Alternate Text", :src => "assets/players/#{ player.name }-s-front.png"}/
+              .back
+                %img{:alt => "Alternate Text", :src => "assets/players/#{ player.name }-s-back.png"}/
+    .titlecard
+      %img{:src => "assets/players/goalkeepers.png"}
+    .card-container
+      - @players.each do |player|
+        - next unless player.position == "Goaltender"
+        .flip-container{:ontouchstart => "this.classlist.toggle('hover')"}
+          %a{:href => "players/#{ player.id }"}
+            .flipper
+              .front
+                %img{:alt => "Alternate Text", :src => "assets/players/#{ player.name }-s-front.png"}/
+              .back
+                %img{:alt => "Alternate Text", :src => "assets/players/#{ player.name }-s-back.png"}/

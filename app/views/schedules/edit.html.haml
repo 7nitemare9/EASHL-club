@@ -1,18 +1,19 @@
-.box
-  .content
-    - images = Dir["app/assets/images/schedule/*"].map {|l| l.sub!("app/assets/images/", "/assets/")}
-    %p
-      %img{ :src => "/assets/blank.jpg", :width => "100%" }
-      %p2 EDIT SCHEDULE
-    = form_for @schedule, url: schedules_path(@post) do |f|
-      = f.date_field :date
-      = f.select :logo, images.map {|i| [i.sub("/assets/schedule/", ""), i, :data => {:image => i}] }, {}, {:style => "width: 200px"}
-      = f.time_field :time
-      = f.submit
-    %br
-    %br
-    %br
-    %br
-    %br
-    %br
+.b_box
+  .box
+    .content
+      - images = Dir["app/assets/images/schedule/*"].map {|l| l.sub!("app/assets/images/", "/assets/")}
+      %p
+        %img{ :src => "/assets/blank.jpg", :width => "100%" }
+        %p2 EDIT SCHEDULE
+      = form_for @schedule, url: schedules_path(@post) do |f|
+        = f.date_field :date
+        = f.select :logo, images.map {|i| [i.sub("/assets/schedule/", ""), i, :data => {:image => i}] }, {}, {:style => "width: 200px"}
+        = f.time_field :time
+        = f.submit
+      %br
+      %br
+      %br
+      %br
+      %br
+      %br
 

@@ -1,0 +1,11 @@
+.b_box
+  .box
+    .content
+      %p
+        %img{:src => "/assets/blank.jpg", :width => "100%"}
+        %p2 NEWS ARCHIVE
+      %br
+      - @posts.each do |post|
+        %li.list-group-item
+          %a{:href => "/posts/" + post[:id].to_s}
+            = post[:title]

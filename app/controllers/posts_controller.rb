@@ -25,6 +25,10 @@ class PostsController < ApplicationController
     end
   end
 
+  def archive
+    @posts = Post.news
+  end
+
   def new
   end
 

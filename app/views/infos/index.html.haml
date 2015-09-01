@@ -1,13 +1,14 @@
-- @infos.each do |info|
-  .box
-    .content
-      %p
-        %img{ :src => "/assets/blank.jpg", :width => "100%" }
-        %p2 #{ info.title.upcase }
-      %p3 #{ raw info.text }
+.b_box
+  - @infos.each do |info|
+    .box
+      .content
+        %p
+          %img{ :src => "/assets/blank.jpg", :width => "100%" }
+          %p2 #{ info.title.upcase }
+        %p3 #{ raw info.text }
 
-      %p
-        = paginate @infos
-        - if @current_user.user_name == "admin"
-          = link_to 'Edit', edit_info_path(info)
-          = link_to 'Delete', info, confirm: 'Are you sure?', 'data-method' => :delete
+        %p
+          = paginate @infos
+          - if @current_user.user_name == "admin"
+            = link_to 'Edit', edit_info_path(info)
+            = link_to 'Delete', info, confirm: 'Are you sure?', 'data-method' => :delete

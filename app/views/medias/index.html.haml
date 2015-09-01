@@ -1,30 +1,31 @@
-.box
-  .content
-    :css
-      ul { padding:0 0 0 0;
-           margin: 0 0 0 0; }
-      .row li { list-style:none;
-              margin-bottom:25px;
-              margin-left:10px;
-              margin-right:-16px;
-            }
-      ul li img { cursor: pointer; }
-      ul li iframe { cursor: pointer; }
-    %p
-      %img{ :src => "/assets/blank.jpg", :width => "100%" }
-      %ul.row
-        - @medias.each do |media|
-          %li.col-lg-4.col-md-4.col-sm-4.col-xs-4
-            #{ raw media.text.gsub('iframe', 'img').gsub('https://www.youtube.com/embed', 'http://img.youtube.com/vi').gsub('" fr', '/0.jpg" fr').gsub('<br>', '')}
-            - if @current_user.user_name == "admin" or Rails.application.secrets.authorize == false
-              = link_to 'Edit', edit_media_path(media)
-              = link_to 'Delete', media, confirm: 'Are you sure?', 'data-method' => :delete
-    %p
-    #gModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
-      .modal-dialog
-        .modal-content
-          .modal-body
-        / /.modal-content
-      / /.modal-dialog
-    / /.modal
-    = paginate @medias
+.b_box
+  .box
+    .content
+      :css
+        ul { padding:0 0 0 0;
+             margin: 0 0 0 0; }
+        .row li { list-style:none;
+                margin-bottom:25px;
+                margin-left:10px;
+                margin-right:-16px;
+              }
+        ul li img { cursor: pointer; }
+        ul li iframe { cursor: pointer; }
+      %p
+        %img{ :src => "/assets/blank.jpg", :width => "100%" }
+        %ul.row
+          - @medias.each do |media|
+            %li.col-lg-4.col-md-4.col-sm-4.col-xs-4
+              #{ raw media.text.gsub('iframe', 'img').gsub('https://www.youtube.com/embed', 'http://img.youtube.com/vi').gsub('" fr', '/0.jpg" fr').gsub('<br>', '')}
+              - if @current_user.user_name == "admin" or Rails.application.secrets.authorize == false
+                = link_to 'Edit', edit_media_path(media)
+                = link_to 'Delete', media, confirm: 'Are you sure?', 'data-method' => :delete
+      %p
+      #gModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+        .modal-dialog
+          .modal-content
+            .modal-body
+          / /.modal-content
+        / /.modal-dialog
+      / /.modal
+      = paginate @medias

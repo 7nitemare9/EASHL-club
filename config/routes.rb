@@ -1,4 +1,8 @@
 Spelpunkten::Application.routes.draw do
+  get '/player/getMemberData' => 'players#member_data'
+  get '/player/OnlineStatus' => 'players#online_status'
+  get '/match/getMatchData' => 'matches#match_data'
+  get '/posts/archive' => 'posts#archive'
   resources :streams
 
   resources :schedules
@@ -22,9 +26,7 @@ Spelpunkten::Application.routes.draw do
   resources :comments
   resources :codes
 
-  get '/player/getMemberData' => 'players#member_data'
-  get '/player/OnlineStatus' => 'players#online_status'
-  get '/match/getMatchData' => 'matches#match_data'
+
 
 
   get "/online/status" => proc { |env|

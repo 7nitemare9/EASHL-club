@@ -103,8 +103,7 @@
         = render partial: '/layouts/login'
       .col-lg-6.col-md-8.b_img-responsive.col-lg-push-3.b_bottom-padding
         .b_main_content
-          .b_box
-            = yield
+          = yield
       .col-lg-3.b_column.col-lg-pull-6.col-md-4.col-sm-6.col-xs-12
         .b_box
           = render_cell :matches, :recent
@@ -265,4 +264,4 @@
         alert(e.message);
         }
         });
-        
+

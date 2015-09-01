@@ -1,14 +1,14 @@
-
-.box
-  .content
-    #post_id{data: @post.id}
-    %p
-      %img{ :src => "/assets/blank.jpg", :width => "675" }
-      %p2 #{ @post.title.upcase }
-    %p3= raw @post.text
-    - if @current_user.user_name == "admin"
+.b_box
+  .box
+    .content
+      #post_id{data: @post.id}
       %p
-        = link_to 'Edit', edit_post_path(@post)
-        = link_to 'Delete', @post, confirm: 'Are you sure?', 'data-method' => :delete
-    #comments
+        %img{ :src => "/assets/blank.jpg", :width => "675" }
+        %p2 #{ @post.title.upcase }
+      %p3= raw @post.text
+      - if @current_user.user_name == "admin"
+        %p
+          = link_to 'Edit', edit_post_path(@post)
+          = link_to 'Delete', @post, confirm: 'Are you sure?', 'data-method' => :delete
+      #comments
 
