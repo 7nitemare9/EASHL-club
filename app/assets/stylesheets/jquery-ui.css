@@ -19,6 +19,9 @@
 .dayOfMonthResult {
   font-size: .9em;
 }
+.ui-datepicker-today {
+  border: 1px solid #baa600 !important;
+}
 
 /* Layout helpers
 ----------------------------------*/

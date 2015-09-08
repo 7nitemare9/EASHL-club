@@ -225,9 +225,10 @@
             dayContentJson : sssScheduleTeamCal,
 
             beforeShowDay: function(date) {
+              var today = new Date();
+              var simpleToday = (today.getMonth()+1)+"/"+today.getDate()+"/"+(today.getFullYear());
               var simpleDate=(date.getMonth()+1)+"/"+date.getDate()+"/"+(date.getFullYear());
-              console.log(simpleDate);
-              if (sssScheduleTeamCal.hasOwnProperty(simpleDate)) {
+              if (sssScheduleTeamCal.hasOwnProperty(simpleDate)){
                 return [true, "", simpleDate];
               }
               return [false, "", ""];
