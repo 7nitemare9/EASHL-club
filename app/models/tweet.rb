@@ -25,4 +25,10 @@ class Tweet < ActiveRecord::Base
     end
   end
 
+  def self.post_tweet(message, post_id)
+    auth.update(message + " " + "http://bombers-hockey.com/posts/" + post_id.to_s)
+  end
+
+
+
 end

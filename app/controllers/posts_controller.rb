@@ -35,6 +35,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.save
+    Tweet.post_tweet(@post.title, @post.id)
     redirect_to root_path
   end
 
