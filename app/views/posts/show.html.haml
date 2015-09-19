@@ -6,7 +6,7 @@
         %img{ :src => "/assets/blank.jpg", :width => "675" }
         %p2 #{ @post.title.upcase }
       %p3= raw @post.text
-      - if @current_user.user_name == "admin"
+      - if @current_user.user_name == "admin" or Rails.application.secrets.authorize == false
         %p
           = link_to 'Edit', edit_post_path(@post)
           = link_to 'Delete', @post, confirm: 'Are you sure?', 'data-method' => :delete

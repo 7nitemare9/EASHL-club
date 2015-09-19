@@ -4,13 +4,18 @@ class PlayerTeamStat < ActiveRecord::Base
   require 'web_helpers'
 
   def self.get_data(team_id, player_id)
-    url = 'http://www.easports.com/iframe/nhl14proclubs/api/platforms/xbox/' \
+    p "data"
+    p team_id
+    url = 'http://www.easports.com/iframe/nhl14proclubs/api/platforms/ps4/' \
           'clubs/' + team_id + '/members/' + player_id + '/stats?filters=pretty'
-    create_hash WebHelpers.read_json(url)
+    p url
+    create_hash(WebHelpers.read_json(url), player_id)
   end
 
-  def self.create_hash(json_hash)
-    data = json_hash['raw'][0]
+  def self.create_hash(json_hash, id)
+    p json_hash
+    p json_hash['raw'][id]
+    data = json_hash['raw'][id]
     hash(data) unless data.nil?
   end
 

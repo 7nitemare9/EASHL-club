@@ -6,17 +6,21 @@ class Match < ActiveRecord::Base
   require 'open-uri'
   require 'web_helpers'
 
+  @@players = {}
+
   def self.get_matches(num_matches)
-    url = 'http://www.easports.com/iframe/nhl14proclubs/api/platforms/xbox/' \
+    url = 'http://www.easports.com/iframe/nhl14proclubs/api/platforms/ps4/' \
       'clubs/' + Rails.application.secrets.team_id + '/matches' \
-      '?filters=sum,pretty&matches_returned=' + num_matches
+      '?filters=sum,pretty&match_type=gameType5&matches_returned=' + num_matches
 
     read_and_add_match_data WebHelpers.read_json(url)
   end
 
   def self.read_and_add_match_data(doc)
     read_match_data(doc).each do |match|
-      next if where(matchId: match[:match][:matchId]).first
+      if where(matchId: match[:match][:matchId]).first
+        where(matchId: match[:match][:matchId]).first.delete
+      end
       db_match = Match.new(match[:match])
       db_match.save!
       db_match.game_players.create!(create_player_hash(match[:players]))
@@ -42,8 +46,14 @@ class Match < ActiveRecord::Base
   def self.create_team_hash(clubs)
     teams = []
     clubs.each do |team|
-      name = team[1]['details']['name'] || 'Deleted'
-      club_id = team[1]['details']['clubId'] || 'Deleted'
+      p team[1]
+      if team[1]['details']
+        name = team[1]['details']['name'] || 'Deleted'
+        club_id = team[1]['details']['clubId'] || 'Deleted'
+      else
+        name = 'Deleted'
+        club_id = 'Deleted'
+      end
       teams << team_stats(team, name, club_id)
     end
     teams
@@ -79,7 +89,12 @@ class Match < ActiveRecord::Base
     end
     hash[:team] = team[0]
     hash[:blazeId] = player[0]
-    hash[:personaName] = player[1]['details']['personaName']
+    if player[1]['details']
+      hash[:personaName] = player[1]['details']['personaName']
+    else
+      hash[:personaName] = @@players[player[0]]['personaName']
+    end
+    @@players[player[0]] = {'personaName' => player[1]['details']['personaName']} if player[1]['details']
     hash
   end
 end

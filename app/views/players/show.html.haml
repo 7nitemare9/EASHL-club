@@ -19,6 +19,7 @@
         %img{ :src => "/assets/players/spelarkort-#{@player.name}-l.png"}/
     - player = @player.player_team_stat
     -unless player == nil
+      = player.skpoints
       - if (player.totalgp.to_i - player.glgp.to_i) > 0
         .titlecard Club Stats
         %table

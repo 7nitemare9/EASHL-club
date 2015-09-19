@@ -2,7 +2,7 @@
   %img{:src => "/assets/latestgames.png"}
 -@matches.each do |match|
   %li.list-group-item
-    =link_to match.game_teams[0].name  + " - " + match.game_teams[1].name, match
+    =link_to truncate(match.game_teams[0].name + " - " + match.game_teams[1].name, :length => 32), match
     - if match.game_teams[0].name == Rails.application.secrets.team_name
       - if match.game_teams[0].goals > match.game_teams[1].goals
         %span.badge.pull-right{:style => "background: #4a4"}

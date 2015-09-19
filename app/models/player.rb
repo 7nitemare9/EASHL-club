@@ -9,7 +9,7 @@ class Player < ActiveRecord::Base
   require 'web_helpers'
 
   def self.members()
-    url = 'http://www.easports.com/iframe/nhl14proclubs/api/platforms/xbox/' \
+    url = 'http://www.easports.com/iframe/nhl14proclubs/api/platforms/ps4/' \
       'clubs/' + Rails.application.secrets.team_id + '/members'
     player_data WebHelpers.read_json(url)
   end

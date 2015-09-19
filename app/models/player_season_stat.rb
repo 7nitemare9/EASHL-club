@@ -4,7 +4,7 @@ class PlayerSeasonStat < ActiveRecord::Base
   require 'web_helpers'
 
   def self.get_data(player_id)
-    url = 'http://www.easports.com/iframe/nhl14proclubs/api/platforms/xbox/' \
+    url = 'http://www.easports.com/iframe/nhl14proclubs/api/platforms/ps4/' \
     'members/' + player_id + '/stats'
     create_hash WebHelpers.read_json(url)
   end

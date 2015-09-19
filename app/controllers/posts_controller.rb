@@ -2,6 +2,7 @@
 class PostsController < ApplicationController
   require 'auth_helper'
   include AuthHelper
+  skip_before_filter :verify_authenticity_token, :only => [:destroy]
   before_filter :is_admin, except: [:index, :show]
 
 
