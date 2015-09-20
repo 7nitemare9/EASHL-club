@@ -89,6 +89,7 @@ class Match < ActiveRecord::Base
     GamePlayer.attribute_names.each do |attr|
       hash[attr.to_sym] = player[1][attr] unless do_not_touch.include?(attr)
     end
+    hash[:skpoints] = player[1]["skgoals"].to_i + player[1]["skassists"].to_i
     hash[:team] = team[0]
     hash[:blazeId] = player[0]
     if player[1]['details']
