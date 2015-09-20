@@ -19,7 +19,9 @@ class Match < ActiveRecord::Base
   def self.read_and_add_match_data(doc)
     read_match_data(doc).each do |match|
       if where(matchId: match[:match][:matchId]).first
-        where(matchId: match[:match][:matchId]).first.delete
+        where(matchId: match[:match][:matchId]).all.each do |m|
+            m.delete
+          end
       end
       db_match = Match.new(match[:match])
       db_match.save!
