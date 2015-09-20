@@ -16,7 +16,8 @@ class Player < ActiveRecord::Base
 
   def self.player_data(doc)
     add_members doc
-    delete_members doc
+    # Disabled automatic deletion of non members.
+    # delete_members doc
   end
 
   def self.add_members(doc)
