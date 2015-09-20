@@ -17,7 +17,7 @@
           %p #{@player.style}
       .playercard
         %img{ :src => "/assets/players/spelarkort-#{@player.name}-l.png"}/
-    - player = @player.player_team_stat
+    - player = @player.player_team_stat.last
     -unless player == nil
       - if (player.totalgp.to_i - player.glgp.to_i) > 0
         .titlecard Club Stats

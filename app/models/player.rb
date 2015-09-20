@@ -63,6 +63,7 @@ class Player < ActiveRecord::Base
   end
 
   def self.add_player_team_stat(player)
+    existing_player(player).player_team_stat.delete unless existing_player(player).player_team_stat == nil
     existing_player(player).create_player_team_stat(
       PlayerTeamStat.get_data(Rails.application.secrets.team_id, player[:eaid])
     )
