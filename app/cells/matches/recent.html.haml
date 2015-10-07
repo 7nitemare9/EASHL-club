@@ -4,14 +4,14 @@
   %li.list-group-item
     =link_to truncate(match.game_teams[0].name + " - " + match.game_teams[1].name, :length => 30), match
     - if match.game_teams[0].name == Rails.application.secrets.team_name
-      - if match.game_teams[0].goals > match.game_teams[1].goals
+      - if match.game_teams[0].goals.to_i > match.game_teams[1].goals.to_i
         %span.badge.pull-right{:style => "background: #4a4"}
           = match.game_teams[0].goals.to_s + " - " + match.game_teams[0].goalsAgainst.to_s
       - else
         %span.badge.pull-right{:style => "background: #a44"}
           = match.game_teams[0].goals.to_s + " - " + match.game_teams[0].goalsAgainst.to_s
     -else
-      - if match.game_teams[0].goals < match.game_teams[1].goals
+      - if match.game_teams[0].goals.to_i < match.game_teams[1].goals.to_i
         %span.badge.pull-right{:style => "background: #4a4"}
           = match.game_teams[0].goals.to_s + " - " + match.game_teams[0].goalsAgainst.to_s
       - else
