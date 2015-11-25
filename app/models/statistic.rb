@@ -79,17 +79,23 @@ class Statistic < ActiveRecord::Base
   end
 
   def self.stats
-    if where(id: 1) == nil
+    if where(id: 1).first == nil
       all_players = Match.all(:include => :game_players)
       Statistic.create!({forwards: forward_stats(all_players).to_json, defenders: defender_stats(all_players).to_json,
                         goalies: goalie_stats(all_players).to_json, games_played: all_players.count})
-    elsif where(id: 1).first == nil or where(id: 1).first.games_played == nil or where(id: 1).first.games_played < Match.all.count
+      return_cached_stats
+    elsif where(id: 1).first.games_played == nil or where(id: 1).first.games_played < Match.all.count
       all_players = Match.all(:include => :game_players)
       where(id: 1).first.update_attributes({forwards: forward_stats(all_players).to_json, defenders: defender_stats(all_players).to_json,
                         goalies: goalie_stats(all_players).to_json, games_played: all_players.count})
+      return_cached_stats
     else
-      {forwards: JSON.parse(where(id: 1).first.forwards), defenders: JSON.parse(where(id: 1).first.defenders), goalies: JSON.parse(where(id: 1).first.goalies)}
+      return_cached_stats
     end
+  end
+
+  def self.return_cached_stats
+      {forwards: JSON.parse(where(id: 1).first.forwards), defenders: JSON.parse(where(id: 1).first.defenders), goalies: JSON.parse(where(id: 1).first.goalies)}
   end
 
   def self.goalie_stats(all_players)
