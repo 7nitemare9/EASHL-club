@@ -1,5 +1,7 @@
 # Creates statistics
-class Statistic
+class Statistic < ActiveRecord::Base
+  require 'json'
+
   def self.all_stats
     statistics = {}
     players = Player.all
@@ -77,9 +79,17 @@ class Statistic
   end
 
   def self.stats
-    all_players = Match.all(:include => :game_players)
-    {forwards: forward_stats(all_players), defenders: defender_stats(all_players),
-      goalies: goalie_stats(all_players)}
+    if where(id: 1) == nil
+      all_players = Match.all(:include => :game_players)
+      Statistic.create!({forwards: forward_stats(all_players).to_json, defenders: defender_stats(all_players).to_json,
+                        goalies: goalie_stats(all_players).to_json, games_played: all_players.count})
+    elsif where(id: 1).first.games_played == nil or where(id: 1).first.games_played < Match.all.count
+      all_players = Match.all(:include => :game_players)
+      where(id: 1).first.update_attributes({forwards: forward_stats(all_players).to_json, defenders: defender_stats(all_players).to_json,
+                        goalies: goalie_stats(all_players).to_json, games_played: all_players.count})
+    else
+      {forwards: JSON.parse(where(id: 1).first.forwards), defenders: JSON.parse(where(id: 1).first.defenders), goalies: JSON.parse(where(id: 1).first.goalies)}
+    end
   end
 
   def self.goalie_stats(all_players)
