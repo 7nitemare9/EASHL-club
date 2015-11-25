@@ -83,7 +83,7 @@ class Statistic < ActiveRecord::Base
       all_players = Match.all(:include => :game_players)
       Statistic.create!({forwards: forward_stats(all_players).to_json, defenders: defender_stats(all_players).to_json,
                         goalies: goalie_stats(all_players).to_json, games_played: all_players.count})
-    elsif where(id: 1).first.games_played == nil or where(id: 1).first.games_played < Match.all.count
+    elsif where(id: 1).first == nil or where(id: 1).first.games_played == nil or where(id: 1).first.games_played < Match.all.count
       all_players = Match.all(:include => :game_players)
       where(id: 1).first.update_attributes({forwards: forward_stats(all_players).to_json, defenders: defender_stats(all_players).to_json,
                         goalies: goalie_stats(all_players).to_json, games_played: all_players.count})
