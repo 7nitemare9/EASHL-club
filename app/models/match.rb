@@ -96,4 +96,13 @@ class Match < ActiveRecord::Base
     @@players[player[0]] = {'personaName' => player[1]['details']['personaName']} if player[1]['details']
     hash
   end
+
+  def self.all_but_unplayed
+    all(:include => [:game_teams, :game_players]).map do |game|
+      unless game.game_teams[0].goals and game.game_teams[0].goalsAgainst == 0
+        game
+      end
+    end
+  end
+
 end
