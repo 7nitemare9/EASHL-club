@@ -200,7 +200,7 @@ class Statistic < ActiveRecord::Base
 
   def self.all_but_empty(players)
     players.reject do |player|
-      player.empty?
+      player.nil? or player.empty?
     end
   end
 end
