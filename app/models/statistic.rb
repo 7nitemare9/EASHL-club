@@ -184,7 +184,9 @@ class Statistic < ActiveRecord::Base
 
   def self.game_players(players, position)
     players.map do |player|
-      player.game_players.where(position: position).where(team: Rails.application.secrets.team_id)
+      unless player == nil
+        player.game_players.where(position: position).where(team: Rails.application.secrets.team_id)
+      end
     end
   end
 
