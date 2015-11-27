@@ -102,7 +102,7 @@ class Statistic < ActiveRecord::Base
     goalies = all_but_empty(game_players(all_players, '0'))
     unique_player_names(goalies).map do |name|
       goalie = {name: name, goals_against: 0, saves: 0, GAA: 0,
-        shots_against: 0, SO: 0, save_percent: 0, games: 0}
+        shots_against: 0, SO: 0, save_percent: 0, games: 0, wins: 0}
       goalies.each do |players|
         players.each do |player|
           if name == player.personaName
@@ -112,6 +112,8 @@ class Statistic < ActiveRecord::Base
             p player.glshots.to_i
             goalie[:SO] += 1 if (player.glga == '0')
             goalie[:games] += 1
+            match = GameTeam.where(match_id: player.match_id, clubId: Rails.application.secrets.team_id).first
+            goalie[:wins] += 1 if match.goals > match.goalsAgainst
           end
         end
       end
@@ -126,7 +128,7 @@ class Statistic < ActiveRecord::Base
     unique_player_names(forwrds).map do |name|
       forward = {name: name, assists: 0, giveaways: 0, goals: 0,
                  hits: 0, pims: 0, plus_minus:  0, points: 0, shots: 0, takeaways: 0,
-        shot_percent: 0, games: 0}
+        shot_percent: 0, games: 0, wins: 0}
       forwrds.each do |players|
         players.each do |player|
           if name == player.personaName
@@ -144,7 +146,7 @@ class Statistic < ActiveRecord::Base
     unique_player_names(d).map do |name|
       defender = {name: name, assists: 0, giveaways: 0, goals: 0,
                  hits: 0, pims: 0, plus_minus: 0, points: 0, shots: 0, takeaways: 0,
-                 shot_percent: 0, games: 0}
+                 shot_percent: 0, games: 0, wins: 0}
       d.each do |players|
         players.each do |player|
           if name == player.personaName
@@ -168,6 +170,8 @@ class Statistic < ActiveRecord::Base
     forward[:shots] += player.skshots.to_i
     forward[:takeaways] += player.sktakeaways.to_i
     forward[:games] += 1
+    match = GameTeam.where(match_id: player.match_id, clubId: Rails.application.secrets.team_id).first
+    forward[:wins] += 1 if match.goals > match.goalsAgainst
     forward
   end
 
