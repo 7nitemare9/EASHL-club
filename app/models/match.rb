@@ -99,7 +99,7 @@ class Match < ActiveRecord::Base
 
   def self.all_but_unplayed
     all(:include => [:game_teams, :game_players]).map do |game|
-      unless game.game_teams[0].goals and game.game_teams[0].goalsAgainst == "0"
+      unless game.game_teams[0].goals and game.game_teams[0].goalsAgainst == "0" or (game.game_teams[0].clubId != Rails.application.secrets.team_id and game.game_teams[1].clubId != Rails.application.secrets.team_id)
         game
       end
     end
