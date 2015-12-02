@@ -24,7 +24,8 @@ class AdvancedStatistic
     games_with = 0
     games_without = 0
     matches.each do |match|
-      if match.game_players.where(personaName:  name).empty?
+      puts match.game_players.where(personaName: name).where(position: '0').empty?
+      if match.game_players.where(personaName:  name).empty? or match.game_players.where(personaName: name).where(position: '0').empty? == false
         games_without += 1
         match.game_players.each do |i|
           if i.team == Rails.application.secrets.team_id
@@ -44,9 +45,9 @@ class AdvancedStatistic
         end
       end
     end
-    puts (with_shots_for - with_shots_against) / games_with
-    puts (without_shots_for - without_shots_against) / games_without
-    ((with_shots_for - with_shots_against) / games_with) - ((without_shots_for - without_shots_against) / games_without)
+    puts (with_shots_for - with_shots_against).to_f / games_with
+    puts (without_shots_for - without_shots_against).to_f / games_without
+    ((with_shots_for - with_shots_against).to_f / games_with) - ((without_shots_for - without_shots_against).to_f / games_without)
   end
 
 end
