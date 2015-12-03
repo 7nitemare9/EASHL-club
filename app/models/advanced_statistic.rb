@@ -12,11 +12,10 @@ class AdvancedStatistic
         end
       end
     end
-    (shots_for / matches.count) - (shots_against / matches.count)
+    shots_for / (shots_for + shots_against).to_f
   end
 
-  def self.corsi_relative_player(name)
-    matches = Match.all_but_unplayed.compact
+  def self.corsi_relative_player(name, matches = Match.all_but_unplayed.compact)
     with_shots_for = 0
     with_shots_against = 0
     without_shots_for = 0
@@ -45,9 +44,17 @@ class AdvancedStatistic
         end
       end
     end
-    puts (with_shots_for - with_shots_against).to_f / games_with
-    puts (without_shots_for - without_shots_against).to_f / games_without
-    ((with_shots_for - with_shots_against).to_f / games_with) - ((without_shots_for - without_shots_against).to_f / games_without)
+    puts (with_shots_for / (with_shots_for + with_shots_against).to_f) * 100
+    puts (without_shots_for / (without_shots_for + without_shots_against).to_f) * 100
+    ((with_shots_for / (with_shots_for + with_shots_against).to_f) - (without_shots_for / (without_shots_for + without_shots_against).to_f))*100
+  end
+
+  def self.corsi_rel_player_6(name)
+    matches = Match.all_but_unplayed.compact.map do |match|
+      match if match.game_teams.first.memberstring == "6 / 6"
+    end.compact
+    corsi_relative_player(name, matches)
+
   end
 
 end
