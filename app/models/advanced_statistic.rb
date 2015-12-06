@@ -106,7 +106,20 @@ class AdvancedStatistic
   end
 
   def self.stats
-    stats = {team: team_stats, players: player_stats}
+    if Statistic.where(id: 2).first == nil
+      #using forwards cell of statistics to store advanced stats
+      Statistic.create!({forwards: {team: team_stats, players: player_stats}.to_json, games_played: Match.all_but_unplayed.count})
+      return_cached_adv_stats
+    elsif Statistic.where(id: 2).first.games_played == nil or Statistic.where(id: 2).first.games_played < Match.all_but_unplayed.count
+      Statistic.where(id: 2).first.update_attributes({forwards: {team: team_stats, players: player_stats}.to_json, games_played: Match.all_but_unplayed.count})
+      return_cached_adv_stats
+    else
+      return_cached_adv_stats
+    end
+  end
+
+  def self.return_cached_adv_stats
+    JSON.parse(Statistic.where(id: 2).first.forwards)
   end
 
   def self.team_stats
