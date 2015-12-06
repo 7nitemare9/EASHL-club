@@ -25,6 +25,7 @@ Spelpunkten::Application.routes.draw do
   resources :tweets
   resources :comments
   resources :codes
+  resources :advanced_statistics
 
 
 

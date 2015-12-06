@@ -105,4 +105,27 @@ class AdvancedStatistic
     end.compact
   end
 
+  def self.stats
+    stats = {team: team_stats, players: player_stats}
+  end
+
+  def self.team_stats
+    {team_c: corsi_team, team_c6: corsi_team_6, team_pdo: pdo_team, team_pdo6: pdo_team_6}
+  end
+
+  def self.player_stats
+    players = {}
+    Statistic.unique_player_names(Statistic.all_but_empty(skaters)).each do |player|
+      players[player] = {cr: corsi_relative_player(player), cr6: corsi_rel_player_6(player), pdo: pdo_player(player), pdo6: pdo_player_6(player)}
+    end
+    players
+  end
+
+  def self.skaters(matches = Match.all_but_unplayed.compact)
+    skaters = Statistic.game_players(matches, '1')
+    skaters += Statistic.game_players(matches, '3')
+    skaters += Statistic.game_players(matches, '4')
+    skaters += Statistic.game_players(matches, '5')
+  end
+
 end
