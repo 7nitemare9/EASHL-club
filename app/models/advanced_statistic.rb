@@ -113,7 +113,7 @@ class AdvancedStatistic
       #using forwards cell of statistics to store advanced stats
       Statistic.create!({forwards: {team: team_stats(matches), players: player_stats(matches)}.to_json, games_played: matches.count})
       return_cached_adv_stats
-    elsif Statistic.where(id: 2).first.games_played == nil or Statistic.where(id: 2).first.games_played < Match.all_but_unplayed.count
+    elsif Statistic.where(id: 2).first.games_played == nil or Statistic.where(id: 2).first.games_played < matches.count
       Statistic.where(id: 2).first.update_attributes({forwards: {team: team_stats(matches), players: player_stats(matches)}.to_json, games_played: matches.count})
       return_cached_adv_stats
     else
@@ -132,7 +132,7 @@ class AdvancedStatistic
   def self.player_stats(matches)
     players = {}
     Statistic.unique_player_names(Statistic.all_but_empty(skaters(matches))).each do |player|
-      players[player] = {cr: corsi_relative_player(player, matches), cr6: corsi_relative_player(player, six_matches(matches)), pdo: pdo_player(player), pdo6: pdo_player(player, six_matches(matches),true)}
+      players[player] = {cr: corsi_relative_player(player, matches), cr6: corsi_relative_player(player, six_matches(matches)), pdo: pdo_player(player, matches), pdo6: pdo_player(player, six_matches(matches),true)}
     end
     players
   end
