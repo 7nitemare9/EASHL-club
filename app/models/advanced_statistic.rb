@@ -83,7 +83,7 @@ class AdvancedStatistic
     matches.each do |match|
       if match.game_players.where(personaName: name).empty? == false and match.game_players.where(personaName: name).where(position: '0').empty? == true
         match.game_players.each do |i|
-          if i.team == Rails.application.secrets.team_id:
+          if i.team == Rails.application.secrets.team_id
             player[:shots_for] += i.skshots.to_i
           else
             player[:shots_against] += i.skshots.to_i unless six
