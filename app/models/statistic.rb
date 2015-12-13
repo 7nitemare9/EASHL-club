@@ -197,7 +197,7 @@ class Statistic < ActiveRecord::Base
   def self.unique_player_names(players)
     players.map do |p|
       p.map do |n|
-        n.personaName
+        n.personaName if Player.where(name: n.personaName).exists?
       end
     end.flatten.uniq
   end
