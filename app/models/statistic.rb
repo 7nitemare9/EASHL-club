@@ -80,12 +80,12 @@ class Statistic < ActiveRecord::Base
 
   def self.stats
     if where(id: 1).first == nil
-      all_players = Match.all_but_unplayed
+      all_players = AdvancedStatistic.six_matches
       Statistic.create!({forwards: forward_stats(all_players).to_json, defenders: defender_stats(all_players).to_json,
                         goalies: goalie_stats(all_players).to_json, games_played: all_players.count})
       return_cached_stats
     elsif where(id: 1).first.games_played == nil or where(id: 1).first.games_played < Match.all.count
-      all_players = Match.all_but_unplayed
+      all_players = AdvancedStatistic.six_matches
       where(id: 1).first.update_attributes({forwards: forward_stats(all_players).to_json, defenders: defender_stats(all_players).to_json,
                         goalies: goalie_stats(all_players).to_json, games_played: all_players.count})
       return_cached_stats
