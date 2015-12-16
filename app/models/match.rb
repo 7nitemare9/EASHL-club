@@ -106,7 +106,7 @@ class Match < ActiveRecord::Base
   end
 
   def self.previous(id)
-    team = Match.find(id).game_teams.map { |club| club.clubId unless club.clubId == Rails.application.secrets.team_id}
+    team = Match.find(id).game_teams.map { |club| club.clubId unless (club.clubId == Rails.application.secrets.team_id or club.name == "Bombers Hockey")}
     games = GameTeam.where(clubId: team.compact.first)
     Match.where(id: games.map { |i| i.match_id} - [id.to_i])
   end
