@@ -2,6 +2,10 @@
 class MatchesController < ApplicationController
   def index
     @matches = Match.order('timestamp DESC').includes(:game_teams).page(params[:page]).per(15)
+    respond_to do |format|
+      format.html
+      format.json {render :json => @matches}
+    end
   end
   def show
     @match = Match.find(params[:id])
