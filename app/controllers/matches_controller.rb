@@ -2,9 +2,10 @@
 class MatchesController < ApplicationController
   def index
     @matches = Match.order('timestamp DESC').includes(:game_teams).page(params[:page]).per(15)
+    @latest_five = Match.order('timestamp Desc').limit(5).includes(:game_teams)
     respond_to do |format|
       format.html
-      format.json {render :json => @matches}
+      format.json {render :json => @latest_five.to_json({:include => :game_teams}) }
     end
   end
   def show
