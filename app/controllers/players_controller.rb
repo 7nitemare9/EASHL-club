@@ -11,7 +11,7 @@ class PlayersController < ApplicationController
     @players = Player.all
     respond_to do |format|
       format.html
-      format.json {render :json => @players}
+      format.json {render :json => @players.to_json({:include => :player_team_stat})}
     end
   end
 
