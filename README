@@ -1,13 +1,6 @@
 EASHL club webapp and site
 
-Reads in team, match and player statistics from Easports "internal" API
-
-Also updates current team-members and checks their online status against xbox-live.
-
-All this is currently automated with cronjobs working by curl-get and is going to change over time to a more secure way.
-
-Check out our live site at http://www.bombers-hockey.com
-
-Instructions how to use this will come at later time or when parts are extracted out to self-contained services.
-
-But feel free to use this as is and contribute to making this the best EASHL club app/site there is.
+This is a deprecated version of my eashl club site  
+If your interested in a club site check out my [new version](https://github.com/aostlund/Meteor-EASHL-club-site).  
+Unless of course your interested in a ruby-on-rails version then you have to fix this up yourself.   
+Most things works as expected but EA has changed how their internal API works so you have to figure that out (by checking the new version or sending me a question).
